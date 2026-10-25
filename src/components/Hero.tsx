@@ -43,9 +43,7 @@ export function Hero({ sessionCount, speakerCount }: Props) {
     { text: SITE.datesLabel },
     { text: `${sessionCount} sessions` },
     { text: `${speakerCount} voices` },
-    { text: "मराठी", lang: "mr" },
-    { text: "हिंदी", lang: "hi" },
-    { text: "English" },
+    { text: "मराठी · हिंदी · English", lang: "mr" },
     { text: "Free entry" },
   ];
 
@@ -164,16 +162,17 @@ export function Hero({ sessionCount, speakerCount }: Props) {
       </svg>
 
       {/* Strip of festival facts (repeats the details above, so hidden from screen readers) */}
-      <div aria-hidden="true" className="overflow-hidden bg-jamun py-3 text-marigold">
-        <ul className="flex w-max items-center">
-          {[...strip, ...strip].map((item, i) => (
+      <div aria-hidden="true" className="bg-jamun px-4 py-3 text-marigold sm:px-8">
+        {/* One centred row from lg; below that items wrap, so the flower separators are dropped */}
+        <ul className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-1 lg:flex-nowrap lg:gap-x-5">
+          {strip.map((item, i) => (
             <li
-              key={i}
+              key={item.text}
               lang={item.lang}
-              className="flex items-center gap-5 pr-5 font-display text-xl font-bold whitespace-nowrap sm:text-2xl"
+              className="flex items-center gap-5 font-display text-lg font-bold whitespace-nowrap sm:text-xl xl:text-2xl"
             >
+              {i > 0 && <Marigold className="hidden size-6 lg:block" tone="rani" />}
               {item.text}
-              <Marigold className="size-6" tone="rani" />
             </li>
           ))}
         </ul>
