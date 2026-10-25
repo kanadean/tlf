@@ -48,3 +48,6 @@ next-env.d.ts
 
 # Reference material (programme sheet, source photos) — local only, never pushed
 /ContentReference/
+
+# Personal reference notes — local only, never pushed
+/InternalDocs/

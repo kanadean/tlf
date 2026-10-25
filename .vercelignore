@@ -5,3 +5,4 @@ ContentReference
 node_modules
 .env*
 .vercel
+InternalDocs
