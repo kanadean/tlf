@@ -66,15 +66,16 @@ Sessions with no `day` appear under a "To be scheduled" tab. A speaker who appea
 - Framework: Next.js 16 (App Router, Cache Components) + TypeScript — read `node_modules/next/dist/docs/` before using Next APIs (see AGENTS.md). Notable v16 changes in use: `next/image` uses `preload` (not `priority`) and only quality 75 is allowed by default.
 - Styling: Tailwind CSS v4 (Mobile-first, high contrast); theme tokens in `src/app/globals.css` `@theme`.
 - Content: `gray-matter` + `zod` + `marked`. Formatting: Prettier with `prettier-plugin-tailwindcss`.
-- Icons: Lucide React (UI only — v1.x has no brand icons, so social links are text pills) + custom SVG (`Marigold.tsx`, `ArchFrame.tsx`).
+- Icons: Lucide React (UI only — v1.x has no brand icons, so social links are text pills) + custom SVG (`Marigold.tsx`).
 - No i18n library: the site is English-only. Marathi/Hindi text is marked up with `lang="mr"` / `lang="hi"` so the Devanagari fonts and line-height apply.
 - SEO & Performance: every route is statically prerendered; strict image optimisation via `next/image`; per-page `metadata`.
 - Accessibility: Semantic HTML (`<main>`, `<article>`, `<section>`), skip link, `aria-current` on the active nav link, `aria-pressed` filter buttons, WAI-ARIA tabs (arrow/Home/End keys) for the schedule, session details in a native `<dialog>` (focus trap, Escape, focus return).
 
 ## Design Identity & Aesthetic Guardrails
 - **Core Vibe:** Elegant, intellectual, celebratory, and deeply rooted in Thane's historic literary culture (evoking Gadkari Rangayatan, Thane Marathi Granth Sangrahalay, Kashinath Ghanekar Natyagruha etc.).
-- **Look (branch `look-2`):** vibrant and festive, inspired by Jaipur Literature Festival and Mumbai LitFest (Literature Live!) — a Paithani-silk palette, a scalloped arch framing the hero, pill-shaped section headings that bleed to the page edge, arched portraits in black and white on colour-blocked cards, marigold (zendu) flower motifs, chunky offset shadows. The earlier editorial/print look is tagged `draft-version-1`.
-- **Anti-AI Slop Rule:** Strictly no modern corporate tech aesthetics, generic neon blobs, gradients or abstract 3D shapes. Decoration is flat, hand-drawn SVG rooted in Maharashtrian motifs (`Marigold.tsx`, `ArchFrame.tsx`, the `.paithani-band` stripe).
+- **Look (branch `look-2`):** vibrant and festive, inspired by Jaipur Literature Festival and Mumbai LitFest (Literature Live!) — a Paithani-silk palette, pill-shaped section headings that bleed to the page edge, arched portraits in black and white on colour-blocked cards, marigold (zendu) flower motifs, chunky offset shadows. The earlier editorial/print look is tagged `draft-version-1`.
+- **Anti-AI Slop Rule:** Strictly no modern corporate tech aesthetics, generic neon blobs, gradients or abstract 3D shapes. Decoration is flat, hand-drawn SVG rooted in Maharashtrian motifs (`Marigold.tsx`, the `.paithani-band` stripe, lake ripples).
+- **Hero must stay original:** the earlier scalloped-arch hero was dropped for looking too close to JLF. Take inspiration from other festivals, never their signature compositions; root ideas in Thane itself (City of Lakes, its theatres and libraries).
 - **No "Chapter I / II…" labels** above section headings.
 - **Imagery:** the user supplies photos (e.g. Gadkari Rangayatan). Do not add third-party/stock photos that need on-page credits.
 - **Color Palette** (Paithani; Tailwind names in brackets):
@@ -99,7 +100,7 @@ Sessions with no `day` appear under a "To be scheduled" tab. A speaker who appea
 - This is not a multi-lingual website — content is English except the Marathi and Hindi sessions themselves.
 
 ### Home page (`/`), top to bottom
-1. **Hero:** jamun ground with marigolds and floating language pills (xl+); a scalloped marigold/rani arch (`ArchFrame`) holds the logo, "ठाणे" in Rozha One over "Thane *Literature* Festival", and meta chips: Dates, Venue (shows "To be announced · Thane" until `SITE.venue` is set), Entry. Primary CTA **"Register for Free"** (links to `SITE.registrationUrl`, or the Registration section until it exists). A marigold strip of festival facts runs under the hero (static, no animation).
+1. **Hero — "a bookshelf by the lake":** marigold ground; left, "ठाणे" in Rozha One (rani) over "Thane *Literature* Festival" (jamun, wavy rani underline) and meta chips: Dates, Venue (shows "To be announced · Thane" until `SITE.venue` is set), Entry. Primary CTA **"Register for Free"** (links to `SITE.registrationUrl`, or the Registration section until it exists). Right, a decorative shelf of colourful book spines (कथा, Stories, कविता, Ideas, हिंदी, Essays, मराठी, English, संवाद) on a plank reading "Thane · City of Lakes". Lake ripples (peacock, lilac, jamun) lead into a jamun strip of festival facts (static, no animation).
 2. **"Tridhara" Lineup Grid:** reads `getLineup()`. Arched black-and-white portraits (colour on hover) on cards that cycle rani / jamun / peacock / marigold, monogram when no photo, latest book and bio snippet when present. Filters: **Authors** (default — guests & panelists), मराठी / हिंदी / English (authors only), **All voices** (adds moderator-only speakers, tagged "Moderator"). All cards visible — no "show more".
 3. **Interactive Schedule:** tabs Day 1 / Day 2 / Day 3 (with dates) plus "To be scheduled" while sessions lack a day; stage filter appears once a day has more than one venue. Every session shows a `[मराठी]` / `[हिंदी]` / `[English]` tag, participants with portraits, and opens a details dialog with speaker bios.
 4. **Venues:** venue card + stage list; placeholder until the venue is confirmed.
