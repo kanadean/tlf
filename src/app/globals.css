@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette — see CLAUDE.md "Design Identity" */
+  --color-paper: #fdfbf7;
+  --color-parchment: #faf6ee;
+  --color-ink: #1e1e1e;
+  --color-ink-muted: #4a4540;
+  --color-sindoor: #7c1c2b;
+  --color-gold: #d4af37; /* decorative only: fails contrast as text on paper */
+  --color-gold-deep: #7a5f12; /* gold tone that passes AA as text on paper */
+  --color-rule: #e6dccb;
+
+  /* Font variables are set by next/font in layout.tsx */
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-serif: var(--font-lora), Lora, Georgia, serif;
+  --font-deva: var(--font-noto-deva), "Noto Serif Devanagari", serif;
+  --font-deva-display: var(--font-rozha), "Rozha One", var(--font-noto-deva), serif;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  body {
+    font-family: var(--font-serif);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    line-height: 1.2;
+  }
+
+  /* Devanagari matras sit above and below the line — give them room */
+  :lang(mr),
+  :lang(hi) {
+    font-family: var(--font-deva);
+    line-height: 1.85;
+  }
+
+  :where(h1, h2, h3, h4):lang(mr),
+  :where(h1, h2, h3, h4):lang(hi) {
+    font-family: var(--font-deva-display);
+    line-height: 1.5;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  ::selection {
+    background-color: var(--color-sindoor);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sindoor);
+    outline-offset: 3px;
+  }
+}
+
+/* Rendered markdown (bios, session summaries) */
+@layer components {
+  .prose-tlf > * + * {
+    margin-top: 0.75em;
+  }
+  .prose-tlf a {
+    color: var(--color-sindoor);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-tlf em,
+  .prose-tlf cite {
+    font-style: italic;
+  }
+  .prose-tlf ul {
+    list-style: disc;
+    padding-left: 1.25em;
+  }
+}

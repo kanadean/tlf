@@ -1,0 +1,7 @@
+.next
+node_modules
+package-lock.json
+ContentReference
+.claude
+AGENTS.md
+claude.md
