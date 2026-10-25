@@ -1,0 +1,7 @@
+# Never upload local-only material from CLI deploys
+ContentReference
+.claude
+.next
+node_modules
+.env*
+.vercel
