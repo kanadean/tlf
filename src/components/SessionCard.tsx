@@ -22,28 +22,28 @@ export function SessionCard({ session, onOpen }: Props) {
 
   return (
     <article
-      className={`group relative grid gap-x-8 gap-y-2 border-b border-rule py-5 transition-colors hover:bg-parchment/70 sm:px-3 ${
+      className={`group relative grid gap-x-6 gap-y-2 rounded-2xl border-2 border-jamun bg-white p-4 shadow-[4px_4px_0_var(--color-jamun)] transition hover:-translate-y-0.5 hover:shadow-[6px_6px_0_var(--color-rani)] sm:p-5 ${
         scheduled ? "sm:grid-cols-[8rem_1fr]" : ""
       }`}
     >
       {scheduled && (
         <div className="flex items-baseline gap-3 sm:flex-col sm:gap-0.5">
-          <p className="font-display text-lg text-sindoor">{time}</p>
-          {session.venue && <p className="text-sm text-ink-muted italic">{session.venue}</p>}
+          <p className="font-display text-lg font-bold text-rani">{time}</p>
+          {session.venue && <p className="text-sm text-ink-muted">{session.venue}</p>}
         </div>
       )}
 
       <div className="flex min-w-0 gap-4">
         <div className="min-w-0 flex-1">
           <h3
-            className="text-xl leading-snug sm:text-2xl"
+            className="text-xl leading-snug text-jamun sm:text-2xl"
             lang={textLang(session.title, session.primaryLanguage)}
           >
             <button
               type="button"
               onClick={onOpen}
               aria-haspopup="dialog"
-              className="text-left group-hover:text-sindoor after:absolute after:inset-0"
+              className="text-left group-hover:text-rani after:absolute after:inset-0 after:rounded-2xl"
             >
               {session.title}
             </button>
@@ -55,7 +55,7 @@ export function SessionCard({ session, onOpen }: Props) {
             {session.moderators.length > 0 && (
               <>
                 {" · "}
-                <span className="italic">in conversation with</span> {joinNames(session.moderators)}
+                <span>in conversation with</span> {joinNames(session.moderators)}
               </>
             )}
           </p>
@@ -68,7 +68,7 @@ export function SessionCard({ session, onOpen }: Props) {
                   <SpeakerPortrait
                     speaker={person}
                     sizes="32px"
-                    className="size-8 rounded-full text-[0.4rem] ring-2 ring-paper"
+                    className="size-9 rounded-full text-[0.45rem] ring-2 ring-white"
                   />
                 </li>
               ))}
@@ -77,7 +77,7 @@ export function SessionCard({ session, onOpen }: Props) {
         </div>
 
         <ChevronRight
-          className="mt-1.5 size-5 shrink-0 text-ink-muted transition group-hover:translate-x-0.5 group-hover:text-sindoor"
+          className="mt-1 size-7 shrink-0 rounded-full bg-marigold p-1 text-jamun transition group-hover:translate-x-0.5 group-hover:bg-rani group-hover:text-white"
           aria-hidden="true"
         />
       </div>

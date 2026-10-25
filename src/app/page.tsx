@@ -12,12 +12,12 @@ export default function Home() {
 
   return (
     <main id="main" className="flex-1">
-      <Hero />
+      <Hero sessionCount={sessions.length} speakerCount={speakers.length} />
 
       <section
         id="lineup"
         aria-labelledby="lineup-title"
-        className="scroll-mt-20 bg-parchment px-4 py-20 sm:px-8 sm:py-28"
+        className="scroll-mt-20 px-4 py-20 sm:px-8 sm:py-24"
       >
         <div className="mx-auto max-w-6xl">
           <SectionHeading
@@ -34,14 +34,16 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="paithani-band" aria-hidden="true" />
+
       <section
         id="schedule"
         aria-labelledby="schedule-title"
-        className="scroll-mt-20 px-4 py-20 sm:px-8 sm:py-28"
+        className="scroll-mt-20 bg-marigold px-4 py-20 sm:px-8 sm:py-24"
       >
         <div className="mx-auto max-w-4xl">
-          <SectionHeading id="schedule-title" title="The Programme">
-            <p>
+          <SectionHeading id="schedule-title" title="The Programme" tone="rani">
+            <p className="text-jamun">
               {sessions.length} sessions across three days. Select a session for speakers and
               details.
             </p>
@@ -49,6 +51,8 @@ export default function Home() {
           <ScheduleTabs sessions={sessions} />
         </div>
       </section>
+
+      <div className="paithani-band" aria-hidden="true" />
 
       <VenuesSection venues={getVenues()} />
       <RegistrationSection />

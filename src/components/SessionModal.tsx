@@ -38,7 +38,7 @@ export function SessionModal({ session, onClose }: Props) {
       // Clicks on the backdrop land on the <dialog> element itself
       onClick={(e) => e.target === e.currentTarget && ref.current?.close()}
       aria-labelledby="session-dialog-title"
-      className="m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto border border-rule bg-paper p-0 text-ink shadow-2xl backdrop:bg-ink/60"
+      className="m-auto max-h-[90dvh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto rounded-3xl border-4 border-jamun bg-cream p-0 text-ink shadow-[8px_8px_0_var(--color-rani)] backdrop:bg-jamun-deep/75"
     >
       {session && (
         <div className="p-6 sm:p-10">
@@ -48,7 +48,7 @@ export function SessionModal({ session, onClose }: Props) {
               type="button"
               onClick={() => ref.current?.close()}
               aria-label="Close session details"
-              className="-m-2 p-2 text-ink-muted hover:text-sindoor"
+              className="-m-1 rounded-full bg-jamun p-2 text-white hover:bg-rani"
             >
               <X className="size-5" aria-hidden="true" />
             </button>
@@ -57,12 +57,14 @@ export function SessionModal({ session, onClose }: Props) {
           <h2
             id="session-dialog-title"
             lang={textLang(session.title, session.primaryLanguage)}
-            className="mt-4 text-3xl sm:text-4xl"
+            className="mt-4 text-3xl text-jamun sm:text-4xl"
           >
             {session.title}
           </h2>
 
-          <p className="mt-3 text-sm tracking-wide text-ink-muted">{when.join("  ·  ")}</p>
+          <p className="mt-3 inline-block rounded-full bg-haldi px-3 py-1 text-sm font-medium text-jamun">
+            {when.join("  ·  ")}
+          </p>
 
           {session.summaryHtml && (
             <div
@@ -83,27 +85,27 @@ export function SessionModal({ session, onClose }: Props) {
 function ParticipantGroup({ title, people }: { title: string; people: Speaker[] }) {
   if (people.length === 0) return null;
   return (
-    <section className="mt-8 border-t border-rule pt-6">
-      <h3 className="text-xs tracking-[0.3em] text-sindoor uppercase">{title}</h3>
+    <section className="mt-8 border-t-2 border-dashed border-jamun/20 pt-6">
+      <h3 className="inline-block rounded-full bg-rani px-3 py-0.5 font-sans text-sm tracking-[0.15em] text-white uppercase">
+        {title}
+      </h3>
       <ul className="mt-4 space-y-6">
         {people.map((person) => (
           <li key={person.slug} className="group flex gap-4">
             <SpeakerPortrait
               speaker={person}
               sizes="80px"
-              className="aspect-[4/5] w-16 shrink-0 text-[0.6rem] sm:w-20"
+              className="arch-top aspect-[4/5] w-16 shrink-0 text-[0.6rem] sm:w-20"
             />
             <div className="min-w-0">
-              <p className="font-display text-xl">{person.name}</p>
+              <p className="font-display text-xl font-bold text-jamun">{person.name}</p>
               {person.nameNative && (
                 <p lang={nativeNameLang(person.language)} className="text-sm text-ink-muted">
                   {person.nameNative}
                 </p>
               )}
               {(person.designation ?? person.genre) && (
-                <p className="text-sm text-ink-muted italic">
-                  {person.designation ?? person.genre}
-                </p>
+                <p className="text-sm text-ink-muted">{person.designation ?? person.genre}</p>
               )}
               {person.bioHtml ? (
                 <div

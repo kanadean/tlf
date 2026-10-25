@@ -1,24 +1,21 @@
 import type { Metadata } from "next";
-import { Lora, Noto_Serif_Devanagari, Playfair_Display, Rozha_One } from "next/font/google";
+import { Fraunces, Mukta, Rozha_One } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
   style: ["normal", "italic"],
+  axes: ["SOFT", "opsz"],
 });
 
-const lora = Lora({
-  variable: "--font-lora",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-});
-
-const notoDeva = Noto_Serif_Devanagari({
-  variable: "--font-noto-deva",
-  subsets: ["devanagari"],
+// Covers both Latin and Devanagari body text
+const mukta = Mukta({
+  variable: "--font-mukta",
+  subsets: ["latin", "devanagari"],
+  weight: ["400", "500", "700"],
 });
 
 const rozha = Rozha_One({
@@ -39,14 +36,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${playfair.variable} ${lora.variable} ${notoDeva.variable} ${rozha.variable} h-full`}
-    >
-      <body className="flex min-h-full flex-col bg-paper text-ink">
+    <html lang="en" className={`${fraunces.variable} ${mukta.variable} ${rozha.variable} h-full`}>
+      <body className="flex min-h-full flex-col bg-cream text-ink">
         <a
           href="#main"
-          className="sr-only z-50 bg-sindoor px-4 py-2 text-paper focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+          className="sr-only z-50 rounded-full bg-rani px-4 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
         >
           Skip to content
         </a>

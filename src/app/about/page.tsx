@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Ornament } from "@/components/Ornament";
+import { Marigold } from "@/components/Marigold";
 import { SectionHeading } from "@/components/SectionHeading";
 import { TeamSection } from "@/components/TeamSection";
 import { SITE } from "@/lib/site";
@@ -33,22 +33,27 @@ const HISTORY = [
 export default function AboutPage() {
   return (
     <main id="main" className="flex-1">
-      <header className="px-4 pt-16 pb-12 text-center sm:px-8 sm:pt-24">
-        <h1 className="text-5xl sm:text-7xl">
-          About the <em className="text-sindoor">Festival</em>
+      <header className="relative overflow-hidden bg-jamun px-4 pt-16 pb-16 text-center text-white sm:px-8 sm:pt-24">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <Marigold className="absolute top-8 left-[5%] size-14 sm:size-20" tone="rani" />
+          <Marigold className="absolute right-[6%] bottom-8 size-16 sm:size-24" />
+        </div>
+        <h1 className="relative text-5xl sm:text-7xl">
+          About the <em className="text-marigold">Festival</em>
         </h1>
-        <Ornament className="mx-auto mt-8" />
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-ink-muted">
+        <p className="relative mx-auto mt-6 max-w-2xl text-lg text-lilac">
           Discover the story behind Thane Literature Festival and the passionate team bringing
           literary culture to our community
         </p>
-        <p className="mx-auto mt-8 max-w-2xl text-sm tracking-[0.2em] text-gold-deep uppercase">
+        <p className="relative mx-auto mt-8 inline-block rounded-full bg-marigold px-5 py-1.5 text-sm font-bold text-jamun">
           Organised by Rotary Club of Thane Hills · In association with NCPA
         </p>
       </header>
 
-      <section aria-label="Mission and vision" className="bg-parchment px-4 py-20 sm:px-8 sm:py-24">
-        <div className="mx-auto grid max-w-5xl gap-px border border-rule bg-rule md:grid-cols-2">
+      <div className="paithani-band" aria-hidden="true" />
+
+      <section aria-label="Mission and vision" className="px-4 py-20 sm:px-8 sm:py-24">
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
           {[
             {
               title: "Our Mission",
@@ -58,41 +63,42 @@ export default function AboutPage() {
               title: "Our Vision",
               text: "To establish Thane as a recognized literary hub in Maharashtra, where diverse voices come together to share stories, ideas, and experiences. We envision a future where literature thrives in our community, inspiring creativity, critical thinking, and cultural understanding among all residents.",
             },
-          ].map(({ title, text }) => (
-            <article key={title} className="bg-paper p-8 sm:p-12">
-              <h2 className="text-3xl">{title}</h2>
-              <p className="mt-5 text-lg leading-relaxed first-letter:float-left first-letter:mr-1.5 first-letter:font-display first-letter:text-6xl first-letter:leading-[0.85] first-letter:text-sindoor">
-                {text}
-              </p>
+          ].map(({ title, text }, i) => (
+            <article
+              key={title}
+              className={`rounded-3xl rounded-t-[12rem] px-8 pt-20 pb-10 sm:px-12 ${i === 0 ? "bg-rani text-white" : "bg-peacock text-white"}`}
+            >
+              <h2 className="text-center text-3xl sm:text-4xl">{title}</h2>
+              <p className="mt-5 text-lg leading-relaxed">{text}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section aria-labelledby="history-title" className="px-4 py-20 sm:px-8 sm:py-28">
+      <section aria-labelledby="history-title" className="bg-marigold px-4 py-20 sm:px-8 sm:py-24">
         <div className="mx-auto max-w-3xl">
-          <SectionHeading id="history-title" title="Festival History">
+          <SectionHeading id="history-title" title="Festival History" tone="jamun">
             <p>The journey of Thane Literature Festival</p>
           </SectionHeading>
-          <ol className="border-l border-gold">
+          <ol className="space-y-5">
             {HISTORY.map((entry) => (
-              <li key={entry.year} className="relative pb-12 pl-8 last:pb-0 sm:pl-12">
-                <span
-                  aria-hidden="true"
-                  className="absolute top-2.5 -left-[5px] size-[9px] rotate-45 bg-sindoor"
-                />
-                <p className="font-display text-4xl text-sindoor">{entry.year}</p>
-                <h3 className="mt-1 text-xl">{entry.title}</h3>
-                <p className="mt-3 text-ink-muted">{entry.text}</p>
+              <li
+                key={entry.year}
+                className="grid gap-x-6 gap-y-2 rounded-3xl border-2 border-jamun bg-white p-6 shadow-[5px_5px_0_var(--color-jamun)] sm:grid-cols-[7rem_1fr] sm:p-8"
+              >
+                <p className="font-display text-4xl font-bold text-rani">{entry.year}</p>
+                <div>
+                  <h3 className="text-xl text-jamun">{entry.title}</h3>
+                  <p className="mt-2 text-ink-muted">{entry.text}</p>
+                </div>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      <div className="bg-parchment">
-        <TeamSection />
-      </div>
+      <div className="paithani-band" aria-hidden="true" />
+      <TeamSection />
     </main>
   );
 }

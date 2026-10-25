@@ -1,27 +1,44 @@
-import { Ornament } from "./Ornament";
+type Tone = "jamun" | "rani" | "peacock" | "marigold";
 
 type Props = {
   id: string;
   title: string;
   /** Optional Devanagari counterpart shown beside the title. */
   native?: { text: string; lang: "mr" | "hi" };
+  /** Colour of the pill behind the title. */
+  tone?: Tone;
+  /** Set on dark section backgrounds so the standfirst stays readable. */
+  onDark?: boolean;
   children?: React.ReactNode;
 };
 
-/** Section heading: title, fleuron and an optional standfirst. */
-export function SectionHeading({ id, title, native, children }: Props) {
+const PILL: Record<Tone, string> = {
+  jamun: "bg-jamun text-white",
+  rani: "bg-rani text-white",
+  peacock: "bg-peacock text-white",
+  marigold: "bg-marigold text-jamun",
+};
+
+/**
+ * Section heading set in a pill that runs in from the left edge of the page,
+ * with an optional standfirst below.
+ */
+export function SectionHeading({ id, title, native, tone = "jamun", onDark, children }: Props) {
   return (
-    <header className="mb-10 flex flex-col items-center text-center sm:mb-14">
-      <h2 id={id} className="text-4xl sm:text-5xl">
+    <header className="mb-10 sm:mb-14">
+      <h2 id={id} className={`pill-heading text-3xl sm:text-5xl ${PILL[tone]}`}>
         {title}
         {native && (
-          <span lang={native.lang} className="ml-3 align-middle text-3xl text-sindoor sm:text-4xl">
+          <span lang={native.lang} className="ml-3 align-middle text-2xl opacity-90 sm:text-4xl">
             {native.text}
           </span>
         )}
       </h2>
-      <Ornament className="mt-5" />
-      {children && <div className="mt-5 max-w-2xl text-ink-muted">{children}</div>}
+      {children && (
+        <div className={`mt-5 max-w-2xl text-lg ${onDark ? "text-lilac" : "text-ink-muted"}`}>
+          {children}
+        </div>
+      )}
     </header>
   );
 }

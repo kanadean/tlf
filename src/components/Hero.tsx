@@ -1,88 +1,150 @@
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, CalendarDays, MapPin, Ticket } from "lucide-react";
 import { SITE } from "@/lib/site";
-import { Ornament } from "./Ornament";
+import { ArchFrame } from "./ArchFrame";
+import { Marigold } from "./Marigold";
 
-/** Title page: the festival name set in Devanagari and English, framed like a book cover. */
-export function Hero() {
+type Props = { sessionCount: number; speakerCount: number };
+
+// Floating language labels either side of the arch (decorative — repeated in the text)
+const FLOATERS = [
+  { text: "मराठी", lang: "mr", className: "top-[18%] left-[6%] -rotate-6 bg-marigold text-jamun" },
+  { text: "Stories", lang: "en", className: "top-[44%] left-[3%] rotate-3 bg-lilac text-jamun" },
+  { text: "हिंदी", lang: "hi", className: "top-[70%] left-[8%] -rotate-3 bg-rani text-white" },
+  { text: "English", lang: "en", className: "top-[20%] right-[5%] rotate-6 bg-peacock text-white" },
+  { text: "कविता", lang: "mr", className: "top-[47%] right-[3%] -rotate-3 bg-marigold text-jamun" },
+  { text: "Ideas", lang: "en", className: "top-[72%] right-[7%] rotate-2 bg-lilac text-jamun" },
+] as const;
+
+/** Title page: the festival name inside a scalloped arch on a jamun ground. */
+export function Hero({ sessionCount, speakerCount }: Props) {
   const meta = [
-    { term: "Dates", detail: SITE.datesLabel },
+    { icon: CalendarDays, text: SITE.datesLabel },
     {
-      term: "Venue",
-      detail: SITE.venue ? `${SITE.venue}, ${SITE.city}` : `To be announced · ${SITE.city}`,
+      icon: MapPin,
+      text: SITE.venue ? `${SITE.venue}, ${SITE.city}` : "Venue to be announced · Thane",
     },
-    { term: "Entry", detail: "Free for all · prior registration required" },
+    { icon: Ticket, text: "Free entry · registration required" },
+  ];
+  const strip = [
+    { text: SITE.datesLabel },
+    { text: `${sessionCount} sessions` },
+    { text: `${speakerCount} voices` },
+    { text: "मराठी", lang: "mr" },
+    { text: "हिंदी", lang: "hi" },
+    { text: "English" },
+    { text: "Free entry" },
   ];
 
   return (
-    <section aria-labelledby="hero-title" className="px-4 pt-6 pb-16 sm:px-8 sm:pt-10 sm:pb-24">
-      {/* Double-ruled frame, like the border of a printed title page */}
-      <div className="mx-auto max-w-6xl border border-ink p-1.5">
-        <div className="border border-ink/40 px-5 py-10 sm:px-12 sm:py-16">
-          <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-rule pb-4 text-xs tracking-[0.3em] uppercase">
-            <span className="text-sindoor">{SITE.edition}</span>
-            <span className="text-ink-muted">Vol. II · {SITE.year}</span>
-          </div>
+    <section aria-labelledby="hero-title" className="relative overflow-hidden bg-jamun">
+      {/* Scattered flowers and language labels */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <Marigold className="absolute top-10 left-[4%] size-14 sm:size-20" tone="rani" />
+        <Marigold className="absolute top-[38%] left-[22%] hidden size-10 lg:block" />
+        <Marigold className="absolute bottom-24 left-[12%] size-12 sm:size-16" tone="lilac" />
+        <Marigold className="absolute top-16 right-[6%] size-12 sm:size-16" />
+        <Marigold className="absolute top-[56%] right-[20%] hidden size-12 lg:block" tone="rani" />
+        <Marigold className="absolute right-[4%] bottom-28 size-14 sm:size-20" tone="peacock" />
+        <ul className="hidden xl:block">
+          {FLOATERS.map((f) => (
+            <li
+              key={f.text}
+              lang={f.lang}
+              className={`absolute rounded-full px-5 py-1.5 font-display text-2xl font-semibold shadow-[4px_4px_0_rgb(0_0_0/0.25)] ${f.className}`}
+            >
+              {f.text}
+            </li>
+          ))}
+        </ul>
+      </div>
 
-          <h1 id="hero-title" className="mt-10 sm:mt-14">
-            <span className="sr-only">
-              {SITE.name} {SITE.year}
-            </span>
-            <span aria-hidden="true" className="grid items-end gap-x-6 lg:grid-cols-[auto_1fr]">
-              <span
-                lang="mr"
-                className="font-deva-display text-[clamp(5.5rem,24vw,13rem)] leading-[1.15] text-sindoor"
-              >
-                ठाणे
+      <div className="relative mx-auto max-w-3xl px-3 pt-8 sm:px-8 sm:pt-12">
+        <ArchFrame
+          cap={
+            <Image
+              src="/images/logos/tlf-logo.png"
+              alt=""
+              width={120}
+              height={120}
+              preload
+              className="mb-2 size-20 sm:mb-4 sm:size-28"
+            />
+          }
+        >
+          <div className="px-4 pt-4 pb-12 text-center sm:px-10 sm:pb-16">
+            <p className="text-sm font-bold tracking-[0.25em] text-rani uppercase">
+              {SITE.edition} · {SITE.year}
+            </p>
+
+            <h1 id="hero-title" className="mt-3">
+              <span className="sr-only">
+                {SITE.name} {SITE.year}
               </span>
-              <span className="pb-[0.12em] font-display text-[clamp(2.75rem,9vw,6.5rem)] leading-[0.95]">
-                <span className="block text-[0.42em] tracking-[0.2em] text-ink-muted uppercase not-italic">
-                  Thane
+              <span aria-hidden="true" className="block">
+                <span
+                  lang="mr"
+                  className="block font-deva-display text-[clamp(4rem,16vw,7.5rem)] leading-[1.2] text-rani"
+                >
+                  ठाणे
                 </span>
-                <span className="block italic">Literature</span>
-                <span className="block">Festival</span>
+                <span className="block font-display text-[clamp(2rem,7vw,3.75rem)] leading-[1.05] text-jamun">
+                  Thane <em className="text-peacock">Literature</em> Festival
+                </span>
               </span>
-            </span>
-          </h1>
+            </h1>
 
-          <Ornament className="mt-10" />
+            <p className="mx-auto mt-5 max-w-md text-lg text-ink-muted sm:text-xl">
+              Three days, three languages, one city&rsquo;s love of the written word.
+            </p>
 
-          <p className="mt-6 max-w-xl text-lg sm:text-xl">
-            Three days. Three languages —{" "}
-            <span lang="mr" className="text-sindoor">
-              मराठी
-            </span>
-            ,{" "}
-            <span lang="hi" className="text-sindoor">
-              हिंदी
-            </span>{" "}
-            and <span className="text-sindoor">English</span> — one city&rsquo;s love of the written
-            word.
-          </p>
+            <ul className="mx-auto mt-7 flex max-w-xl flex-wrap justify-center gap-2">
+              {meta.map(({ icon: Icon, text }) => (
+                <li
+                  key={text}
+                  className="inline-flex items-center gap-2 rounded-full bg-haldi px-4 py-1.5 text-sm font-medium text-jamun"
+                >
+                  <Icon className="size-4 shrink-0 text-rani" aria-hidden="true" />
+                  {text}
+                </li>
+              ))}
+            </ul>
 
-          <dl className="mt-10 grid gap-6 border-t border-rule pt-6 sm:grid-cols-3">
-            {meta.map(({ term, detail }) => (
-              <div key={term}>
-                <dt className="text-xs tracking-[0.3em] text-gold-deep uppercase">{term}</dt>
-                <dd className="mt-1 font-display text-lg">{detail}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <a
-              href={SITE.registrationUrl ?? "#registration"}
-              className="inline-flex items-center gap-2 bg-sindoor px-7 py-3.5 text-base tracking-wide text-paper shadow-[4px_4px_0_var(--color-gold)] transition hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_var(--color-gold)]"
-            >
-              Register for Free <ArrowRight className="size-4" aria-hidden="true" />
-            </a>
-            <a
-              href="#schedule"
-              className="border-b border-ink pb-0.5 hover:border-sindoor hover:text-sindoor"
-            >
-              Browse the programme
-            </a>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
+              <a
+                href={SITE.registrationUrl ?? "#registration"}
+                className="inline-flex items-center gap-2 rounded-full bg-rani px-7 py-3.5 text-lg font-bold text-white shadow-[4px_4px_0_var(--color-jamun)] transition hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_var(--color-jamun)]"
+              >
+                Register for Free <ArrowRight className="size-5" aria-hidden="true" />
+              </a>
+              <a
+                href="#schedule"
+                className="font-bold text-jamun underline decoration-marigold decoration-4 underline-offset-8 hover:text-rani"
+              >
+                Browse the programme
+              </a>
+            </div>
           </div>
-        </div>
+        </ArchFrame>
+      </div>
+
+      {/* Strip of festival facts (repeats the arch's details, so hidden from screen readers) */}
+      <div
+        aria-hidden="true"
+        className="relative overflow-hidden border-y-4 border-jamun-deep bg-marigold py-3 text-jamun"
+      >
+        <ul className="flex w-max items-center sm:mx-auto">
+          {[...strip, ...strip].map((item, i) => (
+            <li
+              key={i}
+              lang={item.lang}
+              className="flex items-center gap-5 pr-5 font-display text-xl font-bold whitespace-nowrap sm:text-2xl"
+            >
+              {item.text}
+              <Marigold className="size-6" tone="rani" />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

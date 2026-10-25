@@ -67,11 +67,7 @@ export function ScheduleTabs({ sessions }: Props) {
 
   return (
     <div>
-      <div
-        role="tablist"
-        aria-label="Festival days"
-        className="grid grid-cols-2 border border-rule sm:flex"
-      >
+      <div role="tablist" aria-label="Festival days" className="grid grid-cols-2 gap-2 sm:flex">
         {tabs.map((tab, i) => {
           const selected = tab.key === active.key;
           return (
@@ -87,12 +83,14 @@ export function ScheduleTabs({ sessions }: Props) {
               tabIndex={selected ? 0 : -1}
               onClick={() => selectTab(i)}
               onKeyDown={(e) => onTabKeyDown(e, i)}
-              className={`flex-1 border-rule px-4 py-3 text-left transition-colors not-last:border-r max-sm:border-b sm:text-center ${
-                selected ? "bg-sindoor text-paper" : "bg-paper hover:bg-parchment"
+              className={`flex-1 rounded-2xl border-2 border-jamun px-4 py-3 text-left transition sm:text-center ${
+                selected
+                  ? "bg-jamun text-white shadow-[4px_4px_0_var(--color-rani)]"
+                  : "bg-white text-jamun hover:bg-cream"
               }`}
             >
-              <span className="block font-display text-xl">{tab.label}</span>
-              <span className={`block text-sm ${selected ? "text-paper/85" : "text-ink-muted"}`}>
+              <span className="block font-display text-xl font-bold">{tab.label}</span>
+              <span className={`block text-sm ${selected ? "text-lilac" : "text-ink-muted"}`}>
                 {tab.sub}
               </span>
             </button>
@@ -113,8 +111,10 @@ export function ScheduleTabs({ sessions }: Props) {
                 type="button"
                 aria-pressed={venue === v}
                 onClick={() => setVenue(v)}
-                className={`border px-3 py-1 transition-colors ${
-                  venue === v ? "border-ink bg-ink text-paper" : "border-rule hover:border-ink"
+                className={`rounded-full border-2 px-3 py-1 font-bold transition-colors ${
+                  venue === v
+                    ? "border-jamun bg-jamun text-white"
+                    : "border-jamun/30 bg-white text-jamun hover:border-jamun"
                 }`}
               >
                 {v === ALL_VENUES ? "All stages" : v}
@@ -124,14 +124,14 @@ export function ScheduleTabs({ sessions }: Props) {
         )}
 
         {active.key === "tba" && (
-          <p className="mt-6 border-l-2 border-gold bg-parchment px-4 py-3 text-sm text-ink-muted">
+          <p className="mt-6 rounded-xl bg-jamun px-4 py-3 text-sm text-white">
             The programme is being finalised. Days, timings and stages for these sessions will be
             announced soon.
           </p>
         )}
 
         {visible.length > 0 ? (
-          <div className="mt-2">
+          <div className="mt-6 space-y-4">
             {visible.map((session) => (
               <SessionCard
                 key={session.slug}
@@ -141,7 +141,7 @@ export function ScheduleTabs({ sessions }: Props) {
             ))}
           </div>
         ) : (
-          <p className="py-16 text-center text-ink-muted italic">
+          <p className="mt-6 rounded-2xl bg-white py-16 text-center font-display text-xl text-jamun italic">
             The programme for {active.label.toLowerCase()} will be announced soon.
           </p>
         )}

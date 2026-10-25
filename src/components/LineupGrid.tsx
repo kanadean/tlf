@@ -41,11 +41,7 @@ export function LineupGrid({ speakers }: Props) {
 
   return (
     <div>
-      <div
-        role="group"
-        aria-label="Filter lineup"
-        className="mb-10 flex flex-wrap justify-center gap-x-1 gap-y-2 border-y border-rule py-3"
-      >
+      <div role="group" aria-label="Filter lineup" className="mb-10 flex flex-wrap gap-2">
         {options.map((option) => {
           const active = filter === option.value;
           return (
@@ -54,12 +50,16 @@ export function LineupGrid({ speakers }: Props) {
               type="button"
               aria-pressed={active}
               onClick={() => setFilter(option.value)}
-              className={`px-4 py-1.5 text-base transition-colors ${
-                active ? "bg-sindoor text-paper" : "text-ink hover:text-sindoor"
+              className={`rounded-full border-2 px-4 py-1.5 text-base font-bold transition-colors ${
+                active
+                  ? "border-jamun bg-jamun text-white"
+                  : "border-jamun/25 bg-white text-jamun hover:border-jamun"
               }`}
             >
               <span lang={option.lang}>{option.label}</span>
-              <span className={`ml-2 text-xs ${active ? "text-paper/80" : "text-ink-muted"}`}>
+              <span
+                className={`ml-2 rounded-full px-1.5 text-xs ${active ? "bg-marigold text-jamun" : "bg-haldi text-jamun"}`}
+              >
                 {option.count}
               </span>
             </button>
@@ -71,10 +71,10 @@ export function LineupGrid({ speakers }: Props) {
         Showing {visible.length} {filter === "all" ? "speakers and moderators" : "authors"}
       </p>
 
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
-        {visible.map((speaker) => (
+      <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
+        {visible.map((speaker, i) => (
           <li key={speaker.slug}>
-            <AuthorCard speaker={speaker} />
+            <AuthorCard speaker={speaker} index={i} />
           </li>
         ))}
       </ul>

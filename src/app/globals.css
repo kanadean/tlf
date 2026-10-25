@@ -1,32 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette — see CLAUDE.md "Design Identity" */
-  --color-paper: #fdfbf7;
-  --color-parchment: #faf6ee;
-  --color-ink: #1e1e1e;
-  --color-ink-muted: #4a4540;
-  --color-sindoor: #7c1c2b;
-  --color-gold: #d4af37; /* decorative only: fails contrast as text on paper */
-  --color-gold-deep: #7a5f12; /* gold tone that passes AA as text on paper */
-  --color-rule: #e6dccb;
+  /* Paithani palette — see CLAUDE.md "Design Identity" */
+  --color-cream: #fff8ee;
+  --color-blush: #fde4ee;
+  --color-haldi: #fde9b8; /* soft marigold for light panels */
+  --color-ink: #1f1430;
+  --color-ink-muted: #5b4d6b;
+  --color-jamun: #3a1266; /* deep purple ground */
+  --color-jamun-deep: #240b40;
+  --color-lilac: #d9c8f0; /* secondary text on jamun */
+  --color-rani: #c8155f; /* pink: CTAs and accents; not as text on jamun */
+  --color-marigold: #f7b52c;
+  --color-peacock: #0a6b6b;
+  --color-line: #ead9c3;
 
   /* Font variables are set by next/font in layout.tsx */
-  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
-  --font-serif: var(--font-lora), Lora, Georgia, serif;
-  --font-deva: var(--font-noto-deva), "Noto Serif Devanagari", serif;
-  --font-deva-display: var(--font-rozha), "Rozha One", var(--font-noto-deva), serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-mukta), system-ui, sans-serif;
+  --font-deva: var(--font-mukta), sans-serif;
+  --font-deva-display: var(--font-rozha), var(--font-mukta), serif;
 }
 
 @layer base {
   html {
-    background-color: var(--color-paper);
+    background-color: var(--color-cream);
     color: var(--color-ink);
   }
 
   body {
-    font-family: var(--font-serif);
-    line-height: 1.7;
+    overflow-x: clip;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -36,19 +42,22 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    line-height: 1.2;
+    font-variation-settings: "SOFT" 100;
+    font-weight: 700;
+    line-height: 1.15;
   }
 
   /* Devanagari matras sit above and below the line — give them room */
   :lang(mr),
   :lang(hi) {
     font-family: var(--font-deva);
-    line-height: 1.85;
+    line-height: 1.8;
   }
 
   :where(h1, h2, h3, h4):lang(mr),
   :where(h1, h2, h3, h4):lang(hi) {
     font-family: var(--font-deva-display);
+    font-weight: 400;
     line-height: 1.5;
   }
 
@@ -59,23 +68,23 @@
   }
 
   ::selection {
-    background-color: var(--color-sindoor);
-    color: var(--color-paper);
+    background-color: var(--color-rani);
+    color: white;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-sindoor);
+    outline: 3px solid var(--color-rani);
     outline-offset: 3px;
   }
 }
 
-/* Rendered markdown (bios, session summaries) */
 @layer components {
+  /* Rendered markdown (bios, session summaries) */
   .prose-tlf > * + * {
     margin-top: 0.75em;
   }
   .prose-tlf a {
-    color: var(--color-sindoor);
+    color: var(--color-rani);
     text-decoration: underline;
     text-underline-offset: 3px;
   }
@@ -86,5 +95,41 @@
   .prose-tlf ul {
     list-style: disc;
     padding-left: 1.25em;
+  }
+
+  /* Pill-shaped section label with a rounded right end. The ::before bleeds
+     its colour to the left edge of the page (body clips the overflow). */
+  .pill-heading {
+    position: relative;
+    display: inline-block;
+    border-radius: 0 999px 999px 0;
+    padding: 0.3em 1.3em 0.3em 0;
+  }
+  .pill-heading::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    right: 100%;
+    width: 100vw;
+    background: inherit;
+  }
+
+  /* Paithani border: bands of the festival colours */
+  .paithani-band {
+    height: 14px;
+    background: linear-gradient(
+      to bottom,
+      var(--color-marigold) 0 4px,
+      var(--color-rani) 4px 8px,
+      var(--color-peacock) 8px 11px,
+      var(--color-marigold) 11px 14px
+    );
+  }
+}
+
+@layer utilities {
+  /* Arched top for portraits and panels — like a temple doorway */
+  .arch-top {
+    border-radius: 999px 999px 0.75rem 0.75rem / 50% 50% 0.75rem 0.75rem;
   }
 }

@@ -13,7 +13,7 @@ export function TeamSection() {
       className="scroll-mt-20 px-4 py-20 sm:px-8 sm:py-28"
     >
       <div className="mx-auto max-w-6xl">
-        <SectionHeading id="team-title" title="Meet Our Team">
+        <SectionHeading id="team-title" title="Meet Our Team" tone="rani">
           <p>The dedicated individuals working to make this festival a memorable experience</p>
         </SectionHeading>
 
@@ -27,12 +27,13 @@ export function TeamSection() {
         </ul>
 
         {/* The largest group gets a full row; the rest sit side by side from md up */}
-        <div className="mt-16 grid gap-14 border-t border-rule pt-12 md:grid-cols-2">
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
           {groups.map((group, i) => (
-            <div key={group.title} className={i === 0 ? "md:col-span-2" : ""}>
-              <h3 className="text-center text-xs tracking-[0.3em] text-gold-deep uppercase">
-                {group.title}
-              </h3>
+            <div
+              key={group.title}
+              className={`rounded-3xl bg-haldi px-4 py-8 ${i === 0 ? "md:col-span-2" : ""}`}
+            >
+              <h3 className="text-center text-2xl text-jamun">{group.title}</h3>
               <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-8">
                 {group.members.map((m) => (
                   <li key={m.name} className="w-28 sm:w-32">
@@ -55,12 +56,14 @@ function Member({ member, size }: { member: TeamMember; size: "lg" | "sm" }) {
       <SpeakerPortrait
         speaker={member}
         sizes={large ? "160px" : "80px"}
-        className={`rounded-full ring-1 ring-rule ring-offset-4 ring-offset-parchment ${
+        className={`rounded-full ring-4 ${large ? "ring-marigold" : "ring-rani"} ${
           large ? "size-28 sm:size-36" : "size-20"
         }`}
       />
       <figcaption className={large ? "mt-5" : "mt-3"}>
-        <p className={`font-display ${large ? "text-xl" : "text-base leading-snug"}`}>
+        <p
+          className={`font-display font-bold text-jamun ${large ? "text-xl" : "text-base leading-snug"}`}
+        >
           {member.name}
         </p>
         {member.roles.map((role) => (

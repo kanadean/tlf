@@ -56,6 +56,7 @@ export const NAV_LINKS = [
   { href: "/#schedule", label: "Schedule" },
   { href: "/competitions", label: "Competitions" },
   { href: "/#venues", label: "Venues" },
-  { href: "/#registration", label: "Registration" },
   { href: "/about", label: "About" },
+  // Last: the header renders it as the call-to-action button
+  { href: "/#registration", label: "Register" },
 ] as const;

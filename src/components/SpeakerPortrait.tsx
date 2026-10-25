@@ -19,25 +19,25 @@ function initials(name: string) {
 }
 
 /**
- * Sepia-toned portrait that warms to full colour on hover. Falls back to a
+ * Black-and-white portrait that turns to full colour on hover. Falls back to a
  * monogram plate when no photo is available yet. Size it with `className`.
  */
 export function SpeakerPortrait({ speaker, sizes, className = "" }: Props) {
   return (
-    <div className={`relative overflow-hidden bg-parchment ${className}`}>
+    <div className={`relative overflow-hidden bg-lilac ${className}`}>
       {speaker.photo ? (
         <Image
           src={speaker.photo}
           alt={`Portrait of ${speaker.name}`}
           fill
           sizes={sizes}
-          className="object-cover object-top grayscale-[0.6] sepia-[0.35] transition duration-500 group-hover:grayscale-0 group-hover:sepia-0"
+          className="object-cover object-top grayscale transition duration-500 group-hover:grayscale-0"
         />
       ) : (
         <div
           role="img"
           aria-label={`${speaker.name} — photo coming soon`}
-          className="flex h-full w-full items-center justify-center border border-rule font-display text-[2.5em] text-sindoor/70 italic"
+          className="flex h-full w-full items-center justify-center font-display text-[2.5em] font-bold text-jamun italic"
         >
           {initials(speaker.name)}
         </div>
