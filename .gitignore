@@ -45,3 +45,6 @@ next-env.d.ts
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# Reference material (programme sheet, source photos) — local only, never pushed
+/ContentReference/
