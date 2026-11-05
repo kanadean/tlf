@@ -29,13 +29,23 @@ const SPINES: Spine[] = [
   { text: "संवाद", lang: "mr", tone: "bg-blush text-rani", height: 88, width: 5, lean: true },
 ];
 
-/** Title page: the festival name beside a bookshelf, above the ripples of Thane's lakes. */
+// Entrance timeline (ms). Everything plays once and has settled by ~2.6s.
+const BOOK_START = 300;
+const BOOK_STEP = 90;
+const at = (ms: number) => ({ animationDelay: `${ms}ms` });
+
+/**
+ * Title page: the festival name beside a bookshelf, above the ripples of Thane's lakes.
+ * On load "ठाणे" lands like a stamp, the books drop onto the shelf one by one (the last
+ * tips into its lean), the marigold blooms and the ripples glide in. All animation is
+ * `motion-safe:`, so visitors who prefer reduced motion see the settled page at once.
+ */
 export function Hero({ sessionCount, speakerCount }: Props) {
   const meta = [
     { icon: CalendarDays, text: SITE.datesLabel },
     {
       icon: MapPin,
-      text: SITE.venue ? `${SITE.venue}, ${SITE.city}` : "Venue to be announced · Thane",
+      text: SITE.venue ? `${SITE.venue}, Thane` : "Venue to be announced · Thane",
     },
     { icon: Ticket, text: "Free entry · registration required" },
   ];
@@ -51,7 +61,7 @@ export function Hero({ sessionCount, speakerCount }: Props) {
     <section aria-labelledby="hero-title" className="relative overflow-hidden bg-marigold">
       <div className="mx-auto grid max-w-6xl items-end gap-x-10 gap-y-12 px-4 pt-10 sm:px-8 sm:pt-14 lg:grid-cols-[1.15fr_1fr]">
         <div className="pb-4 lg:pb-12">
-          <p className="inline-block rounded-full bg-jamun px-4 py-1 text-sm font-bold tracking-[0.2em] text-marigold uppercase">
+          <p className="inline-block rounded-full bg-jamun px-4 py-1 text-sm font-bold tracking-[0.2em] text-marigold uppercase motion-safe:animate-pop-in">
             {SITE.edition} · {SITE.year}
           </p>
 
@@ -62,30 +72,41 @@ export function Hero({ sessionCount, speakerCount }: Props) {
             <span aria-hidden="true" className="block">
               <span
                 lang="mr"
-                className="block font-deva-display text-[clamp(5rem,18vw,8.5rem)] leading-[1.1] text-rani"
+                style={at(100)}
+                className="block origin-bottom-left font-deva-display text-[clamp(5rem,18vw,8.5rem)] leading-[1.1] text-rani motion-safe:animate-stamp"
               >
                 ठाणे
               </span>
               <span className="block font-display text-[clamp(2.4rem,7vw,3.9rem)] leading-[1.12] text-jamun">
-                Thane{" "}
-                <em className="underline decoration-rani decoration-wavy decoration-[3px] underline-offset-[0.14em] [text-decoration-skip-ink:none]">
-                  Literature
-                </em>
-                <br />
-                Festival
+                <span style={at(450)} className="block motion-safe:animate-rise-in">
+                  Thane{" "}
+                  <em
+                    style={at(1100)}
+                    className="underline decoration-rani decoration-wavy decoration-[3px] underline-offset-[0.14em] [text-decoration-skip-ink:none] motion-safe:animate-underline-in"
+                  >
+                    Literature
+                  </em>
+                </span>
+                <span style={at(600)} className="block motion-safe:animate-rise-in">
+                  Festival
+                </span>
               </span>
             </span>
           </h1>
 
-          <p className="mt-6 max-w-md text-lg font-medium text-jamun sm:text-xl">
+          <p
+            style={at(800)}
+            className="mt-6 max-w-md text-lg font-medium text-jamun motion-safe:animate-rise-in sm:text-xl"
+          >
             Three days, three languages, one city&rsquo;s love of the written word.
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-2">
-            {meta.map(({ icon: Icon, text }) => (
+            {meta.map(({ icon: Icon, text }, i) => (
               <li
                 key={text}
-                className="inline-flex items-center gap-2 rounded-full bg-cream px-4 py-1.5 text-sm font-medium text-jamun"
+                style={at(950 + i * 110)}
+                className="inline-flex items-center gap-2 rounded-full bg-cream px-4 py-1.5 text-sm font-medium text-jamun motion-safe:animate-pop-in"
               >
                 <Icon className="size-4 shrink-0 text-rani" aria-hidden="true" />
                 {text}
@@ -93,7 +114,10 @@ export function Hero({ sessionCount, speakerCount }: Props) {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <div
+            style={at(1300)}
+            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4 motion-safe:animate-rise-in"
+          >
             <a
               href={SITE.registrationUrl ?? "#registration"}
               className="inline-flex items-center gap-2 rounded-full bg-rani px-7 py-3.5 text-lg font-bold text-white shadow-[4px_4px_0_var(--color-jamun)] transition hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_var(--color-jamun)]"
@@ -111,27 +135,43 @@ export function Hero({ sessionCount, speakerCount }: Props) {
 
         {/* The bookshelf (decorative) */}
         <div aria-hidden="true" className="relative mx-auto w-full max-w-md lg:max-w-none">
-          <Marigold className="absolute -top-2 right-[8%] size-16 sm:size-20" tone="rani" />
+          <Marigold
+            style={at(1500)}
+            className="absolute -top-2 right-[8%] size-16 motion-safe:animate-bloom sm:size-20"
+            tone="rani"
+          />
           <ul
             className="flex h-60 items-end gap-1 pr-10 sm:h-80 sm:gap-1.5 lg:h-[22rem]"
             style={{ "--u": "clamp(0.5rem, 1.05vw, 0.95rem)" } as React.CSSProperties}
           >
-            {SPINES.map((s) => (
-              <li
-                key={s.text}
-                lang={s.lang}
-                style={{ height: `${s.height}%`, width: `calc(var(--u) * ${s.width})` }}
-                className={`flex shrink-0 flex-col items-center justify-between rounded-t-md py-3 shadow-[inset_-6px_0_0_rgb(0_0_0/0.12)] ${s.tone} ${
-                  s.wide ? "max-sm:hidden" : ""
-                } ${s.lean ? "ml-2 origin-bottom-left rotate-[9deg]" : ""}`}
-              >
-                <span className="h-1.5 w-full bg-current opacity-35" />
-                <span className="rotate-180 font-display text-lg font-bold whitespace-nowrap [writing-mode:vertical-rl] sm:text-2xl">
-                  {s.text}
-                </span>
-                <span className="h-1.5 w-full bg-current opacity-35" />
-              </li>
-            ))}
+            {SPINES.map((s, i) => {
+              const drop = BOOK_START + i * BOOK_STEP;
+              return (
+                <li
+                  key={s.text}
+                  lang={s.lang}
+                  style={{
+                    height: `${s.height}%`,
+                    width: `calc(var(--u) * ${s.width})`,
+                    // The leaning book lands upright, then tips over
+                    animationDelay: s.lean ? `${drop}ms, ${drop + 550}ms` : `${drop}ms`,
+                  }}
+                  className={`flex shrink-0 flex-col items-center justify-between rounded-t-md py-3 shadow-[inset_-6px_0_0_rgb(0_0_0/0.12)] ${s.tone} ${
+                    s.wide ? "max-sm:hidden" : ""
+                  } ${
+                    s.lean
+                      ? "ml-2 origin-bottom-left rotate-[9deg] motion-safe:animate-[drop-in_0.7s_cubic-bezier(0.3,1.35,0.5,1)_both,lean_0.8s_cubic-bezier(0.5,0,0.3,1.3)_both]"
+                      : "motion-safe:animate-drop-in"
+                  }`}
+                >
+                  <span className="h-1.5 w-full bg-current opacity-35" />
+                  <span className="rotate-180 font-display text-lg font-bold whitespace-nowrap [writing-mode:vertical-rl] sm:text-2xl">
+                    {s.text}
+                  </span>
+                  <span className="h-1.5 w-full bg-current opacity-35" />
+                </li>
+              );
+            })}
           </ul>
           {/* Shelf plank */}
           <p className="relative rounded-sm bg-jamun-deep py-1.5 text-center text-xs font-bold tracking-[0.3em] text-marigold uppercase shadow-[0_6px_0_rgb(0_0_0/0.15)] sm:text-sm">
@@ -150,14 +190,20 @@ export function Hero({ sessionCount, speakerCount }: Props) {
         <path
           d="M0 30 Q 90 5 180 30 T 360 30 T 540 30 T 720 30 T 900 30 T 1080 30 T 1260 30 T 1440 30 V90 H0Z"
           fill="var(--color-peacock)"
+          style={at(400)}
+          className="motion-safe:animate-ripple-in"
         />
         <path
           d="M0 52 Q 120 30 240 52 T 480 52 T 720 52 T 960 52 T 1200 52 T 1440 52 V90 H0Z"
           fill="var(--color-lilac)"
+          style={at(550)}
+          className="motion-safe:animate-ripple-in"
         />
         <path
           d="M0 70 Q 72 56 144 70 T 288 70 T 432 70 T 576 70 T 720 70 T 864 70 T 1008 70 T 1152 70 T 1296 70 T 1440 70 V90 H0Z"
           fill="var(--color-jamun)"
+          style={at(700)}
+          className="motion-safe:animate-ripple-in"
         />
       </svg>
 

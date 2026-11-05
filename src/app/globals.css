@@ -20,6 +20,98 @@
   --font-sans: var(--font-mukta), system-ui, sans-serif;
   --font-deva: var(--font-mukta), sans-serif;
   --font-deva-display: var(--font-rozha), var(--font-mukta), serif;
+
+  /* Hero entrance — each plays once and settles; use with motion-safe: */
+  --animate-stamp: stamp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-rise-in: rise-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-pop-in: pop-in 0.45s cubic-bezier(0.3, 1.4, 0.5, 1) both;
+  --animate-drop-in: drop-in 0.7s cubic-bezier(0.3, 1.35, 0.5, 1) both;
+  --animate-bloom: bloom 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-ripple-in: ripple-in 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-underline-in: underline-in 0.8s ease-out both;
+
+  /* Lands like a rubber stamp: slightly large and tilted, then flat */
+  @keyframes stamp {
+    from {
+      opacity: 0;
+      transform: scale(1.25) rotate(-4deg);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.4em);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  /* A book set down on the shelf, with a small bounce */
+  @keyframes drop-in {
+    from {
+      opacity: 0;
+      transform: translateY(-3rem);
+    }
+    60% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  /* The last book tips over into its lean (uses `rotate`, so it combines with drop-in) */
+  @keyframes lean {
+    from {
+      rotate: 0deg;
+    }
+    to {
+      rotate: 9deg;
+    }
+  }
+  @keyframes bloom {
+    from {
+      opacity: 0;
+      transform: rotate(-120deg) scale(0.4);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes ripple-in {
+    from {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes underline-in {
+    from {
+      text-decoration-color: transparent;
+    }
+    to {
+      text-decoration-color: var(--color-rani);
+    }
+  }
 }
 
 @layer base {
