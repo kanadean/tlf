@@ -72,18 +72,25 @@ export function SessionModal({ session, onClose }: Props) {
 
           <ParticipantGroup title="Speakers" people={session.speakers} />
           <ParticipantGroup title="Panelists" people={session.panelists} />
-          <ParticipantGroup title="Moderator" people={session.moderators} />
+          <ParticipantGroup
+            title="Moderator"
+            people={session.moderators}
+            placeholder={session.moderatorTBA ? "To be announced." : undefined}
+          />
         </div>
       )}
     </dialog>
   );
 }
 
-function ParticipantGroup({ title, people }: { title: string; people: Speaker[] }) {
-  if (people.length === 0) return null;
+type GroupProps = { title: string; people: Speaker[]; placeholder?: string };
+
+function ParticipantGroup({ title, people, placeholder }: GroupProps) {
+  if (people.length === 0 && !placeholder) return null;
   return (
     <section className="mt-8 border-t border-rule pt-6">
       <h3 className="text-xs tracking-[0.3em] text-sindoor uppercase">{title}</h3>
+      {people.length === 0 && <p className="mt-3 text-ink-muted italic">{placeholder}</p>}
       <ul className="mt-4 space-y-6">
         {people.map((person) => (
           <li key={person.slug} className="group flex gap-4">

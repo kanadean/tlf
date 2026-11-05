@@ -6,7 +6,7 @@ timeEnd: "1:25 PM"
 primaryLanguage: "english"
 speakers: ["ketan-joshi", "bharati-joshi"]
 # panelists: co-travellers / friends — names TBD
-# moderator: TBD
+moderatorTBA: true
 ---
 
 <!-- Session summary TBD. -->

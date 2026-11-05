@@ -52,11 +52,13 @@ export function SessionCard({ session, onOpen }: Props) {
           <p className="mt-1 text-base text-ink-muted">
             <span className="text-ink">{joinNames(session.speakers)}</span>
             {session.panelists.length > 0 && <> with {joinNames(session.panelists)}</>}
-            {session.moderators.length > 0 && (
+            {session.moderators.length > 0 ? (
               <>
                 {" · "}
                 <span className="italic">in conversation with</span> {joinNames(session.moderators)}
               </>
+            ) : (
+              session.moderatorTBA && <span className="italic"> · moderator to be announced</span>
             )}
           </p>
 

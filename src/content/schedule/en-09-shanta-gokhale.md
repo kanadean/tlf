@@ -5,7 +5,7 @@ timeStart: "11:40 AM"
 timeEnd: "12:25 PM"
 primaryLanguage: "english"
 speakers: ["shanta-gokhale"]
-# moderator: none listed in the final programme
+moderators: ["gandhali-bhide"] # blank in the final sheet; kept from the earlier programme
 ---
 
 <!-- Session summary TBD. -->

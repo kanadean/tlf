@@ -49,7 +49,7 @@ Biography in markdown (empty until verified).
 #### 2. Schedule Session Schema (`/schedule/slug.md`)
 ```yaml
 ---
-kind: "session"                  # optional — session (talk, default), reading, performance, break, ceremony
+kind: "session"                  # optional — session (talk, default), reading, performance, break, ceremony, tba (empty slot)
 title: "स्नेहचित्रे : …"          # required — may be Devanagari
 day: 1                           # optional until finalised — 1, 2 or 3
 timeStart: "11:00 AM"            # optional — 12-hour format
@@ -59,6 +59,7 @@ primaryLanguage: "marathi"       # required for talks — marathi, hindi, englis
 speakers: ["girish-kuber"]       # guests; slugs of speaker files — a talk needs at least one
 panelists: []                    # optional — co-panelists
 moderators: ["arun-shevate"]     # optional
+moderatorTBA: false              # optional — true shows "moderator to be announced" (sheet says YTD)
 ---
 Session summary in markdown.
 ```
