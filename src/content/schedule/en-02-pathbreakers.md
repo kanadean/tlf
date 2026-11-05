@@ -1,8 +1,11 @@
 ---
 title: "Pathbreakers"
-# day, timeStart, timeEnd, venue: TBD
+day: 2
+timeStart: "6:40 PM"
+timeEnd: "7:25 PM"
 primaryLanguage: "english"
-speakers: ["sucheta-dalal", "debashis-basu"]
+speakers: ["sucheta-dalal"]
+panelists: ["debashis-basu"]
 moderators: ["vivek-kaul"]
 ---
 

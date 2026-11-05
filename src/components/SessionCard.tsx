@@ -1,10 +1,11 @@
 import { ChevronRight } from "lucide-react";
 import { textLang } from "@/lib/languages";
-import type { ResolvedSession } from "@/lib/markdown";
+import type { Talk } from "@/lib/markdown";
 import { LanguageTag } from "./LanguageTag";
 import { SpeakerPortrait } from "./SpeakerPortrait";
+import { TimeRange } from "./TimeRange";
 
-type Props = { session: ResolvedSession; onOpen: () => void };
+type Props = { session: Talk; onOpen: () => void };
 
 const joinNames = (people: { name: string }[]) => people.map((p) => p.name).join(" & ");
 
@@ -16,9 +17,6 @@ export function SessionCard({ session, onOpen }: Props) {
   const people = [...session.speakers, ...session.panelists, ...session.moderators];
   // Unscheduled sessions skip the time column rather than repeating "TBA" on every row
   const scheduled = Boolean(session.day);
-  const time = session.timeStart
-    ? [session.timeStart, session.timeEnd].filter(Boolean).join(" – ")
-    : "Time TBA";
 
   return (
     <article
@@ -28,7 +26,9 @@ export function SessionCard({ session, onOpen }: Props) {
     >
       {scheduled && (
         <div className="flex items-baseline gap-3 sm:flex-col sm:gap-0.5">
-          <p className="font-display text-lg font-bold text-rani">{time}</p>
+          <p className="font-display text-lg font-bold text-rani">
+            <TimeRange item={session} />
+          </p>
           {session.venue && <p className="text-sm text-ink-muted">{session.venue}</p>}
         </div>
       )}

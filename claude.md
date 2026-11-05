@@ -10,14 +10,15 @@
 
 ## Content Reference
 Content reference is available in 'ContentReference' folder and has README.md for explanation.
-- Festival dates: 4–6 December 2026 (Fri–Sun). Venue: not yet finalised. Entry free, prior registration required.
-- `Program Schedule.xlsx` is the source for `src/content/`; the markdown files are now the source of truth and are edited directly.
+- Festival dates: 4–6 December 2026 (Fri–Sun). Venue: Kashinath Ghanekar Mini Auditorium, Thane (`SITE.venue`). Entry free, prior registration required.
+- `Program All.xlsx` is the finalised programme (5 Nov 2026) and the source for `src/content/schedule/`; the older `Program Schedule.xlsx` is in `ContentReference/deprecated/`. The markdown files are the source of truth and are edited directly.
+- `ContentReference/Featured Books/` (numbered book-cover images) — use not yet decided; ignore for now.
 - Bios must come from verified sources only — leave them empty rather than guess.
 
 ## Content Architecture (Static Markdown)
 Native Next.js server utilities — no Contentlayer. `src/lib/markdown.ts` reads `src/content/**/*.md` synchronously (so pages prerender statically under Cache Components), parses frontmatter with `gray-matter`, validates it with `zod`, and renders bodies with `marked`.
 - **Speaker Data Path:** `src/content/speakers/<slug>.md` — photos in `public/images/speakers/<slug>.jpg`
-- **Schedule Data Path:** `src/content/schedule/<slug>.md` — slugs are `en-NN-…`, `mr-NN-…`, `hi-NN-…`
+- **Schedule Data Path:** `src/content/schedule/<slug>.md` — talks are `en-NN-…`, `mr-NN-…`, `hi-NN-…`; other programme items (readings, performances, breaks, ceremonies, empty slots) are `interlude-dN-NN-…`
 - Files starting with `_` are ignored; each folder has a documented `_template.md`.
 - `<!-- … -->` comments in a body are stripped — use them for placeholders ("Bio TBD") so they never render.
 - A bad field, an unknown speaker slug in a session, or a `photo` path missing from `/public` fails the build with the file named.
@@ -48,19 +49,21 @@ Biography in markdown (empty until verified).
 #### 2. Schedule Session Schema (`/schedule/slug.md`)
 ```yaml
 ---
+kind: "session"                  # optional — session (talk, default), reading, performance, break, ceremony, tba (empty slot)
 title: "स्नेहचित्रे : …"          # required — may be Devanagari
 day: 1                           # optional until finalised — 1, 2 or 3
 timeStart: "11:00 AM"            # optional — 12-hour format
 timeEnd: "12:15 PM"              # optional — requires timeStart
 venue: "Stage name"              # optional, free text — stage names not yet decided
-primaryLanguage: "marathi"       # required — marathi, hindi, english, multilingual
-speakers: ["girish-kuber"]       # required — guests; slugs of speaker files
+primaryLanguage: "marathi"       # required for talks — marathi, hindi, english, multilingual
+speakers: ["girish-kuber"]       # guests; slugs of speaker files — a talk needs at least one
 panelists: []                    # optional — co-panelists
 moderators: ["arun-shevate"]     # optional
+moderatorTBA: false              # optional — true shows "moderator to be announced" (sheet says YTD)
 ---
 Session summary in markdown.
 ```
-Sessions with no `day` appear under a "To be scheduled" tab. A speaker who appears only in `moderators` is flagged `moderatorOnly` by `getLineup()`.
+Non-talk items need only `kind`, `title`, `day` and times; their body is shown inline. `isTalk()` / `KIND_LABEL` / `formatTimeRange()` live in `src/lib/programme.ts` (safe for client components). Sessions with no `day` appear under a "To be scheduled" tab. A speaker who appears only in `moderators` is flagged `moderatorOnly` by `getLineup()`.
 
 ## Tech Stack & Code Quality
 - Framework: Next.js 16 (App Router, Cache Components) + TypeScript — read `node_modules/next/dist/docs/` before using Next APIs (see AGENTS.md). Notable v16 changes in use: `next/image` uses `preload` (not `priority`) and only quality 75 is allowed by default.
@@ -102,8 +105,8 @@ Sessions with no `day` appear under a "To be scheduled" tab. A speaker who appea
 ### Home page (`/`), top to bottom
 1. **Hero — "a bookshelf by the lake":** marigold ground; left, "ठाणे" in Rozha One (rani) over "Thane *Literature* Festival" (jamun, wavy rani underline) and meta chips: Dates, Venue (shows "To be announced · Thane" until `SITE.venue` is set), Entry. Primary CTA **"Register for Free"** (links to `SITE.registrationUrl`, or the Registration section until it exists). Right, a decorative shelf of colourful book spines (कथा, Stories, कविता, Ideas, हिंदी, Essays, मराठी, English, संवाद) on a plank reading "Thane · City of Lakes". Lake ripples (peacock, lilac, jamun) lead into a jamun strip of festival facts (static, no animation).
 2. **"Tridhara" Lineup Grid:** reads `getLineup()`. Arched black-and-white portraits (colour on hover) on cards that cycle rani / jamun / peacock / marigold, monogram when no photo, latest book and bio snippet when present. Filters: **Authors** (default — guests & panelists), मराठी / हिंदी / English (authors only), **All voices** (adds moderator-only speakers, tagged "Moderator"). All cards visible — no "show more".
-3. **Interactive Schedule:** tabs Day 1 / Day 2 / Day 3 (with dates) plus "To be scheduled" while sessions lack a day; stage filter appears once a day has more than one venue. Every session shows a `[मराठी]` / `[हिंदी]` / `[English]` tag, participants with portraits, and opens a details dialog with speaker bios.
-4. **Venues:** venue card + stage list; placeholder until the venue is confirmed.
+3. **Interactive Schedule:** tabs Day 1 / Day 2 / Day 3 (with dates) plus "To be scheduled" while sessions lack a day. Day 1 is the evening opening (from 3:45 PM); Days 2–3 run 10 AM to evening. Readings, performances, breaks, ceremonies and empty slots appear as slim haldi bands (`InterludeRow.tsx`) between the session cards; stage filter appears once a day has more than one venue. Every session shows a `[मराठी]` / `[हिंदी]` / `[English]` tag, participants with portraits, and opens a details dialog with speaker bios.
+4. **Venues:** venue card (`SITE.venue`) + stage list; stage placeholder until stage names are set. The session dialog falls back to `SITE.venue` when a session has no stage.
 5. **Registration:** free-entry message, "Register for Free" button once `SITE.registrationUrl` is set ("Registration opens soon" until then), contact email.
 
 ### About page (`/about`)

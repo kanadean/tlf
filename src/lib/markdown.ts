@@ -14,8 +14,10 @@ import matter from "gray-matter";
 import { marked } from "marked";
 import { z } from "zod";
 import { SESSION_LANGUAGES, SPEAKER_LANGUAGES, type SpeakerLanguage } from "./languages.ts";
+import { PROGRAMME_KINDS } from "./programme.ts";
 
 export * from "./languages.ts";
+export * from "./programme.ts";
 
 const CONTENT_DIR = path.join(process.cwd(), "src", "content");
 const PUBLIC_DIR = path.join(process.cwd(), "public");
@@ -52,21 +54,32 @@ const speakerSchema = z.object({
 
 const sessionSchema = z
   .object({
+    /** "session" is a talk; the other kinds are programme items such as readings or lunch. */
+    kind: z.enum(PROGRAMME_KINDS).default("session"),
     title: z.string().min(1),
     /** Day, time and venue are optional until the programme is finalised. */
     day: z.union([z.literal(1), z.literal(2), z.literal(3)]).optional(),
     timeStart: time12h.optional(),
     timeEnd: time12h.optional(),
     venue: z.string().optional(),
-    primaryLanguage: z.enum(SESSION_LANGUAGES),
-    /** Guests / main speakers. */
-    speakers: slugList.min(1),
+    /** Required for talks; optional for other programme items. */
+    primaryLanguage: z.enum(SESSION_LANGUAGES).optional(),
+    /** Guests / main speakers. A talk needs at least one. */
+    speakers: slugList.default([]),
     panelists: slugList.default([]),
     moderators: slugList.default([]),
   })
   .refine((s) => !s.timeEnd || s.timeStart, {
     message: "timeEnd is set but timeStart is missing",
     path: ["timeStart"],
+  })
+  .refine((s) => s.kind !== "session" || s.primaryLanguage, {
+    message: "a talk needs a primaryLanguage",
+    path: ["primaryLanguage"],
+  })
+  .refine((s) => s.kind !== "session" || s.speakers.length > 0, {
+    message: "a talk needs at least one speaker",
+    path: ["speakers"],
   });
 
 // ---------------------------------------------------------------------------

@@ -1,8 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
-import type { ResolvedSession } from "@/lib/markdown";
+import type { ResolvedSession, Talk } from "@/lib/markdown";
+import { isTalk } from "@/lib/programme";
 import { SITE } from "@/lib/site";
+import { InterludeRow } from "./InterludeRow";
 import { SessionCard } from "./SessionCard";
 import { SessionModal } from "./SessionModal";
 
@@ -36,7 +38,7 @@ export function ScheduleTabs({ sessions }: Props) {
     () => tabs.find((t) => t.sessions.length > 0)?.key ?? 1,
   );
   const [venue, setVenue] = useState<string>(ALL_VENUES);
-  const [openSession, setOpenSession] = useState<ResolvedSession | null>(null);
+  const [openSession, setOpenSession] = useState<Talk | null>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const active = tabs.find((t) => t.key === activeKey) ?? tabs[0];
@@ -132,13 +134,13 @@ export function ScheduleTabs({ sessions }: Props) {
 
         {visible.length > 0 ? (
           <div className="mt-6 space-y-4">
-            {visible.map((session) => (
-              <SessionCard
-                key={session.slug}
-                session={session}
-                onOpen={() => setOpenSession(session)}
-              />
-            ))}
+            {visible.map((item) =>
+              isTalk(item) ? (
+                <SessionCard key={item.slug} session={item} onOpen={() => setOpenSession(item)} />
+              ) : (
+                <InterludeRow key={item.slug} item={item} />
+              ),
+            )}
           </div>
         ) : (
           <p className="mt-6 rounded-2xl bg-white py-16 text-center font-display text-xl text-jamun italic">
