@@ -13,8 +13,8 @@ export const SITE = {
     { day: 3, label: "Day 3", date: "Sun, 6 Dec" },
   ],
   city: "Thane, Maharashtra",
-  /** Venue name — not yet finalised. */
-  venue: null as string | null,
+  /** Venue name; set to null to show "To be announced". */
+  venue: "Kashinath Ghanekar Mini Auditorium" as string | null,
   /** Registration form URL — not yet available. */
   registrationUrl: null as string | null,
   email: "info@thanelitfest.in",
