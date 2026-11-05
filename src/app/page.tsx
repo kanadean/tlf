@@ -4,11 +4,12 @@ import { RegistrationSection } from "@/components/RegistrationSection";
 import { ScheduleTabs } from "@/components/ScheduleTabs";
 import { SectionHeading } from "@/components/SectionHeading";
 import { VenuesSection } from "@/components/VenuesSection";
-import { getAllSessions, getLineup, getVenues } from "@/lib/markdown";
+import { getAllSessions, getLineup, getVenues, isTalk } from "@/lib/markdown";
 
 export default function Home() {
   const speakers = getLineup();
   const sessions = getAllSessions();
+  const talkCount = sessions.filter(isTalk).length;
 
   return (
     <main id="main" className="flex-1">
@@ -42,8 +43,8 @@ export default function Home() {
         <div className="mx-auto max-w-4xl">
           <SectionHeading id="schedule-title" title="The Programme">
             <p>
-              {sessions.length} sessions across three days. Select a session for speakers and
-              details.
+              {talkCount} sessions across three days, with readings and performances in between.
+              Select a session for speakers and details.
             </p>
           </SectionHeading>
           <ScheduleTabs sessions={sessions} />

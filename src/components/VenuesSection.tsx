@@ -4,7 +4,7 @@ import { SectionHeading } from "./SectionHeading";
 
 type Props = { venues: string[] };
 
-/** Venue and stage list. Shows an announcement placeholder until the venue is finalised. */
+/** Venue and stage list. Shows announcement placeholders until they are set. */
 export function VenuesSection({ venues }: Props) {
   return (
     <section
@@ -33,7 +33,7 @@ export function VenuesSection({ venues }: Props) {
               </ul>
             ) : (
               <p className="mt-4 text-ink-muted">
-                Stage names and a festival map will be published here once the venue is confirmed.
+                Stage details and a festival map will be published here soon.
               </p>
             )}
           </div>

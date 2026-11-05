@@ -3,12 +3,13 @@
 import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
 import { nativeNameLang, textLang } from "@/lib/languages";
-import type { ResolvedSession, Speaker } from "@/lib/markdown";
+import type { Speaker, Talk } from "@/lib/markdown";
+import { formatTimeRange } from "@/lib/programme";
 import { SITE } from "@/lib/site";
 import { LanguageTag } from "./LanguageTag";
 import { SpeakerPortrait } from "./SpeakerPortrait";
 
-type Props = { session: ResolvedSession | null; onClose: () => void };
+type Props = { session: Talk | null; onClose: () => void };
 
 /**
  * Session details in a native <dialog>: the browser provides focus trapping,
@@ -25,10 +26,8 @@ export function SessionModal({ session, onClose }: Props) {
   const day = SITE.days.find((d) => d.day === session?.day);
   const when = [
     day ? `${day.label} · ${day.date}` : "Date TBA",
-    session?.timeStart
-      ? [session.timeStart, session.timeEnd].filter(Boolean).join(" – ")
-      : "Time TBA",
-    session?.venue ?? "Venue TBA",
+    session ? formatTimeRange(session) : "Time TBA",
+    session?.venue ?? SITE.venue ?? "Venue TBA",
   ];
 
   return (

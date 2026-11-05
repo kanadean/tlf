@@ -1,9 +1,11 @@
 ---
 title: "संकल्प संस्कृतिकारणाचा!"
-# day, timeStart, timeEnd, venue: TBD
+day: 1
+timeStart: "5:25 PM"
+timeEnd: "6:10 PM"
 primaryLanguage: "marathi"
 speakers: ["dinkar-gangal"]
-# no moderator listed
+moderators: ["yogendra-jawadekar"]
 ---
 
 <!-- Session summary TBD. -->
