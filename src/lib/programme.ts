@@ -2,7 +2,14 @@
 import type { ResolvedSession } from "./markdown.ts";
 import type { SessionLanguage } from "./languages.ts";
 
-export const PROGRAMME_KINDS = ["session", "reading", "performance", "break", "ceremony"] as const;
+export const PROGRAMME_KINDS = [
+  "session",
+  "reading",
+  "performance",
+  "break",
+  "ceremony",
+  "tba",
+] as const;
 export type ProgrammeKind = (typeof PROGRAMME_KINDS)[number];
 
 /** Label shown beside non-talk items in the schedule. */
@@ -12,6 +19,7 @@ export const KIND_LABEL: Record<ProgrammeKind, string> = {
   performance: "Performance",
   break: "Break",
   ceremony: "Ceremony",
+  tba: "To be announced",
 };
 
 /** A talk: has speakers and a language, and opens the session dialog. */
