@@ -29,7 +29,6 @@
   --animate-bloom: bloom 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   --animate-ripple-in: ripple-in 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   --animate-swoosh: swoosh 0.7s cubic-bezier(0.6, 0, 0.2, 1) both;
-  --animate-burst-in: burst-in 1.1s cubic-bezier(0.15, 0.8, 0.3, 1) both;
   --animate-flash: flash 0.9s ease-out both;
 
   /* Lands like a rubber stamp: slightly large and tilted, then flat */
@@ -120,6 +119,26 @@
       opacity: 1;
       transform: none;
       filter: blur(0);
+    }
+  }
+  /* After landing: a slow drift outward and back (uses `translate`, so it combines with
+     burst-in's transform); --fx/--fy set the direction per item */
+  @keyframes drift {
+    from {
+      translate: 0 0;
+    }
+    to {
+      translate: var(--fx, 0) var(--fy, 0);
+    }
+  }
+  @keyframes twinkle {
+    from {
+      opacity: 1;
+      scale: 1;
+    }
+    to {
+      opacity: 0.35;
+      scale: 0.7;
     }
   }
   /* The firecracker's flash: a soft disc that swells and fades away */
