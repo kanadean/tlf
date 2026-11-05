@@ -10,7 +10,7 @@
 
 ## Content Reference
 Content reference is available in 'ContentReference' folder and has README.md for explanation.
-- Festival dates: 4–6 December 2026 (Fri–Sun). Venue: not yet finalised. Entry free, prior registration required.
+- Festival dates: 4–6 December 2026 (Fri–Sun). Venue: Kashinath Ghanekar Mini Auditorium, Thane (`SITE.venue`). Entry free, prior registration required.
 - `Program Schedule.xlsx` is the source for `src/content/`; the markdown files are now the source of truth and are edited directly.
 - Bios must come from verified sources only — leave them empty rather than guess.
 
@@ -97,7 +97,8 @@ Sessions with no `day` appear under a "To be scheduled" tab. A speaker who appea
 - This is not a multi-lingual website — content is English except the Marathi and Hindi sessions themselves.
 
 ### Home page (`/`), top to bottom
-1. **Editorial Hero:** text-focused title page in a double-ruled frame; "ठाणे" in Rozha One beside "Thane / *Literature* / Festival". Meta: Dates, Venue (shows "To be announced · Thane" until `SITE.venue` is set), Entry. Primary CTA **"Register for Free"** (links to `SITE.registrationUrl`, or the Registration section until it exists).
+1. **Editorial Hero:** text-focused title page in a double-ruled frame; "ठाणे" in Rozha One beside "Thane / *Literature* / Festival". Meta: Dates, Venue (`SITE.venue`; "To be announced" if set to null), Entry. Primary CTA **"Register for Free"** (links to `SITE.registrationUrl`, or the Registration section until it exists).
+   **Entrance motion (CSS only, `@theme` keyframes in `globals.css`):** "ठाणे" spreads in like ink (blur → sharp), "Thane" slides in as its letter-spacing closes, "Literature"/"Festival" rise in, the fleuron draws across, and on `xl` screens literary keywords in all three languages (Poetry, कथा, संवाद, Memoir, कहानी, नाटक, Essays, कविता, Ideas) surface out of a blur one by one in the empty space beside the title and tagline. Everything plays once and settles within ~5s (WCAG 2.2.2 — no pause control needed); all animations use `motion-safe:` so reduced-motion users get the final state instantly. Keep any new motion finite and calm.
 2. **"Tridhara" Lineup Grid:** reads `getLineup()`. Sepia/monochrome portraits (colour on hover), monogram when no photo, latest book and bio snippet when present. Filters: **Authors** (default — guests & panelists), मराठी / हिंदी / English (authors only), **All voices** (adds moderator-only speakers, tagged "Moderator"). All cards visible — no "show more".
 3. **Interactive Schedule:** tabs Day 1 / Day 2 / Day 3 (with dates) plus "To be scheduled" while sessions lack a day; stage filter appears once a day has more than one venue. Every session shows a `[मराठी]` / `[हिंदी]` / `[English]` tag, participants with portraits, and opens a details dialog with speaker bios.
 4. **Venues:** venue card + stage list; placeholder until the venue is confirmed.

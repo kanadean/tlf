@@ -16,6 +16,71 @@
   --font-serif: var(--font-lora), Lora, Georgia, serif;
   --font-deva: var(--font-noto-deva), "Noto Serif Devanagari", serif;
   --font-deva-display: var(--font-rozha), "Rozha One", var(--font-noto-deva), serif;
+
+  /* Hero entrance — each plays once and settles; use with motion-safe: */
+  --animate-ink-in: ink-in 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-slide-in: slide-in 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-rise-in: rise-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-draw: draw 0.9s cubic-bezier(0.6, 0, 0.2, 1) both;
+  --animate-diffuse: diffuse 1.6s ease-out both;
+
+  /* Ink spreading on paper: blurred and slightly large, then sharp */
+  @keyframes ink-in {
+    from {
+      opacity: 0;
+      filter: blur(14px);
+      transform: scale(1.06);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: none;
+    }
+  }
+  /* Slides in from the left while its wide letter-spacing closes up */
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(-1.25em);
+      letter-spacing: 0.7em;
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      letter-spacing: 0.2em;
+    }
+  }
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.3em);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes draw {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  /* Keywords surfacing out of a blur, like words remembered */
+  @keyframes diffuse {
+    from {
+      opacity: 0;
+      filter: blur(10px);
+      transform: scale(0.94);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: none;
+    }
+  }
 }
 
 @layer base {
