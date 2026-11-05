@@ -28,7 +28,7 @@
   --animate-drop-in: drop-in 0.7s cubic-bezier(0.3, 1.35, 0.5, 1) both;
   --animate-bloom: bloom 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   --animate-ripple-in: ripple-in 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  --animate-underline-in: underline-in 0.8s ease-out both;
+  --animate-swoosh: swoosh 0.7s cubic-bezier(0.6, 0, 0.2, 1) both;
 
   /* Lands like a rubber stamp: slightly large and tilted, then flat */
   @keyframes stamp {
@@ -104,12 +104,13 @@
       transform: none;
     }
   }
-  @keyframes underline-in {
+  /* A brush stroke painted from left to right */
+  @keyframes swoosh {
     from {
-      text-decoration-color: transparent;
+      clip-path: inset(0 100% 0 0);
     }
     to {
-      text-decoration-color: var(--color-rani);
+      clip-path: inset(0 0 0 0);
     }
   }
 }

@@ -80,14 +80,24 @@ export function Hero({ sessionCount, speakerCount }: Props) {
               <span className="block font-display text-[clamp(2.4rem,7vw,3.9rem)] leading-[1.12] text-jamun">
                 <span style={at(450)} className="block motion-safe:animate-rise-in">
                   Thane{" "}
-                  <em
-                    style={at(1100)}
-                    className="underline decoration-rani decoration-wavy decoration-[3px] underline-offset-[0.14em] [text-decoration-skip-ink:none] motion-safe:animate-underline-in"
-                  >
+                  <em className="relative inline-block">
                     Literature
+                    {/* One tapered brush stroke, swept in from the left */}
+                    <svg
+                      viewBox="0 0 200 20"
+                      preserveAspectRatio="none"
+                      style={at(1100)}
+                      className="absolute -bottom-[0.1em] left-[-2%] h-[0.32em] w-[104%] text-rani motion-safe:animate-swoosh"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M2 13 C 55 5, 135 1, 198 3 C 152 9, 72 15, 9 19 C 3 19.6, 0 16, 2 13 Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                   </em>
                 </span>
-                <span style={at(600)} className="block motion-safe:animate-rise-in">
+                <span style={at(600)} className="mt-[0.12em] block motion-safe:animate-rise-in">
                   Festival
                 </span>
               </span>
