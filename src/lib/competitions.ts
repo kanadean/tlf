@@ -24,6 +24,12 @@ export type Competition = {
 const LANGUAGES = "Marathi, Hindi and English";
 const PRIZES = "Exciting prizes for the first three winners; participation certificates for all";
 
+/**
+ * Whether entries are still being accepted. While false, the "Submit your entry" buttons
+ * (and the addresses shown with them) are hidden; the emails stay here for next time.
+ */
+export const SUBMISSIONS_OPEN = false;
+
 export const COMPETITIONS: Competition[] = [
   {
     slug: "meri-story",
@@ -66,7 +72,7 @@ export const COMPETITIONS: Competition[] = [
   },
   {
     slug: "my-dream",
-    title: "My Dream Thane / My Dream India",
+    title: "My Dream Thane / India and Me",
     kind: "Essay",
     tagline: "Essay competition",
     prompt: {

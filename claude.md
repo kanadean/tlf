@@ -23,7 +23,7 @@ Native Next.js server utilities — no Contentlayer. `src/lib/markdown.ts` reads
 - `<!-- … -->` comments in a body are stripped — use them for placeholders ("Bio TBD") so they never render.
 - A bad field, an unknown speaker slug in a session, or a `photo` path missing from `/public` fails the build with the file named.
 - Other site data (not markdown):
-  - `src/lib/site.ts` — dates, venue, registration URL, email, social links, organiser & sponsor logos, `NAV_LINKS`. `venue` and `registrationUrl` are `null` until announced; the UI shows placeholders until they are set.
+  - `src/lib/site.ts` — dates, venue, `spaces` inside the venue, registration URL, email, social links, organiser & sponsor logos, `NAV_LINKS`. `venue` and `registrationUrl` are `null` until announced; the UI shows placeholders until they are set.
   - `src/lib/team.ts` — About page team credits (carried over from the previous edition).
   - `src/lib/competitions.ts` — competition details transcribed from the posters in `public/images/competitions/`. Keep both in sync.
   - `src/lib/languages.ts` — language constants/helpers shared with client components (must not import `node:fs`).
@@ -116,7 +116,8 @@ Non-talk items need only `kind`, `title`, `day` and times; their body is shown i
 
 ### Competitions page (`/competitions`)
 - One card per competition: poster (opens full size) beside transcribed details — prompt, word/time limit, languages, prizes, guidelines, eligibility, submission email (or "Submission details to be announced").
-- Current competitions: Meri Story, Chitrakathi, My Dream Thane / My Dream India, Thane in Ten Frames, Rangmanch.
+- Current competitions: Meri Story, Chitrakathi, My Dream Thane / India and Me, Thane in Ten Frames, Rangmanch.
+- Submissions have closed: `SUBMISSIONS_OPEN = false` in `competitions.ts` hides every "Submit your entry" button and its address (emails stay in the data). Set it to `true` to bring them back.
 
 ## Step-by-Step AI Workflow Rules
 1. **Parser First:** Content goes through `src/lib/markdown.ts`; extend its zod schemas (and the `_template.md` files) before using a new field in UI.
