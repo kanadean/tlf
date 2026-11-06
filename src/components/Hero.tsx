@@ -102,6 +102,9 @@ export function Hero({ sessionCount, speakerCount }: Props) {
                 <span style={at(600)} className="mt-[0.12em] block motion-safe:animate-rise-in">
                   Festival
                 </span>
+                <span style={at(750)} className="block text-rani motion-safe:animate-rise-in">
+                  {SITE.year}
+                </span>
               </span>
             </span>
           </h1>

@@ -27,18 +27,22 @@ export function VenuesSection({ venues }: Props) {
           </div>
           <div className="rounded-3xl border-2 border-jamun bg-white p-8 shadow-[5px_5px_0_var(--color-jamun)]">
             <h3 className="inline-block rounded-full bg-haldi px-3 py-0.5 font-sans text-sm font-bold tracking-[0.15em] text-jamun uppercase">
-              Stages
+              Inside the venue
             </h3>
-            {venues.length > 0 ? (
-              <ul className="mt-4 space-y-2 font-display text-xl text-jamun">
+            <dl className="mt-4 space-y-4">
+              {SITE.spaces.map((s) => (
+                <div key={s.name}>
+                  <dt className="font-display text-xl text-jamun">{s.name}</dt>
+                  <dd className="text-ink-muted">{s.where}</dd>
+                </div>
+              ))}
+            </dl>
+            {venues.length > 0 && (
+              <ul className="mt-4 space-y-1 border-t-2 border-dashed border-jamun/20 pt-4 text-ink-muted">
                 {venues.map((v) => (
                   <li key={v}>{v}</li>
                 ))}
               </ul>
-            ) : (
-              <p className="mt-4 text-ink-muted">
-                Stage details and a festival map will be published here soon.
-              </p>
             )}
           </div>
         </div>
