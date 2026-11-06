@@ -7,7 +7,11 @@ import { TimeRange } from "./TimeRange";
 
 type Props = { session: Talk; onOpen: () => void };
 
-const joinNames = (people: { name: string }[]) => people.map((p) => p.name).join(" & ");
+// "A", "A & B", "A, B & C"
+const joinNames = (people: { name: string }[]) => {
+  const names = people.map((p) => p.name);
+  return names.length > 1 ? `${names.slice(0, -1).join(", ")} & ${names.at(-1)}` : (names[0] ?? "");
+};
 
 /**
  * One programme entry. The title button stretches over the whole card, so any
