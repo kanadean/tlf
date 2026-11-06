@@ -24,17 +24,21 @@ export function VenuesSection({ venues }: Props) {
             </p>
           </div>
           <div className="bg-parchment p-8">
-            <h3 className="text-xs tracking-[0.3em] text-gold-deep uppercase">Stages</h3>
-            {venues.length > 0 ? (
-              <ul className="mt-4 space-y-2 font-display text-xl">
+            <h3 className="text-xs tracking-[0.3em] text-gold-deep uppercase">Inside the venue</h3>
+            <dl className="mt-4 space-y-4">
+              {SITE.spaces.map((s) => (
+                <div key={s.name}>
+                  <dt className="font-display text-xl">{s.name}</dt>
+                  <dd className="text-ink-muted">{s.where}</dd>
+                </div>
+              ))}
+            </dl>
+            {venues.length > 0 && (
+              <ul className="mt-4 space-y-1 border-t border-rule pt-4 text-ink-muted">
                 {venues.map((v) => (
                   <li key={v}>{v}</li>
                 ))}
               </ul>
-            ) : (
-              <p className="mt-4 text-ink-muted">
-                Stage details and a festival map will be published here soon.
-              </p>
             )}
           </div>
         </div>

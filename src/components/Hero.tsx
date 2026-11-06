@@ -129,11 +129,14 @@ export function Hero() {
                 <span className="block motion-safe:animate-rise-in motion-safe:[animation-delay:950ms]">
                   Festival
                 </span>
+                <span className="block text-sindoor motion-safe:animate-rise-in motion-safe:[animation-delay:1150ms]">
+                  {SITE.year}
+                </span>
               </span>
             </span>
           </h1>
 
-          <Ornament className="mt-10 origin-left motion-safe:animate-draw motion-safe:[animation-delay:1200ms]" />
+          <Ornament className="mt-10 origin-left motion-safe:animate-draw motion-safe:[animation-delay:1400ms]" />
 
           <p className="mt-6 max-w-xl text-lg sm:text-xl">
             Three days. Three languages —{" "}

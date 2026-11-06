@@ -4,8 +4,28 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-import { NAV_LINKS, SITE } from "@/lib/site";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { NAV_LINKS, SITE, type NavLink } from "@/lib/site";
+
+type ItemProps = { link: NavLink; current?: "page"; className: string; onClick?: () => void };
+
+/** A nav entry: an in-site Link, or an external link that opens in a new tab. */
+function NavItem({ link, current, className, onClick }: ItemProps) {
+  if (link.external) {
+    return (
+      <a href={link.href} target="_blank" rel="noopener noreferrer" className={className}>
+        {link.label}
+        <ArrowUpRight className="ml-0.5 inline size-3.5 align-baseline" aria-hidden="true" />
+        <span className="sr-only"> (opens in a new tab)</span>
+      </a>
+    );
+  }
+  return (
+    <Link href={link.href} aria-current={current} onClick={onClick} className={className}>
+      {link.label}
+    </Link>
+  );
+}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -31,16 +51,14 @@ export function SiteHeader() {
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-5 text-sm tracking-[0.1em] uppercase xl:gap-7 xl:tracking-[0.15em]">
+          <ul className="flex items-center gap-3.5 text-sm tracking-[0.05em] uppercase xl:gap-7 xl:tracking-[0.15em]">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  aria-current={current(link.href)}
+                <NavItem
+                  link={link}
+                  current={current(link.href)}
                   className="hover:text-sindoor aria-[current=page]:text-sindoor aria-[current=page]:underline aria-[current=page]:underline-offset-8"
-                >
-                  {link.label}
-                </Link>
+                />
               </li>
             ))}
           </ul>
@@ -71,14 +89,12 @@ export function SiteHeader() {
         <ul className="divide-y divide-rule">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <Link
-                href={link.href}
-                aria-current={current(link.href)}
+              <NavItem
+                link={link}
+                current={current(link.href)}
                 onClick={() => setOpen(false)}
                 className="block py-4 font-display text-2xl hover:text-sindoor aria-[current=page]:text-sindoor"
-              >
-                {link.label}
-              </Link>
+              />
             </li>
           ))}
         </ul>

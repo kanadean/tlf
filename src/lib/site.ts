@@ -56,11 +56,15 @@ export const SITE = {
 } as const;
 
 // Home sections are linked as "/#id" so the nav also works from other pages
-export const NAV_LINKS = [
+export type NavLink = { href: string; label: string; external?: boolean };
+
+export const NAV_LINKS: readonly NavLink[] = [
   { href: "/#lineup", label: "Lineup" },
   { href: "/#schedule", label: "Schedule" },
   { href: "/competitions", label: "Competitions" },
   { href: "/#venues", label: "Venues" },
   { href: "/#registration", label: "Registration" },
   { href: "/about", label: "About" },
-] as const;
+  // Archived site of the previous edition; opens in a new tab
+  { href: "https://tlf2025.thanelitfest.in", label: "TLF-2025", external: true },
+];

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Mail, Maximize2 } from "lucide-react";
-import type { Competition } from "@/lib/competitions";
+import { SUBMISSIONS_OPEN, type Competition } from "@/lib/competitions";
 
 type Props = { competition: Competition; index: number };
 
@@ -114,28 +114,30 @@ export function CompetitionCard({ competition: c, index }: Props) {
           </div>
         )}
 
-        <div className="mt-8">
-          {c.email ? (
-            <a
-              href={`mailto:${c.email}`}
-              className="inline-flex items-center gap-2 bg-sindoor px-5 py-3 text-paper shadow-[4px_4px_0_var(--color-gold)] transition hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_var(--color-gold)]"
-            >
-              <Mail className="size-4 shrink-0" aria-hidden="true" />
-              Submit your entry
-              <span className="sr-only"> by email to {c.email}</span>
-            </a>
-          ) : (
-            <p className="inline-block border border-rule px-5 py-3 font-display italic">
-              Submission details to be announced
-            </p>
-          )}
-          {/* Shown as text so long addresses wrap instead of truncating the button */}
-          {c.email && (
-            <p className="mt-4 text-sm break-all text-ink-muted" aria-hidden="true">
-              {c.email}
-            </p>
-          )}
-        </div>
+        {SUBMISSIONS_OPEN && (
+          <div className="mt-8">
+            {c.email ? (
+              <a
+                href={`mailto:${c.email}`}
+                className="inline-flex items-center gap-2 bg-sindoor px-5 py-3 text-paper shadow-[4px_4px_0_var(--color-gold)] transition hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_var(--color-gold)]"
+              >
+                <Mail className="size-4 shrink-0" aria-hidden="true" />
+                Submit your entry
+                <span className="sr-only"> by email to {c.email}</span>
+              </a>
+            ) : (
+              <p className="inline-block border border-rule px-5 py-3 font-display italic">
+                Submission details to be announced
+              </p>
+            )}
+            {/* Shown as text so long addresses wrap instead of truncating the button */}
+            {c.email && (
+              <p className="mt-4 text-sm break-all text-ink-muted" aria-hidden="true">
+                {c.email}
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </article>
   );
