@@ -46,6 +46,8 @@ const speakerSchema = z.object({
   genre: z.string().optional(),
   photo: publicPath.optional(),
   featured: z.boolean().default(false),
+  /** Position in the lineup by importance (1 = first). Unranked speakers follow. */
+  order: z.number().int().positive().optional(),
   /** Most recent first — the first entry is shown as "latest book" on cards. */
   books: z.array(z.string()).default([]),
   /** Source URLs the biography was verified against. Not rendered. */
@@ -223,10 +225,13 @@ function compareSessions(a: Session, b: Session): number {
 // Public API
 // ---------------------------------------------------------------------------
 
-/** All speakers, featured first, then alphabetical by name. */
+/** Ranked speakers first (by `order`), then featured, then alphabetical by name. */
 export function getAllSpeakers(): Speaker[] {
   return [...loadSpeakers().values()].sort(
-    (a, b) => Number(b.featured) - Number(a.featured) || a.name.localeCompare(b.name),
+    (a, b) =>
+      (a.order ?? Infinity) - (b.order ?? Infinity) ||
+      Number(b.featured) - Number(a.featured) ||
+      a.name.localeCompare(b.name),
   );
 }
 
@@ -241,10 +246,16 @@ export function getLineup(): LineupSpeaker[] {
   const sessions = loadSessions();
   const authors = new Set(sessions.flatMap((s) => [...s.speakers, ...s.panelists]));
   const moderators = new Set(sessions.flatMap((s) => s.moderators));
-  return getAllSpeakers().map((s) => ({
+  const lineup = getAllSpeakers().map((s) => ({
     ...s,
     moderatorOnly: moderators.has(s.slug) && !authors.has(s.slug),
   }));
+  // Ranked speakers keep their order; among the unranked, authors come before moderators
+  return lineup.sort(
+    (a, b) =>
+      (a.order ?? Infinity) - (b.order ?? Infinity) ||
+      (a.order === undefined ? Number(a.moderatorOnly) - Number(b.moderatorOnly) : 0),
+  );
 }
 
 export function getSpeaker(slug: string): Speaker | undefined {

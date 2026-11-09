@@ -1,5 +1,6 @@
 ---
 name: "Dr Vinay Sahasrabuddhe"
+order: 1
 nameNative: "डॉ विनय सहस्रबुद्धे"
 language: ["marathi"]
 photo: "/images/speakers/vinay-sahasrabuddhe.jpg"

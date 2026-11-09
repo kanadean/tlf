@@ -1,5 +1,6 @@
 ---
 name: "Bharat Dabholkar"
+order: 9
 language: ["english"]
 photo: "/images/speakers/bharat-dabholkar.jpg"
 books: [] # TBD

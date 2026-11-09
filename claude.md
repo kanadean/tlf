@@ -11,7 +11,7 @@
 ## Content Reference
 Content reference is available in 'ContentReference' folder and has README.md for explanation.
 - Festival dates: 4–6 December 2026 (Fri–Sun). Venue: Kashinath Ghanekar Mini Auditorium, Thane (`SITE.venue`). Entry free, prior registration required.
-- `Program All.xlsx` is the finalised programme (5 Nov 2026; updated 6 Nov: new 12:45 PM session on Day 3, Rani Durve moved to 2:30 PM — original kept in `deprecated/`) and the source for `src/content/schedule/`; the older `Program Schedule.xlsx` is in `ContentReference/deprecated/`. The markdown files are the source of truth and are edited directly.
+- `Program All.xlsx` is the finalised programme (5 Nov 2026; updated 6 and 9 Nov — earlier copies in `deprecated/`). Change requests arrive as documents in `ContentReference/RequestedChanges/` and the source for `src/content/schedule/`; the older `Program Schedule.xlsx` is in `ContentReference/deprecated/`. The markdown files are the source of truth and are edited directly.
 - `ContentReference/Featured Books/` (numbered book-cover images) — use not yet decided; ignore for now.
 - Bios must come from verified sources only — leave them empty rather than guess.
 
@@ -39,7 +39,8 @@ designation: "Secretary, …"      # optional — role/affiliation (shown instea
 language: ["marathi"]            # required — one or more of: marathi, hindi, english
 genre: "Journalism"              # optional
 photo: "/images/speakers/girish-kuber.jpg"  # optional — must exist in /public; monogram shown if absent
-featured: false                  # optional, default false — featured speakers sort first
+order: 1                         # optional — lineup position by importance (1 = first); unranked follow
+featured: false                  # optional, default false — featured speakers sort first among the unranked
 books: []                        # optional — most recent first; first is shown as "Latest"
 sources: []                      # optional — URLs the bio was verified against (not rendered)
 ---
@@ -55,7 +56,7 @@ day: 1                           # optional until finalised — 1, 2 or 3
 timeStart: "11:00 AM"            # optional — 12-hour format
 timeEnd: "12:15 PM"              # optional — requires timeStart
 venue: "Stage name"              # optional, free text — stage names not yet decided
-primaryLanguage: "marathi"       # required for talks — marathi, hindi, english, multilingual
+primaryLanguage: "marathi"       # required for talks — marathi, hindi, english, hinglish, multilingual
 speakers: ["girish-kuber"]       # guests; slugs of speaker files — a talk needs at least one
 panelists: []                    # optional — co-panelists
 moderators: ["arun-shevate"]     # optional
@@ -99,14 +100,14 @@ Non-talk items need only `kind`, `title`, `day` and times; their body is shown i
 
 ### Site-wide
 - **Header** (`SiteHeader.tsx`): TLF logo (on a cream disc) + "Thane *Literature* Festival" on jamun-deep. Primary navigation: Lineup, Schedule, Competitions, Venues, About, **TLF-2025** (the previous edition's archived site, https://tlf2025.thanelitfest.in, opened in a new tab — `external: true` in `NAV_LINKS`), and **Register** as a rani pill button (kept last in `NAV_LINKS`). Home sections are linked as `/#id` so links work from every page. Full menu from `lg` (1024px); hamburger menu below.
-- **Footer** (`SiteFooter.tsx`): "Presented by" organiser logos (Rotary Club of Thane Hills, NCPA), "Supported by" sponsor logos (currently Fortress — sponsor names and logos will change; edit `SITE.sponsors`), social links (Instagram, Facebook, X, LinkedIn), contact email.
+- **Footer** (`SiteFooter.tsx`): "Presented by" logos (Rotary Club of Thane Hills, NCPA, Page to Stage); "Supported by" logos captioned with their role (`SITE.sponsors[].role`: Crossword — Book Partner, Fortress — Sponsor; more to come). All logos render at the same height — crop transparent padding from logo files (the Rotary logo was cropped so it matches NCPA), social links (Instagram, Facebook, X, LinkedIn), contact email.
 - This is not a multi-lingual website — content is English except the Marathi and Hindi sessions themselves.
 
 ### Home page (`/`), top to bottom
 1. **Hero — "a bookshelf by the lake":** marigold ground; left, "ठाणे" in Rozha One (rani) over "Thane *Literature* Festival" and "2026" on its own line in rani (jamun; "Literature" carries a tapered rani brush swoosh — not a wavy underline, which reads like a spell-check mark) and meta chips: Dates, Venue (`SITE.venue`, Thane; "To be announced" if null), Entry. Primary CTA **"Register for Free"** (links to `SITE.registrationUrl`, or the Registration section until it exists). Right, a decorative shelf of colourful book spines (कथा, Stories, कविता, Ideas, हिंदी, Essays, मराठी, English, संवाद) on a plank reading "Thane · City of Lakes". Lake ripples (peacock, lilac, jamun) lead into a jamun strip of festival facts (static).
    **Entrance motion (CSS only, `@theme` keyframes in `globals.css`):** "ठाणे" lands like a stamp, the title lines rise and the brush swoosh sweeps in under "Literature", the meta chips and CTA pop in, the books drop onto the shelf one by one with a small bounce and the last one tips into its lean, the marigold blooms, and the ripples glide in. Then, on `lg`+ screens, a soft flash goes off above the shelf like an anaar firecracker and eight keywords not on the spines (नाटक, Poetry, Memoir, अभंग, ग़ज़ल, Fiction, कहानी, Translation) fly out slowly with small sparkles, then keep floating gently outward and back while the sparkles twinkle (`KeywordBurst.tsx`). Because that float is continuous, a small pause/play button sits in the hero's top-right corner (WCAG 2.2.2); everything else plays once. All animations use `motion-safe:`, and reduced-motion visitors get no motion and no button. Set per-element delays inline (`style`), not with `[animation-delay:…]` classes — the `animate-*` shorthand can reset them. Keep any new motion finite and calm.
-2. **"Tridhara" Lineup Grid:** reads `getLineup()`. Arched black-and-white portraits (colour on hover) on cards that cycle rani / jamun / peacock / marigold, monogram when no photo, latest book and bio snippet when present. Filters: **Authors** (default — guests & panelists), मराठी / हिंदी / English (authors only), **All voices** (adds moderator-only speakers, tagged "Moderator"). All cards visible — no "show more".
-3. **Interactive Schedule:** tabs Day 1 / Day 2 / Day 3 (with dates) plus "To be scheduled" while sessions lack a day. Day 1 is the evening opening (from 3:45 PM); Days 2–3 run 10 AM to evening. Readings, performances, breaks, ceremonies and empty slots appear as slim haldi bands (`InterludeRow.tsx`) between the session cards; stage filter appears once a day has more than one venue. Every session shows a `[मराठी]` / `[हिंदी]` / `[English]` tag, participants with portraits, and opens a details dialog with speaker bios.
+2. **"Tridhara" Lineup Grid:** reads `getLineup()`, ordered by importance (`order` in speaker frontmatter — Dr Vinay Sahasrabuddhe, Shanta Gokhale, Swanand Kirkire, Devdutt Pattanaik, … as requested 9 Nov), then unranked authors, then unranked moderators. Arched black-and-white portraits (colour on hover) on cards that cycle rani / jamun / peacock / marigold, monogram when no photo, latest book and bio snippet when present. Filters: **Authors** (default — guests & panelists), मराठी / हिंदी / English (authors only), **All voices** (adds moderator-only speakers, tagged "Moderator", in the same importance order). All cards visible — no "show more".
+3. **Interactive Schedule:** tabs Day 1 / Day 2 / Day 3 (with dates) plus "To be scheduled" while sessions lack a day. Day 1 has the Rangmanch competition rounds (11 AM–1 PM) and the evening opening (from 3:45 PM); Days 2–3 run 10 AM to evening. Readings, performances, breaks, ceremonies and empty slots appear as slim haldi bands (`InterludeRow.tsx`) between the session cards; stage filter appears once a day has more than one venue. Every session shows a `[मराठी]` / `[हिंदी]` / `[English]` tag, participants with portraits, and opens a details dialog with speaker bios.
 4. **Venues:** venue card (`SITE.venue`) + "Inside the venue" (`SITE.spaces`: Exhibition Galleries — hall next to the lifts, 3rd floor; Literary Sessions — Mini Auditorium, 3rd floor), plus stage names once sessions use them. The session dialog falls back to `SITE.venue` when a session has no stage.
 5. **Registration:** free-entry message, "Register for Free" button once `SITE.registrationUrl` is set ("Registration opens soon" until then), contact email.
 

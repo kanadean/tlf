@@ -1,5 +1,6 @@
 ---
 name: "Shanta Gokhale"
+order: 2
 language: ["english"]
 photo: "/images/speakers/shanta-gokhale.jpg"
 books: [] # TBD

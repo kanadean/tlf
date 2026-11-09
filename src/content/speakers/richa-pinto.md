@@ -1,5 +1,6 @@
 ---
 name: "Richa Pinto"
+order: 16
 language: ["english"]
 photo: "/images/speakers/richa-pinto.jpg"
 books: [] # TBD

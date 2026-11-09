@@ -5,8 +5,8 @@ timeStart: "10:50 AM"
 timeEnd: "11:35 AM"
 primaryLanguage: "english"
 speakers: ["naresh-fernandes"]
-panelists: ["richa-pinto"]
-moderators: ["vinaya-deshpande-pandit"]
+panelists: ["vinaya-deshpande-pandit", "richa-pinto"]
+moderators: ["harshad-divekar"]
 ---
 
 <!-- Session summary TBD. -->

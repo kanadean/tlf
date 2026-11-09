@@ -2,7 +2,7 @@
 // Kept separate from markdown.ts so client bundles don't pull in node:fs.
 
 export const SPEAKER_LANGUAGES = ["marathi", "hindi", "english"] as const;
-export const SESSION_LANGUAGES = [...SPEAKER_LANGUAGES, "multilingual"] as const;
+export const SESSION_LANGUAGES = [...SPEAKER_LANGUAGES, "hinglish", "multilingual"] as const;
 
 export type SpeakerLanguage = (typeof SPEAKER_LANGUAGES)[number];
 export type SessionLanguage = (typeof SESSION_LANGUAGES)[number];
@@ -12,6 +12,7 @@ export const LANGUAGE_META: Record<SessionLanguage, { label: string; lang: strin
   marathi: { label: "मराठी", lang: "mr" },
   hindi: { label: "हिंदी", lang: "hi" },
   english: { label: "English", lang: "en" },
+  hinglish: { label: "Hinglish", lang: "en" },
   multilingual: { label: "Multilingual", lang: "en" },
 };
 

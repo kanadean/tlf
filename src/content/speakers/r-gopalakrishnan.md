@@ -1,5 +1,6 @@
 ---
 name: "R. Gopalakrishnan"
+order: 7
 language: ["english"]
 photo: "/images/speakers/r-gopalakrishnan.jpg"
 books: [] # TBD
