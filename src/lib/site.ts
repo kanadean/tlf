@@ -38,8 +38,8 @@ export const SITE = {
     {
       name: "Rotary Club of Thane Hills",
       logo: "/images/logos/rotary-club-of-thane-hills.png",
-      width: 800,
-      height: 273,
+      width: 1015,
+      height: 293,
       href: "https://rcthanehills.rotaryindia.org/",
     },
     {
@@ -49,9 +49,32 @@ export const SITE = {
       height: 132,
       href: "https://www.ncpamumbai.com/",
     },
+    {
+      name: "Page to Stage",
+      logo: "/images/logos/page-to-stage.png",
+      width: 600,
+      height: 378,
+      href: null,
+    },
   ],
+  /** Shown under "Supported by", each captioned with its role. */
   sponsors: [
-    { name: "Fortress", logo: "/images/logos/fortress.png", width: 840, height: 190, href: null },
+    {
+      name: "Crossword",
+      role: "Book Partner",
+      logo: "/images/logos/crossword.jpg",
+      width: 800,
+      height: 238,
+      href: "https://www.crossword.in/",
+    },
+    {
+      name: "Fortress",
+      role: "Sponsor",
+      logo: "/images/logos/fortress.png",
+      width: 840,
+      height: 190,
+      href: null,
+    },
   ],
 } as const;
 

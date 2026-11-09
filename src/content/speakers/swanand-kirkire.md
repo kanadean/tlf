@@ -1,5 +1,6 @@
 ---
 name: "Swanand Kirkire"
+order: 3
 nameNative: "स्वानंद किरकिरे"
 language: ["hindi"]
 photo: "/images/speakers/swanand-kirkire.jpg"

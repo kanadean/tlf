@@ -1,5 +1,6 @@
 ---
 name: "Ashok Kothawale"
+order: 5
 nameNative: "अशोक कोठावळे"
 language: ["marathi"]
 photo: "/images/speakers/ashok-kothawale.jpg"

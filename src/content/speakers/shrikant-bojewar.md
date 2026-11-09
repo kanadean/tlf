@@ -1,5 +1,6 @@
 ---
 name: "Shrikant Bojewar"
+order: 11
 nameNative: "श्रीकांत बोजेवार"
 language: ["marathi"]
 photo: "/images/speakers/shrikant-bojewar.jpg"

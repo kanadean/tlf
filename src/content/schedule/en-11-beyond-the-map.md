@@ -5,8 +5,8 @@ timeStart: "12:40 PM"
 timeEnd: "1:25 PM"
 primaryLanguage: "english"
 speakers: ["ketan-joshi", "bharati-joshi"]
+moderators: ["sanjay-koyande"]
 # panelists: co-travellers / friends — names TBD
-moderatorTBA: true
 ---
 
 <!-- Session summary TBD. -->

@@ -1,5 +1,6 @@
 ---
 name: "Nitin Gokhale"
+order: 8
 language: ["english"]
 photo: "/images/speakers/nitin-gokhale.jpg"
 books: [] # TBD

@@ -1,5 +1,6 @@
 ---
 name: "Devdutt Pattanaik"
+order: 4
 language: ["english"]
 photo: "/images/speakers/devdutt-pattanaik.jpg"
 books: [] # TBD

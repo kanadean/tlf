@@ -1,5 +1,6 @@
 ---
 name: "Ayaz Memon"
+order: 10
 language: ["english"]
 photo: "/images/speakers/ayaz-memon.jpg"
 books: [] # TBD

@@ -7,7 +7,7 @@ import { AuthorCard } from "./AuthorCard";
 
 /**
  * "authors" (default) and the language filters show guests and panelists only;
- * "all" adds the moderators after them.
+ * "all" adds the moderators, in lineup (importance) order.
  */
 type Filter = "authors" | SpeakerLanguage | "all";
 
@@ -17,7 +17,6 @@ export function LineupGrid({ speakers }: Props) {
   const [filter, setFilter] = useState<Filter>("authors");
 
   const authors = speakers.filter((s) => !s.moderatorOnly);
-  const moderators = speakers.filter((s) => s.moderatorOnly);
   const byLanguage = (language: SpeakerLanguage) =>
     authors.filter((s) => s.language.includes(language));
 
@@ -25,7 +24,7 @@ export function LineupGrid({ speakers }: Props) {
     filter === "authors"
       ? authors
       : filter === "all"
-        ? [...authors, ...moderators]
+        ? speakers // already in lineup order, moderators included
         : byLanguage(filter);
 
   const options: { value: Filter; label: string; lang: string; count: number }[] = [

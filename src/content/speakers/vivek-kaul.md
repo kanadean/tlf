@@ -1,5 +1,6 @@
 ---
 name: "Vivek Kaul"
+order: 17
 language: ["english"]
 photo: "/images/speakers/vivek-kaul.jpg"
 books: [] # TBD

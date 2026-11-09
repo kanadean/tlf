@@ -5,7 +5,7 @@ timeStart: "4:30 PM"
 timeEnd: "5:15 PM"
 primaryLanguage: "marathi"
 speakers: ["vinay-sahasrabuddhe"]
-moderators: ["makarand-mule"]
+moderatorTBA: true
 ---
 
 <!-- Session summary TBD. -->

@@ -7,7 +7,8 @@ designation: "Secretary, ..." # optional — role or affiliation
 language: ["marathi"] # one or more of: marathi, hindi, english
 genre: "Journalism & Non-fiction" # optional
 photo: "/images/speakers/<slug>.jpg" # optional — must exist under /public
-featured: false # featured speakers sort first in the lineup
+order: 5 # optional — position in the lineup by importance (1 = first); unranked follow
+featured: false # featured speakers sort first among the unranked
 books: # optional — most recent first; the first is shown as "latest book"
   - "Title (Year)"
 sources: # URLs the bio was verified against (not displayed)

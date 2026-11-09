@@ -1,6 +1,6 @@
 ---
-name: "Makarand Mule"
-nameNative: "मकरंद मुळे"
+name: "Dipti Bhagwat"
+nameNative: "दिप्ती भागवत"
 language: ["marathi"]
 # photo: TBD
 books: [] # TBD

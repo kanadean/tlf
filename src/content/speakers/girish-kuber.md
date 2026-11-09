@@ -1,5 +1,6 @@
 ---
 name: "Girish Kuber"
+order: 6
 nameNative: "गिरीश कुबेर"
 language: ["marathi"]
 photo: "/images/speakers/girish-kuber.jpg"

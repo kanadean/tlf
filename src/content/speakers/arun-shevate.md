@@ -1,5 +1,6 @@
 ---
 name: "Arun Shevate"
+order: 15
 nameNative: "अरुण शेवते"
 language: ["marathi"]
 photo: "/images/speakers/arun-shevate.jpg"

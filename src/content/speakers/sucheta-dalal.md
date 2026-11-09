@@ -1,5 +1,6 @@
 ---
 name: "Sucheta Dalal"
+order: 12
 language: ["english"]
 photo: "/images/speakers/sucheta-dalal.jpg"
 books: [] # TBD
