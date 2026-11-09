@@ -1,7 +1,15 @@
 import Image from "next/image";
 import { SITE } from "@/lib/site";
 
-type Logo = { name: string; logo: string; width: number; height: number; href: string | null };
+type Logo = {
+  name: string;
+  /** Optional caption, e.g. "Book Partner". */
+  role?: string;
+  logo: string;
+  width: number;
+  height: number;
+  href: string | null;
+};
 
 // Rendered height (sm:h-12); intrinsic size is scaled to match so srcset stays small
 const LOGO_HEIGHT = 48;
@@ -12,7 +20,7 @@ function LogoRow({ title, logos, note }: { title: string; logos: readonly Logo[]
       <h2 className="font-sans text-sm font-bold tracking-[0.2em] text-marigold uppercase">
         {title}
       </h2>
-      <ul className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-5 rounded-2xl bg-white px-6 py-5">
+      <ul className="mt-4 flex flex-wrap items-start gap-x-6 gap-y-5 rounded-2xl bg-white px-5 py-5">
         {logos.map((l) => {
           const img = (
             <Image
@@ -25,13 +33,20 @@ function LogoRow({ title, logos, note }: { title: string; logos: readonly Logo[]
           );
           return (
             <li key={l.name}>
-              {l.href ? (
-                <a href={l.href} target="_blank" rel="noopener noreferrer">
-                  {img}
-                </a>
-              ) : (
-                img
-              )}
+              <figure>
+                {l.href ? (
+                  <a href={l.href} target="_blank" rel="noopener noreferrer">
+                    {img}
+                  </a>
+                ) : (
+                  img
+                )}
+                {l.role && (
+                  <figcaption className="mt-2 text-xs font-bold tracking-[0.15em] text-ink-muted uppercase">
+                    {l.role}
+                  </figcaption>
+                )}
+              </figure>
             </li>
           );
         })}
