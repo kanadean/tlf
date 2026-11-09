@@ -72,17 +72,28 @@ export function SiteFooter() {
           </div>
 
           <div className="mt-14 flex flex-col gap-6 border-t border-white/15 pt-8 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-md">
-              <p className="font-display text-2xl font-bold">
-                {SITE.name} <span className="text-marigold">{SITE.year}</span>
-              </p>
-              <p className="mt-2 text-sm text-lilac">{SITE.tagline}</p>
-              <a
-                href={`mailto:${SITE.email}`}
-                className="mt-3 inline-block text-sm underline underline-offset-4 hover:text-marigold"
-              >
-                {SITE.email}
-              </a>
+            <div className="flex max-w-xl items-center gap-5 sm:gap-6">
+              {/* Festival logo beside its name, on a cream disc so its grey ring shows on jamun.
+                  Decorative, as the name is right next to it. */}
+              <Image
+                src="/images/logos/tlf-logo.png"
+                alt=""
+                width={128}
+                height={128}
+                className="size-24 shrink-0 rounded-full bg-cream p-1 ring-4 ring-marigold sm:size-28"
+              />
+              <div>
+                <p className="font-display text-2xl font-bold">
+                  {SITE.name} <span className="text-marigold">{SITE.year}</span>
+                </p>
+                <p className="mt-2 text-sm text-lilac">{SITE.tagline}</p>
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="mt-3 inline-block text-sm underline underline-offset-4 hover:text-marigold"
+                >
+                  {SITE.email}
+                </a>
+              </div>
             </div>
 
             <nav aria-label="Social media">

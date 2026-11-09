@@ -100,7 +100,7 @@ Non-talk items need only `kind`, `title`, `day` and times; their body is shown i
 
 ### Site-wide
 - **Header** (`SiteHeader.tsx`): TLF logo (on a cream disc) + "Thane *Literature* Festival" on jamun-deep. Primary navigation: Lineup, Schedule, Competitions, Venues, About, **TLF-2025** (the previous edition's archived site, https://tlf2025.thanelitfest.in, opened in a new tab — `external: true` in `NAV_LINKS`), and **Register** as a rani pill button (kept last in `NAV_LINKS`). Home sections are linked as `/#id` so links work from every page. Full menu from `lg` (1024px); hamburger menu below.
-- **Footer** (`SiteFooter.tsx`): "Presented by" logos (Rotary Club of Thane Hills, NCPA, Page to Stage); "Supported by" logos captioned with their role (`SITE.sponsors[].role`: Crossword — Book Partner, Fortress — Sponsor; more to come). All logos render at the same height — crop transparent padding from logo files (the Rotary logo was cropped so it matches NCPA), social links (Instagram, Facebook, X, LinkedIn), contact email.
+- **Footer** (`SiteFooter.tsx`): "Presented by" logos (Rotary Club of Thane Hills, NCPA, Page to Stage); "Supported by" logos captioned with their role (`SITE.sponsors[].role`: Crossword — Book Partner, Fortress — Sponsor; more to come). All logos render at the same height — crop transparent padding from logo files (the Rotary logo was cropped so it matches NCPA), social links (Instagram, Facebook, X, LinkedIn), contact email; a prominent TLF logo (size-24/28) sits beside the "Thane Literature Festival 2026" block (on a cream disc with a marigold ring on the vibrant look).
 - This is not a multi-lingual website — content is English except the Marathi and Hindi sessions themselves.
 
 ### Home page (`/`), top to bottom
