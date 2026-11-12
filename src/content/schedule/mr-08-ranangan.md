@@ -1,11 +1,12 @@
 ---
 title: "रणांगण"
 day: 3
-timeStart: "6:00 PM"
+timeStart: "6:15 PM"
+timeEnd: "7:15 PM"
 primaryLanguage: "marathi"
 speakers: ["siddharth-deshpande"]
 moderators: ["dipti-bhagwat"]
-# The sheet lists this as a "Performance"; time cell reads 0.25 (taken as 6:00 PM). End time: TBD
+# The sheet lists this as a "Performance".
 ---
 
 <!-- Session summary TBD. -->

@@ -5,7 +5,6 @@ timeStart: "6:15 PM"
 timeEnd: "7:15 PM"
 primaryLanguage: "hindi"
 speakers: ["swanand-kirkire"]
-moderatorTBA: true
 ---
 
 <!-- Session summary TBD. -->

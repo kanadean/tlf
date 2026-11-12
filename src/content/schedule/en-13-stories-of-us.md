@@ -5,8 +5,7 @@ timeStart: "12:45 PM"
 timeEnd: "1:30 PM"
 primaryLanguage: "english"
 speakers: ["abdullah-khan", "arti-dwarkadas", "sunita-oak"]
-moderatorTBA: true
-# moderator: not listed
+moderators: ["riddhi-doshi"]
 ---
 
 <!-- Session summary TBD. -->

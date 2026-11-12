@@ -2,7 +2,7 @@
 name: "Dr Yogendra Jawadekar"
 nameNative: "डॉ. योगेंद्र जावडेकर"
 language: ["marathi"]
-# photo: TBD
+photo: "/images/speakers/yogendra-jawadekar.jpg"
 books: [] # TBD
 sources: [] # add URLs used to verify the bio
 ---
