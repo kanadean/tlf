@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function CompetitionsPage() {
   return (
     <main id="main" className="flex-1">
-      <header className="px-4 pt-16 pb-12 text-center sm:px-8 sm:pt-24">
+      <header className="bg-haldi px-4 pt-16 pb-12 text-center sm:px-8 sm:pt-24">
         <h1 className="text-5xl sm:text-7xl">
           <em className="text-sindoor">Competitions</em>
         </h1>
@@ -28,7 +28,7 @@ export default function CompetitionsPage() {
               <li key={c.slug}>
                 <a
                   href={`#${c.slug}`}
-                  className="inline-block border border-rule px-4 py-1.5 text-sm transition-colors hover:border-sindoor hover:text-sindoor"
+                  className="inline-block border border-peacock/40 bg-paper px-4 py-1.5 text-sm text-peacock transition-colors hover:border-sindoor hover:text-sindoor"
                 >
                   {c.title}
                 </a>
@@ -44,7 +44,7 @@ export default function CompetitionsPage() {
         ))}
       </div>
 
-      <section aria-label="Please note" className="bg-parchment px-4 py-14 sm:px-8">
+      <section aria-label="Please note" className="bg-blush px-4 py-14 sm:px-8">
         <p className="mx-auto max-w-2xl text-center font-display text-xl italic">
           {COMPETITION_NOTE}
         </p>

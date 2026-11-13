@@ -18,7 +18,7 @@ export default function Home() {
       <section
         id="lineup"
         aria-labelledby="lineup-title"
-        className="scroll-mt-20 bg-parchment px-4 py-20 sm:px-8 sm:py-28"
+        className="scroll-mt-20 bg-blush px-4 py-20 sm:px-8 sm:py-28"
       >
         <div className="mx-auto max-w-6xl">
           <SectionHeading
@@ -39,7 +39,7 @@ export default function Home() {
       <section
         id="schedule"
         aria-labelledby="schedule-title"
-        className="scroll-mt-20 px-4 py-20 sm:px-8 sm:py-28"
+        className="scroll-mt-20 bg-teal-soft px-4 py-20 sm:px-8 sm:py-28"
       >
         <div className="mx-auto max-w-4xl">
           <SectionHeading id="schedule-title" title="The Programme">

@@ -78,6 +78,7 @@ Non-talk items need only `kind`, `title`, `day` and times; their body is shown i
 ## Design Identity & Aesthetic Guardrails
 - **Core Vibe:** Elegant, intellectual, celebratory, and deeply rooted in Thane's historic literary culture (evoking Gadkari Rangayatan, Thane Marathi Granth Sangrahalay, Kashinath Ghanekar Natyagruha etc.).
 - **Anti-AI Slop Rule:** Strictly no modern corporate tech aesthetics, generic neon blobs, or abstract 3D shapes. Lean into editorial, print-inspired design layouts that resemble literary journals, book covers, and vintage typography.
+- **Look 3 (branch `look-3`, from the clean look `hero-motion`):** the same editorial typography, frames, fleurons and motion, with more colour but still clean — whole sections on soft grounds (`blush` #F8E7E3, `haldi` #FAEFD4, `teal-soft` #E2EEEB; home: hero board haldi, lineup blush, schedule teal, venues haldi; About: header haldi, mission blush, history teal, team haldi), a third accent `peacock` #17595C (AA on every ground), a three-colour `tri-rule` (sindoor · gold · peacock) under the header and above the footer, and language colours shared by author-card top edges and session chips (Marathi sindoor, Hindi peacock, English/Hinglish gold). No gradients or blobs; colour stays flat and in measured places.
 - **No "Chapter I / II…" labels** above section headings.
 - **Imagery:** the user supplies photos (e.g. Gadkari Rangayatan). Do not add third-party/stock photos that need on-page credits.
 - **Color Palette** (Tailwind names in brackets):
@@ -122,7 +123,7 @@ Non-talk items need only `kind`, `title`, `day` and times; their body is shown i
 2. **Language Spacing:** Verify that layout spacing accommodates both English and Devanagari characters gracefully before finalising any UI container dimensions.
 3. **Component Separation:** Fully isolated, reusable components in `src/components/` (e.g. `AuthorCard.tsx`, `ScheduleTabs.tsx`, `SessionModal.tsx`). Client components import from `@/lib/languages`, never values from `@/lib/markdown` (types only).
 4. **Pre-Review Check:** Before asking the user for feedback, verify contrast ratios for text on cream backgrounds (WCAG AA ≥ 4.5:1), ensure mobile viewport padding (`px-4` minimum) and no horizontal scroll at 390px, and run `npm run content:check`, `lint`, `typecheck` and `build`.
-5. **Build Rules:** Build the website to run locally first, later it needs to be hosted on Vercel (the project is not yet a git repository).
+5. **Build Rules:** Build the website to run locally first, later it needs to be hosted on Vercel. Branches: `hero-motion` (clean look), `look-2` (vibrant), `look-3` (clean + colour); content changes apply to all three.
 
 ## Reference
 This website will be live at https://www.thanelitfest.in/ The website at the address currently is for last years edition. It can be used for reference as specifics are changing this year, but attributions such as sponsors, credits, about us page etc. remain the same.

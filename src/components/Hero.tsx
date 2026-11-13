@@ -96,9 +96,12 @@ export function Hero() {
   ];
 
   return (
-    <section aria-labelledby="hero-title" className="px-4 pt-6 pb-16 sm:px-8 sm:pt-10 sm:pb-24">
+    <section
+      aria-labelledby="hero-title"
+      className="bg-haldi px-4 pt-6 pb-16 sm:px-8 sm:pt-10 sm:pb-24"
+    >
       {/* Double-ruled frame, like the border of a printed title page */}
-      <div className="mx-auto max-w-6xl border border-ink p-1.5">
+      <div className="mx-auto max-w-6xl border border-ink bg-paper p-1.5 shadow-[8px_8px_0_var(--color-blush)]">
         <div className="relative border border-ink/40 px-5 py-10 sm:px-12 sm:py-16">
           <Keywords words={BESIDE_TITLE} className="top-[24%] right-[4%] h-[34%] w-[17%]" />
           <Keywords words={BESIDE_TAGLINE} className="top-[57%] right-[4%] h-[13%] w-[34%]" />
@@ -120,7 +123,7 @@ export function Hero() {
                 ठाणे
               </span>
               <span className="pb-[0.12em] font-display text-[clamp(2.75rem,9vw,6.5rem)] leading-[0.95]">
-                <span className="block text-[0.42em] tracking-[0.2em] text-ink-muted uppercase not-italic motion-safe:animate-slide-in motion-safe:[animation-delay:350ms]">
+                <span className="block text-[0.42em] tracking-[0.2em] text-peacock uppercase not-italic motion-safe:animate-slide-in motion-safe:[animation-delay:350ms]">
                   Thane
                 </span>
                 <span className="block italic motion-safe:animate-rise-in motion-safe:[animation-delay:750ms]">

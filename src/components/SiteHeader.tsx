@@ -34,7 +34,7 @@ export function SiteHeader() {
   const current = (href: string) => (href === pathname ? "page" : undefined);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-rule bg-paper/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 bg-paper/95 backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-8">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <Image
@@ -79,6 +79,8 @@ export function SiteHeader() {
           )}
         </button>
       </div>
+
+      <div className="tri-rule" aria-hidden="true" />
 
       <nav
         id="mobile-nav"

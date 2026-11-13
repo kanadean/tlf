@@ -55,7 +55,7 @@ function Member({ member, size }: { member: TeamMember; size: "lg" | "sm" }) {
       <SpeakerPortrait
         speaker={member}
         sizes={large ? "160px" : "80px"}
-        className={`rounded-full ring-1 ring-rule ring-offset-4 ring-offset-parchment ${
+        className={`rounded-full ring-1 ring-rule ring-offset-4 ring-offset-haldi ${
           large ? "size-28 sm:size-36" : "size-20"
         }`}
       />

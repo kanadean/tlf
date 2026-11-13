@@ -11,6 +11,12 @@
   --color-gold-deep: #7a5f12; /* gold tone that passes AA as text on paper */
   --color-rule: #e6dccb;
 
+  /* Look 3: soft section grounds and a third accent (all text pairs pass AA) */
+  --color-blush: #f8e7e3; /* soft sindoor */
+  --color-haldi: #faefd4; /* soft turmeric */
+  --color-teal-soft: #e2eeeb; /* pale peacock */
+  --color-peacock: #17595c; /* deep peacock accent, AA on every ground */
+
   /* Font variables are set by next/font in layout.tsx */
   --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-serif: var(--font-lora), Lora, Georgia, serif;
@@ -152,4 +158,15 @@
     list-style: disc;
     padding-left: 1.25em;
   }
+}
+
+/* Look 3: a thin rule of the three accents, like the edge of a printed programme */
+@utility tri-rule {
+  height: 6px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-sindoor) 0 2px,
+    var(--color-gold) 2px 4px,
+    var(--color-peacock) 4px 6px
+  );
 }

@@ -4,12 +4,21 @@ import { SpeakerPortrait } from "./SpeakerPortrait";
 
 type Props = { speaker: LineupSpeaker };
 
+// Look 3: each card's top edge carries the colour of the speaker's first language
+const LANGUAGE_EDGE = {
+  marathi: "border-t-sindoor",
+  hindi: "border-t-peacock",
+  english: "border-t-gold",
+};
+
 export function AuthorCard({ speaker }: Props) {
   const latestBook = speaker.books[0];
   const subtitle = speaker.designation ?? speaker.genre;
 
   return (
-    <article className="group flex h-full flex-col border border-rule bg-paper p-3 transition-colors hover:border-sindoor/40 sm:p-4">
+    <article
+      className={`group flex h-full flex-col border border-t-4 border-rule bg-paper p-3 transition-colors hover:border-sindoor/40 sm:p-4 ${LANGUAGE_EDGE[speaker.language[0]]}`}
+    >
       <SpeakerPortrait
         speaker={speaker}
         sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"

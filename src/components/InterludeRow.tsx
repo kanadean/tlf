@@ -10,7 +10,7 @@ type Props = { item: ResolvedSession };
  */
 export function InterludeRow({ item }: Props) {
   return (
-    <div className="grid gap-x-8 gap-y-1 border-b border-rule bg-parchment/60 py-3 sm:grid-cols-[8rem_1fr] sm:px-3">
+    <div className="grid gap-x-8 gap-y-1 border-b border-rule bg-paper/70 py-3 sm:grid-cols-[8rem_1fr] sm:px-3">
       <p className="font-display text-base text-ink-muted">
         <TimeRange item={item} />
       </p>

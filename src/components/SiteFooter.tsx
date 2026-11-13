@@ -56,63 +56,66 @@ function LogoRow({ title, logos, note }: { title: string; logos: readonly Logo[]
 
 export function SiteFooter() {
   return (
-    <footer className="border-t-4 border-double border-ink bg-parchment px-4 pt-16 pb-10 sm:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid gap-12 md:grid-cols-2">
-          <LogoRow title="Presented by" logos={SITE.organisers} />
-          <LogoRow
-            title="Supported by"
-            logos={SITE.sponsors}
-            note="More sponsors to be announced."
-          />
-        </div>
-
-        <div className="mt-14 flex flex-col gap-6 border-t border-rule pt-8 md:flex-row md:items-end md:justify-between">
-          <div className="flex max-w-xl items-center gap-5 sm:gap-6">
-            {/* Festival logo beside its name; decorative, as the name is right next to it */}
-            <Image
-              src="/images/logos/tlf-logo.png"
-              alt=""
-              width={128}
-              height={128}
-              className="size-24 shrink-0 sm:size-28"
+    <footer className="bg-parchment">
+      <div className="tri-rule" aria-hidden="true" />
+      <div className="px-4 pt-16 pb-10 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-12 md:grid-cols-2">
+            <LogoRow title="Presented by" logos={SITE.organisers} />
+            <LogoRow
+              title="Supported by"
+              logos={SITE.sponsors}
+              note="More sponsors to be announced."
             />
-            <div>
-              <p className="font-display text-2xl">
-                {SITE.name} <span className="text-sindoor">{SITE.year}</span>
-              </p>
-              <p className="mt-2 text-sm text-ink-muted">{SITE.tagline}</p>
-              <a
-                href={`mailto:${SITE.email}`}
-                className="mt-3 inline-block text-sm underline underline-offset-4 hover:text-sindoor"
-              >
-                {SITE.email}
-              </a>
-            </div>
           </div>
 
-          <nav aria-label="Social media">
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm tracking-[0.2em] uppercase">
-              {SITE.social.map((s) => (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-sindoor"
-                  >
-                    {s.label}
-                    <span className="sr-only"> (opens in a new tab)</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+          <div className="mt-14 flex flex-col gap-6 border-t border-rule pt-8 md:flex-row md:items-end md:justify-between">
+            <div className="flex max-w-xl items-center gap-5 sm:gap-6">
+              {/* Festival logo beside its name; decorative, as the name is right next to it */}
+              <Image
+                src="/images/logos/tlf-logo.png"
+                alt=""
+                width={128}
+                height={128}
+                className="size-24 shrink-0 sm:size-28"
+              />
+              <div>
+                <p className="font-display text-2xl">
+                  {SITE.name} <span className="text-sindoor">{SITE.year}</span>
+                </p>
+                <p className="mt-2 text-sm text-ink-muted">{SITE.tagline}</p>
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="mt-3 inline-block text-sm underline underline-offset-4 hover:text-sindoor"
+                >
+                  {SITE.email}
+                </a>
+              </div>
+            </div>
 
-        <p className="mt-10 text-xs text-ink-muted">
-          © {SITE.year} {SITE.name}. Organised by Rotary Club of Thane Hills and NCPA Mumbai.
-        </p>
+            <nav aria-label="Social media">
+              <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm tracking-[0.2em] uppercase">
+                {SITE.social.map((s) => (
+                  <li key={s.label}>
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-sindoor"
+                    >
+                      {s.label}
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          <p className="mt-10 text-xs text-ink-muted">
+            © {SITE.year} {SITE.name}. Organised by Rotary Club of Thane Hills and NCPA Mumbai.
+          </p>
+        </div>
       </div>
     </footer>
   );

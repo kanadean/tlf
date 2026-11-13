@@ -33,7 +33,7 @@ const HISTORY = [
 export default function AboutPage() {
   return (
     <main id="main" className="flex-1">
-      <header className="px-4 pt-16 pb-12 text-center sm:px-8 sm:pt-24">
+      <header className="bg-haldi px-4 pt-16 pb-12 text-center sm:px-8 sm:pt-24">
         <h1 className="text-5xl sm:text-7xl">
           About the <em className="text-sindoor">Festival</em>
         </h1>
@@ -47,7 +47,7 @@ export default function AboutPage() {
         </p>
       </header>
 
-      <section aria-label="Mission and vision" className="bg-parchment px-4 py-20 sm:px-8 sm:py-24">
+      <section aria-label="Mission and vision" className="bg-blush px-4 py-20 sm:px-8 sm:py-24">
         <div className="mx-auto grid max-w-5xl gap-px border border-rule bg-rule md:grid-cols-2">
           {[
             {
@@ -69,7 +69,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section aria-labelledby="history-title" className="px-4 py-20 sm:px-8 sm:py-28">
+      <section aria-labelledby="history-title" className="bg-teal-soft px-4 py-20 sm:px-8 sm:py-28">
         <div className="mx-auto max-w-3xl">
           <SectionHeading id="history-title" title="Festival History">
             <p>The journey of Thane Literature Festival</p>
@@ -90,7 +90,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="bg-parchment">
+      <div className="bg-haldi">
         <TeamSection />
       </div>
     </main>

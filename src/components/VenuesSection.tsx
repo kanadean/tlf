@@ -10,7 +10,7 @@ export function VenuesSection({ venues }: Props) {
     <section
       aria-labelledby="venues-title"
       id="venues"
-      className="scroll-mt-20 px-4 py-20 sm:px-8 sm:py-28"
+      className="scroll-mt-20 bg-haldi px-4 py-20 sm:px-8 sm:py-28"
     >
       <div className="mx-auto max-w-4xl">
         <SectionHeading id="venues-title" title="Venues" />
