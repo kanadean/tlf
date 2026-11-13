@@ -113,7 +113,7 @@ export function Hero({ sessionCount, speakerCount }: Props) {
             style={at(800)}
             className="mt-6 max-w-md text-lg font-medium text-jamun motion-safe:animate-rise-in sm:text-xl"
           >
-            Three days, three languages, one city&rsquo;s love of the written word.
+            Three days, three languages, one city&rsquo;s love for literature.
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-2">
