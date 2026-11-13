@@ -147,8 +147,8 @@ export function Hero() {
             <span lang="hi" className="text-sindoor">
               हिंदी
             </span>{" "}
-            and <span className="text-sindoor">English</span> — one city&rsquo;s love of the written
-            word.
+            and <span className="text-sindoor">English</span> — one city&rsquo;s love for
+            literature.
           </p>
 
           <dl className="mt-10 grid gap-6 border-t border-rule pt-6 sm:grid-cols-3">

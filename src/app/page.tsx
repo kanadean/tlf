@@ -31,7 +31,8 @@ export default function Home() {
               Marathi, Hindi and English.
             </p>
           </SectionHeading>
-          <LineupGrid speakers={speakers} />
+          {/* Speakers without a photo are left out of the grid until one arrives */}
+          <LineupGrid speakers={speakers.filter((s) => s.photo)} />
         </div>
       </section>
 

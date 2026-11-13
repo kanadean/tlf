@@ -19,6 +19,8 @@ const joinNames = (people: { name: string }[]) => {
  */
 export function SessionCard({ session, onOpen }: Props) {
   const people = [...session.speakers, ...session.panelists, ...session.moderators];
+  // Thumbnails only for people with a photo; everyone is still named above
+  const withPhotos = people.filter((p) => p.photo);
   // Unscheduled sessions skip the time column rather than repeating "TBA" on every row
   const scheduled = Boolean(session.day);
 
@@ -68,17 +70,19 @@ export function SessionCard({ session, onOpen }: Props) {
 
           <div className="mt-3 flex items-center gap-3">
             <LanguageTag language={session.primaryLanguage} />
-            <ul className="flex -space-x-2" aria-hidden="true">
-              {people.map((person) => (
-                <li key={person.slug}>
-                  <SpeakerPortrait
-                    speaker={person}
-                    sizes="32px"
-                    className="size-8 rounded-full text-[0.4rem] ring-2 ring-paper"
-                  />
-                </li>
-              ))}
-            </ul>
+            {withPhotos.length > 0 && (
+              <ul className="flex -space-x-2" aria-hidden="true">
+                {withPhotos.map((person) => (
+                  <li key={person.slug}>
+                    <SpeakerPortrait
+                      speaker={person}
+                      sizes="32px"
+                      className="size-8 rounded-full text-[0.4rem] ring-2 ring-paper"
+                    />
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
 

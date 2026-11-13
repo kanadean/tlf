@@ -1,6 +1,5 @@
 import { nativeNameLang } from "@/lib/languages";
 import type { LineupSpeaker } from "@/lib/markdown";
-import { LanguageTag } from "./LanguageTag";
 import { SpeakerPortrait } from "./SpeakerPortrait";
 
 type Props = { speaker: LineupSpeaker };
@@ -38,16 +37,13 @@ export function AuthorCard({ speaker }: Props) {
           </p>
         )}
 
-        <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
-          {speaker.language.map((language) => (
-            <LanguageTag key={language} language={language} />
-          ))}
-          {speaker.moderatorOnly && (
+        {speaker.moderatorOnly && (
+          <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
             <span className="inline-flex h-6 items-center bg-parchment px-2 text-xs tracking-wide text-ink-muted italic">
               Moderator
             </span>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </article>
   );

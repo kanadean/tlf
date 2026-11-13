@@ -94,11 +94,13 @@ function ParticipantGroup({ title, people, placeholder }: GroupProps) {
       <ul className="mt-4 space-y-6">
         {people.map((person) => (
           <li key={person.slug} className="group flex gap-4">
-            <SpeakerPortrait
-              speaker={person}
-              sizes="80px"
-              className="aspect-[4/5] w-16 shrink-0 text-[0.6rem] sm:w-20"
-            />
+            {person.photo && (
+              <SpeakerPortrait
+                speaker={person}
+                sizes="80px"
+                className="aspect-[4/5] w-16 shrink-0 text-[0.6rem] sm:w-20"
+              />
+            )}
             <div className="min-w-0">
               <p className="font-display text-xl">{person.name}</p>
               {person.nameNative && (
