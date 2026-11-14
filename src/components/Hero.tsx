@@ -46,7 +46,7 @@ export function Hero() {
             >
               <span
                 lang="mr"
-                className="font-deva-display text-[clamp(5.5rem,22vw,12rem)] leading-[1.15] text-tlf-green motion-safe:animate-ink-in"
+                className="font-deva-display text-[clamp(5.5rem,22vw,12rem)] leading-[1.15] text-sindoor motion-safe:animate-ink-in"
               >
                 ठाणे
               </span>

@@ -43,7 +43,7 @@ export const SITE = {
       width: 1015,
       height: 293,
       href: "https://rcthanehills.rotaryindia.org/",
-      scale: 1.25, // two-line wordmark reads small beside NCPA at the same height
+      scale: 1.375, // two-line wordmark reads small beside NCPA: 125% plus another 10%
     },
     {
       name: "NCPA Mumbai",
@@ -77,6 +77,15 @@ export const SITE = {
       width: 840,
       height: 190,
       href: null,
+    },
+    {
+      name: "WordPinchh",
+      role: "Social Media Partner",
+      logo: "/images/logos/wordpinchh.jpg",
+      width: 600,
+      height: 559,
+      href: null,
+      scale: 1.5, // square tile: needs more height than wide logos to be legible
     },
   ],
 } as const;

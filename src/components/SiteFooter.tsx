@@ -28,7 +28,8 @@ function LogoRow({ title, logos, note }: { title: string; logos: readonly Logo[]
               alt={l.name}
               width={Math.round((l.width / l.height) * LOGO_HEIGHT * (l.scale ?? 1))}
               height={Math.round(LOGO_HEIGHT * (l.scale ?? 1))}
-              className={`w-auto mix-blend-multiply ${l.scale ? "h-[3.125rem] sm:h-[3.75rem]" : "h-10 sm:h-12"}`}
+              style={{ "--s": l.scale ?? 1 } as React.CSSProperties}
+              className="h-[calc(2.5rem*var(--s))] w-auto mix-blend-multiply sm:h-[calc(3rem*var(--s))]"
             />
           );
           return (
@@ -62,7 +63,7 @@ export function SiteFooter() {
       <div className="tri-rule" aria-hidden="true" />
       <div className="px-4 pt-16 pb-10 sm:px-8">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-12 md:grid-cols-2">
+          <div className="grid gap-10">
             <LogoRow title="Presented by" logos={SITE.organisers} />
             <LogoRow
               title="Supported by"
