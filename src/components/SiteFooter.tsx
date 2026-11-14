@@ -63,7 +63,7 @@ export function SiteFooter() {
       <div className="tri-rule" aria-hidden="true" />
       <div className="px-4 pt-16 pb-10 sm:px-8">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-10">
+          <div className="grid gap-12 md:gap-20">
             <LogoRow title="Presented by" logos={SITE.organisers} />
             <LogoRow
               title="Supported by"
