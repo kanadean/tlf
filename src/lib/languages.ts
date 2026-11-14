@@ -21,6 +21,11 @@ export function nativeNameLang(languages: readonly SpeakerLanguage[]): "mr" | "h
   return languages.includes("hindi") && !languages.includes("marathi") ? "hi" : "mr";
 }
 
+/** `lang` for a speaker's free text (e.g. designation): mr/hi only if it contains Devanagari. */
+export function speakerTextLang(text: string, languages: readonly SpeakerLanguage[]) {
+  return /[ऀ-ॿ]/.test(text) ? nativeNameLang(languages) : undefined;
+}
+
 /**
  * `lang` for a piece of text in a session of the given language. Only text that
  * actually contains Devanagari is tagged mr/hi, so English placeholders like

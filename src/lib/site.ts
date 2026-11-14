@@ -6,7 +6,7 @@ export const SITE = {
   shortName: "TLF",
   edition: "Second Edition",
   year: 2026,
-  datesLabel: "4 – 6 December 2026",
+  datesLabel: "4th, 5th and 6th December 2026",
   days: [
     { day: 1, label: "Day 1", date: "Fri, 4 Dec" },
     { day: 2, label: "Day 2", date: "Sat, 5 Dec" },
@@ -20,8 +20,8 @@ export const SITE = {
     { name: "Exhibition Galleries", where: "Hall, next to the lifts, 3rd floor" },
     { name: "Literary Sessions", where: "Mini Auditorium, 3rd floor" },
   ],
-  /** Registration form URL — not yet available. */
-  registrationUrl: null as string | null,
+  /** Registration form (Google Form); set to null to show "Registration opens soon". */
+  registrationUrl: "https://forms.gle/Wa9yXTfcKdbwGygT6" as string | null,
   email: "info@thanelitfest.in",
   tagline:
     "Celebrating the power of words and the magic of storytelling through community, creativity, and literary excellence.",
@@ -31,6 +31,8 @@ export const SITE = {
       label: "Facebook",
       href: "https://www.facebook.com/people/Thane-Literature-Festival/61580959521979/",
     },
+    // Official channel: hosts the 2025 festival livestreams
+    { label: "YouTube", href: "https://www.youtube.com/@ThaneLitFest" },
     { label: "X", href: "https://x.com/thanelitfest" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/rotary-club-of-thane-hills/" },
   ],
@@ -41,6 +43,7 @@ export const SITE = {
       width: 1015,
       height: 293,
       href: "https://rcthanehills.rotaryindia.org/",
+      scale: 1.25, // two-line wordmark reads small beside NCPA at the same height
     },
     {
       name: "NCPA Mumbai",

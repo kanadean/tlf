@@ -1,5 +1,6 @@
 ---
 name: "R. Gopalakrishnan"
+designation: "Former executive director of Tata Sons Ltd and author"
 order: 7
 language: ["english"]
 photo: "/images/speakers/r-gopalakrishnan.jpg"

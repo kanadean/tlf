@@ -1,6 +1,7 @@
 ---
 name: "Pranjana Jambhekar"
 nameNative: "प्रांजना जांभेकर"
+designation: "लेखिका आणि संपादक"
 language: ["marathi"]
 photo: "/images/speakers/pranjana-jambhekar.jpg"
 books: [] # TBD

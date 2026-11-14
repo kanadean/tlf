@@ -1,7 +1,7 @@
 ---
 name: "Dr Meenakshi Patil"
 nameNative: "डॉ मीनाक्षी पाटील"
-designation: "Secretary, Maharashtra Rajya Sahitya ani Sanskruti Mandal"
+designation: "सचिव, महाराष्ट्र राज्य साहित्य आणि संस्कृती मंडळ"
 language: ["marathi"]
 photo: "/images/speakers/meenakshi-patil.jpg"
 books: [] # TBD

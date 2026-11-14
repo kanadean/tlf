@@ -1,6 +1,7 @@
 ---
 name: "Rani Durve"
 nameNative: "राणी दुर्वे"
+designation: "लेखक आणि स्तंभलेखक"
 language: ["marathi"]
 photo: "/images/speakers/rani-durve.jpg"
 books: [] # TBD

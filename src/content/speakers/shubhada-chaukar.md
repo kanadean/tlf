@@ -1,6 +1,7 @@
 ---
 name: "Shubhada Chaukar"
 nameNative: "शुभदा चौकर"
+designation: "पत्रकार, संपादक आणि लेखिका"
 language: ["marathi"]
 photo: "/images/speakers/shubhada-chaukar.jpg"
 books: [] # TBD

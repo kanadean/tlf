@@ -1,6 +1,7 @@
 ---
 name: "Milind Ballal"
 nameNative: "मिलिंद बल्लाळ"
+designation: "संपादक, ठाणे वैभव"
 language: ["marathi"]
 photo: "/images/speakers/milind-ballal.jpg"
 books: [] # TBD

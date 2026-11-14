@@ -1,7 +1,7 @@
 ---
 name: "Dinkar Gangal"
 nameNative: "दिनकर गांगल"
-designation: "Writer, editor and co-founder of Granthali Prakashan"
+designation: "लेखक, संपादक आणि ग्रंथाली प्रकाशन संस्थेचे सह-संस्थापक"
 language: ["marathi"]
 photo: "/images/speakers/dinkar-gangal.jpg"
 books: [] # TBD

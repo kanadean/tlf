@@ -1,5 +1,6 @@
 ---
 name: "Satyendra K. Dwivedi"
+designation: "Former CTO, Mahindra Holidays"
 language: ["english"]
 photo: "/images/speakers/satyendra-dwivedi.jpg"
 books: [] # TBD

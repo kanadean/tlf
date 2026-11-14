@@ -9,7 +9,7 @@ import { AuthorCard } from "./AuthorCard";
  * "authors" (default) and the language filters show guests and panelists only;
  * "all" adds the moderators, in lineup (importance) order.
  */
-type Filter = "authors" | SpeakerLanguage | "all";
+type Filter = "authors" | SpeakerLanguage | "moderators" | "all";
 
 type Props = { speakers: LineupSpeaker[] };
 
@@ -17,6 +17,7 @@ export function LineupGrid({ speakers }: Props) {
   const [filter, setFilter] = useState<Filter>("authors");
 
   const authors = speakers.filter((s) => !s.moderatorOnly);
+  const moderators = speakers.filter((s) => s.moderatorOnly);
   const byLanguage = (language: SpeakerLanguage) =>
     authors.filter((s) => s.language.includes(language));
 
@@ -25,7 +26,9 @@ export function LineupGrid({ speakers }: Props) {
       ? authors
       : filter === "all"
         ? speakers // already in lineup order, moderators included
-        : byLanguage(filter);
+        : filter === "moderators"
+          ? moderators
+          : byLanguage(filter);
 
   const options: { value: Filter; label: string; lang: string; count: number }[] = [
     { value: "authors", label: "Authors", lang: "en", count: authors.length },
@@ -35,6 +38,7 @@ export function LineupGrid({ speakers }: Props) {
       lang: LANGUAGE_META[language].lang,
       count: byLanguage(language).length,
     })),
+    { value: "moderators", label: "Moderators", lang: "en", count: moderators.length },
     { value: "all", label: "All voices", lang: "en", count: speakers.length },
   ];
 
@@ -67,7 +71,12 @@ export function LineupGrid({ speakers }: Props) {
       </div>
 
       <p className="sr-only" aria-live="polite">
-        Showing {visible.length} {filter === "all" ? "speakers and moderators" : "authors"}
+        Showing {visible.length}{" "}
+        {filter === "all"
+          ? "speakers and moderators"
+          : filter === "moderators"
+            ? "moderators"
+            : "authors"}
       </p>
 
       <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">

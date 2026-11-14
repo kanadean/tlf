@@ -1,7 +1,7 @@
 ---
 name: "Dr Sunita Oak"
 language: ["english"]
-# photo: TBD
+photo: "/images/speakers/sunita-oak.jpg"
 books: [] # TBD
 sources: [] # add URLs used to verify the bio
 ---

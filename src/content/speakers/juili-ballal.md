@@ -1,5 +1,6 @@
 ---
 name: "Juili Ballal"
+designation: "An MCA-qualified cricket umpire, commentator and sports presenter"
 language: ["english"]
 photo: "/images/speakers/juili-ballal.jpg"
 books: [] # TBD

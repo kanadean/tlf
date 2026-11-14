@@ -1,4 +1,5 @@
-import { nativeNameLang } from "@/lib/languages";
+import Image from "next/image";
+import { nativeNameLang, speakerTextLang } from "@/lib/languages";
 import type { LineupSpeaker } from "@/lib/markdown";
 import { SpeakerPortrait } from "./SpeakerPortrait";
 
@@ -26,13 +27,30 @@ export function AuthorCard({ speaker }: Props) {
       />
 
       <div className="flex flex-1 flex-col pt-4">
-        <h3 className="text-lg leading-snug sm:text-xl">{speaker.name}</h3>
+        <div className="flex items-start justify-between gap-2">
+          <h3 className="text-lg leading-snug sm:text-xl">{speaker.name}</h3>
+          {/* Festival mark, small, in line with the name */}
+          <Image
+            src="/images/logos/tlf-logo.png"
+            alt=""
+            width={48}
+            height={48}
+            className="mt-0.5 size-6 shrink-0 opacity-90 sm:size-7"
+          />
+        </div>
         {speaker.nameNative && (
           <p lang={nativeNameLang(speaker.language)} className="text-sm text-ink-muted">
             {speaker.nameNative}
           </p>
         )}
-        {subtitle && <p className="mt-1 text-sm leading-snug text-ink-muted italic">{subtitle}</p>}
+        {subtitle && (
+          <p
+            lang={speakerTextLang(subtitle, speaker.language)}
+            className="mt-1 text-sm leading-snug text-ink-muted italic [&:lang(hi)]:not-italic [&:lang(mr)]:not-italic"
+          >
+            {subtitle}
+          </p>
+        )}
 
         {latestBook && (
           <p className="mt-3 text-sm">

@@ -1,7 +1,7 @@
 ---
 name: "Leena Sankhe"
 nameNative: "लिना संखे"
-designation: "Deputy Secretary, Services, General Administration Department, Mantralaya, Mumbai"
+designation: "उपसचिव, सेवा, सामान्य प्रशासन विभाग, मंत्रालय"
 language: ["marathi"]
 photo: "/images/speakers/leena-sankhe.jpg"
 books: [] # TBD

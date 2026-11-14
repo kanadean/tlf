@@ -1,5 +1,6 @@
 ---
 name: "Debashis Basu"
+designation: "CA; award-winning journalist, author"
 language: ["english"]
 photo: "/images/speakers/debashis-basu.jpg"
 books: [] # TBD

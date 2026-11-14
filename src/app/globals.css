@@ -17,6 +17,11 @@
   --color-teal-soft: #e2eeeb; /* pale peacock */
   --color-peacock: #17595c; /* deep peacock accent, AA on every ground */
 
+  /* TLF logo colours (sampled from tlf-logo.png). tlf-gold is too pale for text on paper —
+     use it on tlf-green (10:1) or as a decorative fill. */
+  --color-tlf-green: #0b3a22;
+  --color-tlf-gold: #f0d8a0;
+
   /* Font variables are set by next/font in layout.tsx */
   --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-serif: var(--font-lora), Lora, Georgia, serif;
@@ -75,6 +80,16 @@
     }
   }
   /* Keywords surfacing out of a blur, like words remembered */
+  /* After popping in, keywords sway gently: a small drift (uses `translate`, so it combines
+     with the entrance transform). --sx/--sy set direction and distance per word. */
+  @keyframes sway {
+    from {
+      translate: 0 0;
+    }
+    to {
+      translate: var(--sx, 0) var(--sy, 0);
+    }
+  }
   @keyframes diffuse {
     from {
       opacity: 0;

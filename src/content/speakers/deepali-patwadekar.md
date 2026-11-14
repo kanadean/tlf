@@ -1,5 +1,6 @@
 ---
 name: "Deepali Patwadekar"
+designation: "Author, speaker, artist"
 language: ["english"]
 photo: "/images/speakers/deepali-patwadekar.jpg"
 books: [] # TBD

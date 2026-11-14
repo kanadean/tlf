@@ -1,7 +1,7 @@
 ---
 name: "A. S. Kumar"
 language: ["english"]
-# photo: TBD
+photo: "/images/speakers/a-s-kumar.jpg"
 books: [] # TBD
 sources: [] # add URLs used to verify the bio
 ---

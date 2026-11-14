@@ -1,5 +1,6 @@
 ---
 name: "Nitin Gokhale"
+designation: "Author, thought leader, strategic analyst and veteran journalist"
 order: 8
 language: ["english"]
 photo: "/images/speakers/nitin-gokhale.jpg"

@@ -1,6 +1,7 @@
 ---
 name: "Uttara Mone"
 nameNative: "उत्तरा मोने"
+designation: "सुप्रसिद्ध निवेदिका"
 language: ["marathi"]
 photo: "/images/speakers/uttara-mone.jpg"
 books: [] # TBD

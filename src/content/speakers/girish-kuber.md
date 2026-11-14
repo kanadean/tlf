@@ -2,6 +2,7 @@
 name: "Girish Kuber"
 order: 6
 nameNative: "गिरीश कुबेर"
+designation: "लेखक, संपादक - लोकसत्ता"
 language: ["marathi"]
 photo: "/images/speakers/girish-kuber.jpg"
 books: [] # TBD

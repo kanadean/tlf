@@ -1,5 +1,6 @@
 ---
 name: "Chandresh Narayan"
+designation: "Award-winning cricket author | Commentator | Broadcaster"
 language: ["english"]
 photo: "/images/speakers/chandresh-narayan.jpg"
 books: [] # TBD

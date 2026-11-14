@@ -22,9 +22,12 @@ export function RegistrationSection() {
           {SITE.registrationUrl ? (
             <a
               href={SITE.registrationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-paper px-8 py-4 text-lg text-sindoor shadow-[4px_4px_0_var(--color-gold)] transition hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_var(--color-gold)]"
             >
               Register for Free <ArrowRight className="size-5" aria-hidden="true" />
+              <span className="sr-only"> (opens in a new tab)</span>
             </a>
           ) : (
             <p className="inline-block border border-paper/60 px-8 py-4 font-display text-xl italic">

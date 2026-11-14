@@ -9,6 +9,8 @@ type Logo = {
   width: number;
   height: number;
   href: string | null;
+  /** Optional size multiplier for logos whose artwork reads small, e.g. 1.25. */
+  scale?: number;
 };
 
 // Rendered height (sm:h-12); intrinsic size is scaled to match so srcset stays small
@@ -18,15 +20,15 @@ function LogoRow({ title, logos, note }: { title: string; logos: readonly Logo[]
   return (
     <div>
       <h2 className="text-xs tracking-[0.3em] text-gold-deep uppercase">{title}</h2>
-      <ul className="mt-5 flex flex-wrap items-start gap-x-10 gap-y-6">
+      <ul className="mt-5 flex flex-wrap items-start gap-x-6 gap-y-6">
         {logos.map((l) => {
           const img = (
             <Image
               src={l.logo}
               alt={l.name}
-              width={Math.round((l.width / l.height) * LOGO_HEIGHT)}
-              height={LOGO_HEIGHT}
-              className="h-10 w-auto mix-blend-multiply sm:h-12"
+              width={Math.round((l.width / l.height) * LOGO_HEIGHT * (l.scale ?? 1))}
+              height={Math.round(LOGO_HEIGHT * (l.scale ?? 1))}
+              className={`w-auto mix-blend-multiply ${l.scale ? "h-[3.125rem] sm:h-[3.75rem]" : "h-10 sm:h-12"}`}
             />
           );
           return (

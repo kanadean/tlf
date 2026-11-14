@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s · Thane Literature Festival 2026",
   },
   description:
-    "The second edition of the Thane Literature Festival — three days of sessions in Marathi, Hindi and English, 4–6 December 2026. Free entry with prior registration.",
+    "The second edition of the Thane Literature Festival — three days of sessions in Marathi, Hindi and English, 4th, 5th and 6th December 2026. Free entry with prior registration.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

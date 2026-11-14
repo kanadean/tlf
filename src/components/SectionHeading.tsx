@@ -15,7 +15,7 @@ export function SectionHeading({ id, title, native, children }: Props) {
       <h2 id={id} className="text-4xl sm:text-5xl">
         {title}
         {native && (
-          <span lang={native.lang} className="ml-3 align-middle text-3xl text-sindoor sm:text-4xl">
+          <span lang={native.lang} className="ml-3 text-sindoor">
             {native.text}
           </span>
         )}

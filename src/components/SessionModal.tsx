@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
-import { nativeNameLang, textLang } from "@/lib/languages";
+import { nativeNameLang, speakerTextLang, textLang } from "@/lib/languages";
 import type { Speaker, Talk } from "@/lib/markdown";
 import { formatTimeRange } from "@/lib/programme";
 import { SITE } from "@/lib/site";
@@ -109,7 +109,10 @@ function ParticipantGroup({ title, people, placeholder }: GroupProps) {
                 </p>
               )}
               {(person.designation ?? person.genre) && (
-                <p className="text-sm text-ink-muted italic">
+                <p
+                  lang={speakerTextLang(person.designation ?? person.genre ?? "", person.language)}
+                  className="text-sm text-ink-muted italic [&:lang(hi)]:not-italic [&:lang(mr)]:not-italic"
+                >
                   {person.designation ?? person.genre}
                 </p>
               )}
