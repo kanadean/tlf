@@ -2,7 +2,7 @@
 name: "Siddharth Deshpande"
 nameNative: "सिद्धार्थ देशपांडे"
 language: ["marathi"]
-# photo: TBD
+photo: "/images/speakers/siddharth-deshpande.jpg"
 books: [] # TBD
 sources: [] # add URLs used to verify the bio
 ---

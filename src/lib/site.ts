@@ -82,10 +82,9 @@ export const SITE = {
       name: "WordPinchh",
       role: "Social Media Partner",
       logo: "/images/logos/wordpinchh.png",
-      width: 600,
-      height: 556,
+      width: 1200,
+      height: 268,
       href: null,
-      scale: 1.5, // square tile: needs more height than wide logos to be legible
     },
   ],
 } as const;

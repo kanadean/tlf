@@ -2,7 +2,7 @@
 name: "Dipti Bhagwat"
 nameNative: "दिप्ती भागवत"
 language: ["marathi"]
-# photo: TBD
+photo: "/images/speakers/dipti-bhagwat.jpg"
 books: [] # TBD
 sources: [] # add URLs used to verify the bio
 ---

@@ -1,7 +1,7 @@
 ---
 name: "Dr Sanjay Koyande"
 language: ["english"]
-# photo: TBD
+photo: "/images/speakers/sanjay-koyande.jpg"
 books: [] # TBD
 sources: [] # add URLs used to verify the bio
 ---
