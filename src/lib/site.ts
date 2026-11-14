@@ -14,7 +14,7 @@ export const SITE = {
   ],
   city: "Thane, Maharashtra",
   /** Venue name; set to null to show "To be announced". */
-  venue: "Kashinath Ghanekar Mini Auditorium" as string | null,
+  venue: "Dr. Kashinath Ghanekar Auditorium" as string | null,
   /** Where things happen inside the venue (shown in the Venues section). */
   spaces: [
     { name: "Exhibition Galleries", where: "Hall, next to the lifts, 3rd floor" },

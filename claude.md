@@ -10,7 +10,7 @@
 
 ## Content Reference
 Content reference is available in 'ContentReference' folder and has README.md for explanation.
-- Festival dates: 4th, 5th and 6th December 2026 (Fri–Sun) — always written this way (`SITE.datesLabel`). Venue: Kashinath Ghanekar Mini Auditorium, Thane (`SITE.venue`). Entry free, prior registration required.
+- Festival dates: 4th, 5th and 6th December 2026 (Fri–Sun) — always written this way (`SITE.datesLabel`). Venue: Dr. Kashinath Ghanekar Auditorium, Thane (`SITE.venue`; as on the festival posters — literary sessions are in its Mini Auditorium, 3rd floor). Entry free, prior registration required.
 - `Program All.xlsx` is the finalised programme (5 Nov 2026; updated 6, 9, 12, 13 and 14 Nov — earlier copies in `deprecated/`). Change requests arrive as documents in `ContentReference/RequestedChanges/` and the source for `src/content/schedule/`; the older `Program Schedule.xlsx` is in `ContentReference/deprecated/`. The markdown files are the source of truth and are edited directly.
 - `ContentReference/Featured Books/` (numbered book-cover images) — use not yet decided; ignore for now.
 - Bios must come from verified sources only — leave them empty rather than guess.
