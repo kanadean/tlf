@@ -1,5 +1,6 @@
 ---
 name: "Riddhi Doshi"
+order: 52
 language: ["english"]
 photo: "/images/speakers/riddhi-doshi.jpg"
 books: [] # TBD

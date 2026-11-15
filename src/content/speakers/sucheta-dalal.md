@@ -1,7 +1,7 @@
 ---
 name: "Sucheta Dalal"
-designation: "Padma Shri awardee business journalist and author"
 order: 12
+designation: "Padma Shri awardee business journalist and author"
 language: ["english"]
 photo: "/images/speakers/sucheta-dalal.jpg"
 books: [] # TBD

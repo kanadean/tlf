@@ -1,7 +1,7 @@
 ---
 name: "Vivek Kaul"
+order: 18
 designation: "Amazon best-selling author and journalist"
-order: 17
 language: ["english"]
 photo: "/images/speakers/vivek-kaul.jpg"
 books: [] # TBD

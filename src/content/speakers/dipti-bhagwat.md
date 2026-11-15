@@ -1,5 +1,6 @@
 ---
 name: "Dipti Bhagwat"
+order: 43
 nameNative: "दिप्ती भागवत"
 language: ["marathi"]
 photo: "/images/speakers/dipti-bhagwat.jpg"

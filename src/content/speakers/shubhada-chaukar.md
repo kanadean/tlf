@@ -1,5 +1,6 @@
 ---
 name: "Shubhada Chaukar"
+order: 53
 nameNative: "शुभदा चौकर"
 designation: "पत्रकार, संपादक आणि लेखिका"
 language: ["marathi"]

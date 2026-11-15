@@ -1,5 +1,6 @@
 ---
 name: "Mihir Chitre"
+order: 32
 nameNative: "मिहीर चित्रे"
 designation: "कवी आणि लेखक"
 language: ["marathi"]

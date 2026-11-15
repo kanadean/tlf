@@ -18,6 +18,7 @@ export function AuthorCard({ speaker }: Props) {
 
   return (
     <article
+      data-colour-on-focus
       className={`group flex h-full flex-col border border-t-4 border-rule bg-paper p-3 transition-colors hover:border-sindoor/40 sm:p-4 ${LANGUAGE_EDGE[speaker.language[0]]}`}
     >
       <SpeakerPortrait

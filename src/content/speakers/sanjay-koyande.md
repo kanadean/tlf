@@ -1,5 +1,6 @@
 ---
 name: "Dr Sanjay Koyande"
+order: 45
 language: ["english"]
 photo: "/images/speakers/sanjay-koyande.jpg"
 books: [] # TBD

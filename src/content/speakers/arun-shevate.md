@@ -1,6 +1,6 @@
 ---
 name: "Arun Shevate"
-order: 15
+order: 16
 nameNative: "अरुण शेवते"
 designation: "लेखक, कवी, संपादक आणि प्रकाशक"
 language: ["marathi"]

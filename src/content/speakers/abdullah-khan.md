@@ -1,5 +1,6 @@
 ---
 name: "Abdullah Khan"
+order: 19
 language: ["english"]
 photo: "/images/speakers/abdullah-khan.jpg"
 books: [] # TBD

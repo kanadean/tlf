@@ -1,5 +1,6 @@
 ---
 name: "Gandhali Bhide"
+order: 47
 designation: "Art Researcher | Writer | International Cultural Relations"
 language: ["english"]
 photo: "/images/speakers/gandhali-bhide.jpg"

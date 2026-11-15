@@ -1,5 +1,6 @@
 ---
 name: "Vinaya Deshpande Pandit"
+order: 22
 designation: "Journalist – Chief of Bureau, Maharashtra, The Hindu"
 language: ["english"]
 photo: "/images/speakers/vinaya-deshpande-pandit.jpg"

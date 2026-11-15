@@ -1,5 +1,6 @@
 ---
 name: "Pranjana Jambhekar"
+order: 51
 nameNative: "प्रांजना जांभेकर"
 designation: "लेखिका आणि संपादक"
 language: ["marathi"]

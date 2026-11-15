@@ -1,7 +1,7 @@
 ---
 name: "Devdutt Pattanaik"
-designation: "Author, speaker, illustrator, mythologist"
 order: 4
+designation: "Author, speaker, illustrator, mythologist"
 language: ["english"]
 photo: "/images/speakers/devdutt-pattanaik.jpg"
 books: [] # TBD

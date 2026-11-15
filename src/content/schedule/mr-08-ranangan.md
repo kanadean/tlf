@@ -1,5 +1,5 @@
 ---
-title: "रणांगण"
+title: "रणांगण - दृकश्राव्य अभिवाचन"
 day: 3
 timeStart: "6:30 PM"
 timeEnd: "7:15 PM"

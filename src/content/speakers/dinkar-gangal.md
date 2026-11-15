@@ -1,5 +1,6 @@
 ---
 name: "Dinkar Gangal"
+order: 26
 nameNative: "दिनकर गांगल"
 designation: "लेखक, संपादक आणि ग्रंथाली प्रकाशन संस्थेचे सह-संस्थापक"
 language: ["marathi"]

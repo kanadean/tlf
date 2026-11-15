@@ -1,7 +1,7 @@
 ---
 name: "Richa Pinto"
+order: 17
 designation: "Assistant Editor, The Times of India"
-order: 16
 language: ["english"]
 photo: "/images/speakers/richa-pinto.jpg"
 books: [] # TBD

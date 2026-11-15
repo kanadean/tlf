@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lora, Noto_Serif_Devanagari, Playfair_Display, Rozha_One } from "next/font/google";
+import { ColourOnFocus } from "@/components/ColourOnFocus";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* Each page renders its own <main id="main"> */}
         {children}
         <SiteFooter />
+        <ColourOnFocus />
       </body>
     </html>
   );

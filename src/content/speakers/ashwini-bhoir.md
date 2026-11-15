@@ -1,5 +1,6 @@
 ---
 name: "Ashwini Bhoir"
+order: 42
 nameNative: "अश्विनी भोईर"
 language: ["marathi"]
 photo: "/images/speakers/ashwini-bhoir.jpg"

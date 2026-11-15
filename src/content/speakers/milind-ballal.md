@@ -1,5 +1,6 @@
 ---
 name: "Milind Ballal"
+order: 50
 nameNative: "मिलिंद बल्लाळ"
 designation: "संपादक, ठाणे वैभव"
 language: ["marathi"]

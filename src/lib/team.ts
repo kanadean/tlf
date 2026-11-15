@@ -3,45 +3,54 @@
 
 export type TeamMember = {
   name: string;
-  photo: string;
+  /** Omitted until a photo is supplied — initials are shown instead. */
+  photo?: string;
   /** One line per role, as listed on the original site. */
   roles: string[];
 };
 
-export type TeamGroup = { title: string; members: TeamMember[] };
+export type TeamGroup = {
+  title: string;
+  members: TeamMember[];
+  /** Kept for later but not shown on the About page for now (15 Nov 2026). */
+  hidden?: boolean;
+};
 
 const member = (name: string, slug: string, ...roles: string[]): TeamMember => ({
   name,
   photo: `/images/team/${slug}.jpg`,
   roles,
 });
+const noPhoto = (name: string, ...roles: string[]): TeamMember => ({ name, roles });
 
 export const TEAM: TeamGroup[] = [
   {
     title: "Our Team",
+    // Order as requested on 15 Nov 2026
     members: [
-      member(
-        "Samir Limaye",
-        "samir-limaye",
-        "Initiator, Thane Literature Festival",
-        "President, Rotary Club of Thane Hills",
-      ),
-      member(
-        "Dr. Sujata Jadhav",
-        "sujata-jadhav",
-        "Head, Library and Documentation Center, National Center for the Performing Arts (NCPA)",
-      ),
-      member("Nilesh Pitale", "nilesh-pitale", "Secretary, Rotary Club of Thane Hills"),
+      noPhoto("Dr. Anagha Karkhanis", "President, Rotary Club of Thane Hills"),
       member(
         "Atul Bhide",
         "atul-bhide",
         "Convener, Thane Literature Festival",
         "Past President, Rotary Club of Thane Hills",
       ),
+      {
+        name: "A S Kumar",
+        photo: "/images/speakers/a-s-kumar.jpg",
+        roles: ["Co-Convener, Thane Literature Festival"],
+      },
+      member(
+        "Dr. Sujata Jadhav",
+        "sujata-jadhav",
+        "Head, Library and Documentation Center, National Center for the Performing Arts (NCPA)",
+      ),
+      noPhoto("Vasant Bhat", "Secretary, Rotary Club of Thane Hills"),
     ],
   },
   {
     title: "Moderators",
+    hidden: true,
     members: [
       member("Sarita Bahl", "sarita-bahl"),
       member("Dr. Suhas Kulkarni", "suhas-kulkarni"),
@@ -53,6 +62,7 @@ export const TEAM: TeamGroup[] = [
   },
   {
     title: "Event Management",
+    hidden: true,
     members: [
       member("Shrirang Date", "shrirang-date", "VIP Logistics In-charge"),
       member("Anuja Kulkarni", "anuja-kulkarni", "VIP Management In-charge"),
@@ -60,6 +70,7 @@ export const TEAM: TeamGroup[] = [
   },
   {
     title: "Tech Team",
+    hidden: true,
     members: [
       member("Gautam Banik", "gautam-banik"),
       member("Aniket Kanade", "aniket-kanade"),

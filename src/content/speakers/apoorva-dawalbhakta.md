@@ -1,5 +1,6 @@
 ---
 name: "Apoorva Dawalbhakta"
+order: 41
 language: ["english"]
 photo: "/images/speakers/apoorva-dawalbhakta.jpg"
 books: [] # TBD

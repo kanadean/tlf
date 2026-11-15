@@ -1,5 +1,6 @@
 ---
 name: "Siddharth Deshpande"
+order: 36
 nameNative: "सिद्धार्थ देशपांडे"
 language: ["marathi"]
 photo: "/images/speakers/siddharth-deshpande.jpg"

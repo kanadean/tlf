@@ -31,7 +31,7 @@ export function SpeakerPortrait({ speaker, sizes, className = "" }: Props) {
           alt={`Portrait of ${speaker.name}`}
           fill
           sizes={sizes}
-          className="object-cover object-top grayscale-[0.6] sepia-[0.35] transition duration-500 group-hover:grayscale-0 group-hover:sepia-0"
+          className="object-cover object-top grayscale-[0.6] sepia-[0.35] transition duration-500 group-hover:grayscale-0 group-hover:sepia-0 group-data-[in-focus]:grayscale-0 group-data-[in-focus]:sepia-0"
         />
       ) : (
         <div

@@ -116,13 +116,11 @@ function ParticipantGroup({ title, people, placeholder }: GroupProps) {
                   {person.designation ?? person.genre}
                 </p>
               )}
-              {person.bioHtml ? (
+              {person.bioHtml && (
                 <div
                   className="prose-tlf mt-2 text-sm"
                   dangerouslySetInnerHTML={{ __html: person.bioHtml }}
                 />
-              ) : (
-                <p className="mt-2 text-sm text-ink-muted">Biography coming soon.</p>
               )}
             </div>
           </li>

@@ -66,10 +66,11 @@ export function SiteFooter() {
           <div className="grid gap-12 md:gap-20">
             <LogoRow title="Presented by" logos={SITE.organisers} />
             <LogoRow
-              title="Supported by"
+              title="Sponsored by"
               logos={SITE.sponsors}
               note="More sponsors to be announced."
             />
+            <LogoRow title="Supported by" logos={SITE.partners} />
           </div>
 
           <div className="mt-14 flex flex-col gap-6 border-t border-rule pt-8 md:flex-row md:items-end md:justify-between">

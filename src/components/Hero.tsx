@@ -18,7 +18,11 @@ export function Hero() {
       icon: MapPin,
       detail: SITE.venue ? `${SITE.venue}, ${SITE.city}` : `To be announced · ${SITE.city}`,
     },
-    { term: "Entry", icon: Ticket, detail: "Free for all · prior registration required" },
+    {
+      term: "Entry",
+      icon: Ticket,
+      detail: "Free for all · registration on a first-come, first-served basis",
+    },
   ];
 
   return (

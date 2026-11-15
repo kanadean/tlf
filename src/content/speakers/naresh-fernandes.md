@@ -1,7 +1,7 @@
 ---
 name: "Naresh Fernandes"
+order: 15
 designation: "Editor of Scroll.in, former editor-in-chief of Time Out India"
-order: 14
 language: ["english"]
 photo: "/images/speakers/naresh-fernandes.jpg"
 books: [] # TBD

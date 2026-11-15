@@ -1,7 +1,7 @@
 ---
 name: "Shanta Gokhale"
-designation: "Author, translator and journalist"
 order: 2
+designation: "Author, translator and journalist"
 language: ["english"]
 photo: "/images/speakers/shanta-gokhale.jpg"
 books: [] # TBD

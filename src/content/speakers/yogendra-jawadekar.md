@@ -1,5 +1,6 @@
 ---
 name: "Dr Yogendra Jawadekar"
+order: 46
 nameNative: "डॉ. योगेंद्र जावडेकर"
 language: ["marathi"]
 photo: "/images/speakers/yogendra-jawadekar.jpg"

@@ -1,5 +1,6 @@
 ---
 name: "Uttara Mone"
+order: 54
 nameNative: "उत्तरा मोने"
 designation: "सुप्रसिद्ध निवेदिका"
 language: ["marathi"]

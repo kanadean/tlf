@@ -1,5 +1,6 @@
 ---
 name: "Rani Durve"
+order: 34
 nameNative: "राणी दुर्वे"
 designation: "लेखक आणि स्तंभलेखक"
 language: ["marathi"]

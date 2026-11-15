@@ -60,8 +60,18 @@ export const SITE = {
       href: null,
     },
   ],
-  /** Shown under "Supported by", each captioned with its role. */
+  /** "Sponsored by" row. */
   sponsors: [
+    {
+      name: "Fortress",
+      logo: "/images/logos/fortress.png",
+      width: 840,
+      height: 190,
+      href: null,
+    },
+  ],
+  /** "Supported by" row, each captioned with its role. */
+  partners: [
     {
       name: "Crossword",
       role: "Book Partner",
@@ -69,14 +79,6 @@ export const SITE = {
       width: 800,
       height: 238,
       href: "https://www.crossword.in/",
-    },
-    {
-      name: "Fortress",
-      role: "Sponsor",
-      logo: "/images/logos/fortress.png",
-      width: 840,
-      height: 190,
-      href: null,
     },
     {
       name: "WordPinchh",

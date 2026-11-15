@@ -1,7 +1,7 @@
 ---
 name: "Sameer Karve"
+order: 14
 designation: "Sr. Journalist & Mumbai Resident Editor, Maharashtra Times"
-order: 13
 language: ["english"]
 photo: "/images/speakers/sameer-karve.jpg"
 books: [] # TBD

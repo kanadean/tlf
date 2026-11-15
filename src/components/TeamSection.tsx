@@ -4,7 +4,8 @@ import { SpeakerPortrait } from "./SpeakerPortrait";
 
 /** Credits for the people behind the festival, shown on the About page. */
 export function TeamSection() {
-  const [core, ...groups] = TEAM;
+  const [core, ...rest] = TEAM;
+  const groups = rest.filter((g) => !g.hidden);
 
   return (
     <section
@@ -18,31 +19,33 @@ export function TeamSection() {
         </SectionHeading>
 
         <h3 className="sr-only">{core.title}</h3>
-        <ul className="grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
+        <ul className="flex flex-wrap justify-center gap-x-6 gap-y-10 sm:gap-x-10">
           {core.members.map((m) => (
-            <li key={m.name}>
+            <li key={m.name} className="w-40 sm:w-48">
               <Member member={m} size="lg" />
             </li>
           ))}
         </ul>
 
         {/* The largest group gets a full row; the rest sit side by side from md up */}
-        <div className="mt-16 grid gap-14 border-t border-rule pt-12 md:grid-cols-2">
-          {groups.map((group, i) => (
-            <div key={group.title} className={i === 0 ? "md:col-span-2" : ""}>
-              <h3 className="text-center text-xs tracking-[0.3em] text-gold-deep uppercase">
-                {group.title}
-              </h3>
-              <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-8">
-                {group.members.map((m) => (
-                  <li key={m.name} className="w-28 sm:w-32">
-                    <Member member={m} size="sm" />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        {groups.length > 0 && (
+          <div className="mt-16 grid gap-14 border-t border-rule pt-12 md:grid-cols-2">
+            {groups.map((group, i) => (
+              <div key={group.title} className={i === 0 ? "md:col-span-2" : ""}>
+                <h3 className="text-center text-xs tracking-[0.3em] text-gold-deep uppercase">
+                  {group.title}
+                </h3>
+                <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-8">
+                  {group.members.map((m) => (
+                    <li key={m.name} className="w-28 sm:w-32">
+                      <Member member={m} size="sm" />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
@@ -51,7 +54,7 @@ export function TeamSection() {
 function Member({ member, size }: { member: TeamMember; size: "lg" | "sm" }) {
   const large = size === "lg";
   return (
-    <figure className="group flex flex-col items-center text-center">
+    <figure data-colour-on-focus className="group flex flex-col items-center text-center">
       <SpeakerPortrait
         speaker={member}
         sizes={large ? "160px" : "80px"}
