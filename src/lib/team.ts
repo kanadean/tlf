@@ -21,14 +21,13 @@ const member = (name: string, slug: string, ...roles: string[]): TeamMember => (
   photo: `/images/team/${slug}.jpg`,
   roles,
 });
-const noPhoto = (name: string, ...roles: string[]): TeamMember => ({ name, roles });
 
 export const TEAM: TeamGroup[] = [
   {
     title: "Our Team",
     // Order as requested on 15 Nov 2026
     members: [
-      noPhoto("Dr. Anagha Karkhanis", "President, Rotary Club of Thane Hills"),
+      member("Dr. Anagha Karkhanis", "anagha-karkhanis", "President, Rotary Club of Thane Hills"),
       member(
         "Atul Bhide",
         "atul-bhide",
@@ -45,7 +44,7 @@ export const TEAM: TeamGroup[] = [
         "sujata-jadhav",
         "Head, Library and Documentation Center, National Center for the Performing Arts (NCPA)",
       ),
-      noPhoto("Vasant Bhat", "Secretary, Rotary Club of Thane Hills"),
+      member("Vasant Bhat", "vasant-bhat", "Secretary, Rotary Club of Thane Hills"),
     ],
   },
   {

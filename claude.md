@@ -112,7 +112,7 @@ Non-talk items need only `kind`, `title`, `day` and times; their body is shown i
 
 ### About page (`/about`)
 - Mission, Vision and Festival History carried over verbatim from the previous edition's About page, plus the 2026 entry.
-- "Meet Our Team" only (15 Nov 2026), in this order: Dr. Anagha Karkhanis (President, RCTH), Atul Bhide, A S Kumar (Co-Convener, TLF), Dr. Sujata Jadhav, Vasant Bhat (Secretary, RCTH) — `src/lib/team.ts`. The Moderators, Event Management and Tech Team groups stay in the data with `hidden: true`. Members without a photo show initials until one is supplied.
+- "Meet Our Team" only (15 Nov 2026), in this order: Dr. Anagha Karkhanis (President, RCTH), Atul Bhide, A S Kumar (Co-Convener, TLF), Dr. Sujata Jadhav, Vasant Bhat (Secretary, RCTH) — `src/lib/team.ts`. The Moderators, Event Management and Tech Team groups stay in the data with `hidden: true`. Members without a photo would show initials; all five now have photos.
 
 ### Competitions page (`/competitions`)
 - One card per competition: poster (opens full size) beside transcribed details — prompt, word/time limit, languages, prizes, guidelines, eligibility, submission email (or "Submission details to be announced").
