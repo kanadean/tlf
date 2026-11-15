@@ -54,8 +54,10 @@ export function TeamSection() {
 function Member({ member, size }: { member: TeamMember; size: "lg" | "sm" }) {
   const large = size === "lg";
   return (
-    <figure data-colour-on-focus className="group flex flex-col items-center text-center">
+    <figure className="flex flex-col items-center text-center">
+      {/* Team photos keep their natural colours — no sepia or hover effect */}
       <SpeakerPortrait
+        tone="natural"
         speaker={member}
         sizes={large ? "160px" : "80px"}
         className={`rounded-full ring-1 ring-rule ring-offset-4 ring-offset-haldi ${
