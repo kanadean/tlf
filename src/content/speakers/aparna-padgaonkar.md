@@ -1,6 +1,6 @@
 ---
 name: "Aparna Padgaonkar"
-order: 40
+order: 41
 designation: "Journalist & media personality"
 language: ["english"]
 photo: "/images/speakers/aparna-padgaonkar.jpg"

@@ -1,6 +1,6 @@
 ---
 name: "Anand Kumar"
-order: 39
+order: 40
 designation: "Godrej"
 language: ["english"]
 photo: "/images/speakers/anand-kumar.jpg"

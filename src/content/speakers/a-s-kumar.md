@@ -1,6 +1,6 @@
 ---
 name: "A. S. Kumar"
-order: 38
+order: 39
 language: ["english"]
 photo: "/images/speakers/a-s-kumar.jpg"
 books: [] # TBD
