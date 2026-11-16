@@ -84,7 +84,8 @@ function Member({ member, size }: { member: TeamMember; size: "lg" | "sm" }) {
       />
       <figcaption className={large ? "mt-5" : "mt-3"}>
         <p className={`font-display ${large ? "text-xl" : "text-base leading-snug"}`}>
-          {member.name}
+          {/* Non-breaking hyphen keeps double-barrelled names together */}
+          {member.name.replaceAll("-", "‑")}
         </p>
         {member.roles.map((role) => (
           <p key={role} className="mt-1 text-sm leading-snug text-ink-muted">
