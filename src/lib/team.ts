@@ -64,7 +64,7 @@ export const TEAM: TeamGroup[] = [
       member("Sucheta Rege", "sucheta-rege"),
       member("Kalita Subramanian", "kalita-subramanian"),
       member("Nandita Ganguly", "nandita-ganguly"),
-      member("Aneetha Shetty", "aneetha-shetty"),
+      member("Aneetha Satish", "aneetha-shetty"),
       member("Gautam Banik", "gautam-banik"),
       member("Shrirang Date", "shrirang-date"),
     ],
