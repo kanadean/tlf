@@ -15,8 +15,7 @@ export function RegistrationSection() {
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-paper/90">
           Seats are limited, so prior registration is required for every visitor. Register once to
-          attend any session across all three days. Registrations are on a first-come, first-served
-          basis.
+          attend any session across all three days. Registrations are on a first come first basis.
         </p>
 
         <div className="mt-10">
