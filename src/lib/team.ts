@@ -77,9 +77,10 @@ export const TEAM: TeamGroup[] = [
     ],
   },
   { title: "Logistics In-charge", members: [member("Shrirang Date", "shrirang-date")] },
+  { title: "Tech Support", members: [member("Gautam Banik", "gautam-banik")] },
   {
-    title: "Tech Team",
-    members: [member("Aniket Kanade", "aniket-kanade"), member("Gautam Banik", "gautam-banik")],
+    title: "Website Design and Creation",
+    members: [member("Aniket Kanade", "aniket-kanade")],
   },
   // 2025 groups, kept for reference but not shown
   {
