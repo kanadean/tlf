@@ -128,4 +128,5 @@ Non-talk items need only `kind`, `title`, `day` and times; their body is shown i
 5. **Build Rules:** Build the website to run locally first, later it needs to be hosted on Vercel. Branches: `hero-motion` (clean look), `look-2` (vibrant), `look-3` (clean + colour); content changes apply to all three.
 
 ## Reference
-This website will be live at https://www.thanelitfest.in/ The website at the address currently is for last years edition. It can be used for reference as specifics are changing this year, but attributions such as sponsors, credits, about us page etc. remain the same.
+**Live since 16 Nov 2026:** https://www.thanelitfest.in (and thanelitfest.in → www) serve look 3 from the Vercel project `tlf` (production deploys from branch `look-3`; `vercel deploy --prod` updates the public site — use `--target=preview` for review). The 2025 site is archived at https://tlf2025.thanelitfest.in.
+This website is live at https://www.thanelitfest.in/ The website at the address currently is for last years edition. It can be used for reference as specifics are changing this year, but attributions such as sponsors, credits, about us page etc. remain the same.
