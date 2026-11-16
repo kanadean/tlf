@@ -21,7 +21,7 @@ export function Hero() {
     {
       term: "Entry",
       icon: Ticket,
-      detail: "Free for all · Register early, entry on first come first",
+      detail: "Free for all · Register early, entry on first come first basis",
     },
   ];
 
