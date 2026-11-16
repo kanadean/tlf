@@ -118,7 +118,7 @@ Non-talk items need only `kind`, `title`, `day` and times; their body is shown i
 ### Competitions page (`/competitions`)
 - One card per competition: poster (opens full size) beside transcribed details — prompt, word/time limit, languages, prizes, guidelines, eligibility, submission email (or "Submission details to be announced").
 - Current competitions: Meri Story, Chitrakathi, My Dream Thane / India and Me, Thane in Ten Frames, Rangmanch.
-- Submissions have closed: `SUBMISSIONS_OPEN = false` in `competitions.ts` hides every "Submit your entry" button and its address (emails stay in the data). Set it to `true` to bring them back. While closed, each poster carries a sindoor corner ribbon reading "Registrations Closed".
+- Submissions have closed: `SUBMISSIONS_OPEN = false` in `competitions.ts` hides every "Submit your entry" button and its address (emails stay in the data). Set it to `true` to bring them back. While closed, each poster carries a sindoor corner ribbon reading "Registrations Closed". Under each poster, `RESULTS_NOTE` ("Results Awaited") is shown until set to null.
 
 ## Step-by-Step AI Workflow Rules
 1. **Parser First:** Content goes through `src/lib/markdown.ts`; extend its zod schemas (and the `_template.md` files) before using a new field in UI.

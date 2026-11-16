@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Mail, Maximize2 } from "lucide-react";
-import { SUBMISSIONS_OPEN, type Competition } from "@/lib/competitions";
+import { RESULTS_NOTE, SUBMISSIONS_OPEN, type Competition } from "@/lib/competitions";
 
 type Props = { competition: Competition; index: number };
 
@@ -18,37 +18,42 @@ export function CompetitionCard({ competition: c, index }: Props) {
           : "md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"
       }`}
     >
-      <a
-        href={c.poster.src}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`group relative block border border-rule bg-paper p-2 shadow-[6px_6px_0_var(--color-rule)] ${
-          flip ? "md:order-2" : ""
-        }`}
-      >
-        <Image
-          src={c.poster.src}
-          alt={`${c.title} competition poster`}
-          width={c.poster.width}
-          height={c.poster.height}
-          sizes="(min-width: 1152px) 420px, (min-width: 768px) 40vw, 100vw"
-          // Never upscale a small poster past its native size
-          style={{ maxWidth: c.poster.width }}
-          className="mx-auto h-auto w-full"
-        />
-        {/* Corner ribbon across the poster while submissions are closed */}
-        {!SUBMISSIONS_OPEN && (
-          <span className="pointer-events-none absolute top-0 right-0 size-52 overflow-hidden sm:size-60">
-            <span className="absolute top-12 -right-16 w-80 rotate-45 border-y-2 border-gold bg-sindoor py-2 pl-10 text-center text-xs font-semibold tracking-[0.15em] text-paper uppercase shadow-[0_3px_6px_rgb(0_0_0/0.3)] sm:top-14 sm:pl-7 sm:text-sm">
-              Registrations Closed
+      <div className={flip ? "md:order-2" : ""}>
+        <a
+          href={c.poster.src}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative block border border-rule bg-paper p-2 shadow-[6px_6px_0_var(--color-rule)]"
+        >
+          <Image
+            src={c.poster.src}
+            alt={`${c.title} competition poster`}
+            width={c.poster.width}
+            height={c.poster.height}
+            sizes="(min-width: 1152px) 420px, (min-width: 768px) 40vw, 100vw"
+            // Never upscale a small poster past its native size
+            style={{ maxWidth: c.poster.width }}
+            className="mx-auto h-auto w-full"
+          />
+          {/* Corner ribbon across the poster while submissions are closed */}
+          {!SUBMISSIONS_OPEN && (
+            <span className="pointer-events-none absolute top-0 right-0 size-52 overflow-hidden sm:size-60">
+              <span className="absolute top-12 -right-16 w-80 rotate-45 border-y-2 border-gold bg-sindoor py-2 pl-10 text-center text-xs font-semibold tracking-[0.15em] text-paper uppercase shadow-[0_3px_6px_rgb(0_0_0/0.3)] sm:top-14 sm:pl-7 sm:text-sm">
+                Registrations Closed
+              </span>
             </span>
+          )}
+          <span className="absolute right-4 bottom-4 inline-flex items-center gap-1.5 bg-ink/80 px-2.5 py-1 text-xs text-paper opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
+            <Maximize2 className="size-3.5" aria-hidden="true" /> View full poster
+            <span className="sr-only"> (opens in a new tab)</span>
           </span>
+        </a>
+        {RESULTS_NOTE && (
+          <p className="mt-6 text-center font-display text-xl text-sindoor italic sm:text-2xl">
+            {RESULTS_NOTE}
+          </p>
         )}
-        <span className="absolute right-4 bottom-4 inline-flex items-center gap-1.5 bg-ink/80 px-2.5 py-1 text-xs text-paper opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
-          <Maximize2 className="size-3.5" aria-hidden="true" /> View full poster
-          <span className="sr-only"> (opens in a new tab)</span>
-        </span>
-      </a>
+      </div>
 
       <div>
         <p className="text-xs tracking-[0.3em] text-gold-deep uppercase">

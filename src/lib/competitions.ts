@@ -30,6 +30,9 @@ const PRIZES = "Exciting prizes for the first three winners; participation certi
  */
 export const SUBMISSIONS_OPEN = false;
 
+/** Shown under each poster until results are announced; set to null to hide. */
+export const RESULTS_NOTE: string | null = "Results Awaited";
+
 export const COMPETITIONS: Competition[] = [
   {
     slug: "meri-story",
