@@ -80,14 +80,11 @@ export const TEAM: TeamGroup[] = [
   },
   { title: "Logistics In-charge", members: [member("Shrirang Date", "shrirang-date")] },
   {
-    title: "Tech Support",
-    pairWithNext: true, // always beside Website Design and Creation
-    members: [member("Gautam Banik", "gautam-banik")],
-  },
-  {
     title: "Website Design and Creation",
+    pairWithNext: true, // always beside Tech Support
     members: [member("Aniket Kanade", "aniket-kanade")],
   },
+  { title: "Tech Support", members: [member("Gautam Banik", "gautam-banik")] },
   // 2025 groups, kept for reference but not shown
   {
     title: "Moderators (2025)",
