@@ -36,6 +36,14 @@ export function CompetitionCard({ competition: c, index }: Props) {
           style={{ maxWidth: c.poster.width }}
           className="mx-auto h-auto w-full"
         />
+        {/* Corner ribbon across the poster while submissions are closed */}
+        {!SUBMISSIONS_OPEN && (
+          <span className="pointer-events-none absolute top-0 right-0 size-52 overflow-hidden sm:size-60">
+            <span className="absolute top-12 -right-16 w-80 rotate-45 border-y-2 border-gold bg-sindoor py-2 text-center text-xs font-semibold tracking-[0.15em] text-paper uppercase shadow-[0_3px_6px_rgb(0_0_0/0.3)] sm:top-14 sm:text-sm">
+              Registrations Closed
+            </span>
+          </span>
+        )}
         <span className="absolute right-4 bottom-4 inline-flex items-center gap-1.5 bg-ink/80 px-2.5 py-1 text-xs text-paper opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
           <Maximize2 className="size-3.5" aria-hidden="true" /> View full poster
           <span className="sr-only"> (opens in a new tab)</span>
