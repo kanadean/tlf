@@ -14,6 +14,8 @@ export type TeamGroup = {
   members: TeamMember[];
   /** Kept for later but not shown on the About page for now (15 Nov 2026). */
   hidden?: boolean;
+  /** Keep this group on the same row as the next one (they wrap together). */
+  pairWithNext?: boolean;
 };
 
 const member = (name: string, slug: string, ...roles: string[]): TeamMember => ({
@@ -77,7 +79,11 @@ export const TEAM: TeamGroup[] = [
     ],
   },
   { title: "Logistics In-charge", members: [member("Shrirang Date", "shrirang-date")] },
-  { title: "Tech Support", members: [member("Gautam Banik", "gautam-banik")] },
+  {
+    title: "Tech Support",
+    pairWithNext: true, // always beside Website Design and Creation
+    members: [member("Gautam Banik", "gautam-banik")],
+  },
   {
     title: "Website Design and Creation",
     members: [member("Aniket Kanade", "aniket-kanade")],

@@ -1,4 +1,4 @@
-import { TEAM, type TeamMember } from "@/lib/team";
+import { TEAM, type TeamGroup, type TeamMember } from "@/lib/team";
 import { SectionHeading } from "./SectionHeading";
 import { SpeakerPortrait } from "./SpeakerPortrait";
 
@@ -6,6 +6,11 @@ import { SpeakerPortrait } from "./SpeakerPortrait";
 export function TeamSection() {
   const [core, ...rest] = TEAM;
   const groups = rest.filter((g) => !g.hidden);
+  // Groups marked pairWithNext travel with the following group as one unit
+  const units: TeamGroup[][] = [];
+  for (let i = 0; i < groups.length; i++) {
+    units.push(groups[i].pairWithNext && groups[i + 1] ? [groups[i], groups[++i]] : [groups[i]]);
+  }
 
   return (
     <section
@@ -27,28 +32,40 @@ export function TeamSection() {
           ))}
         </ul>
 
-        {/* The largest group gets a full row; the rest sit side by side from md up */}
-        {groups.length > 0 && (
-          // Each team takes only the width it needs, so smaller teams share a row on desktop
+        {/* Each team takes only the width it needs, so smaller teams share a row on desktop */}
+        {units.length > 0 && (
           <div className="mt-16 flex flex-wrap justify-center gap-x-12 gap-y-14 border-t border-rule pt-12">
-            {groups.map((group) => (
-              <div key={group.title}>
-                <h3 className="text-center text-xs tracking-[0.3em] text-gold-deep uppercase">
-                  {group.title}
-                </h3>
-                <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-8">
-                  {group.members.map((m) => (
-                    <li key={m.name} className="w-28 sm:w-32">
-                      <Member member={m} size="sm" />
-                    </li>
-                  ))}
-                </ul>
+            {units.map((unit) => (
+              <div
+                key={unit[0].title}
+                className="flex flex-wrap justify-center gap-x-12 gap-y-14 sm:flex-nowrap"
+              >
+                {unit.map((group) => (
+                  <Group key={group.title} group={group} />
+                ))}
               </div>
             ))}
           </div>
         )}
       </div>
     </section>
+  );
+}
+
+function Group({ group }: { group: TeamGroup }) {
+  return (
+    <div>
+      <h3 className="text-center text-xs tracking-[0.3em] text-gold-deep uppercase">
+        {group.title}
+      </h3>
+      <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-8">
+        {group.members.map((m) => (
+          <li key={m.name} className="w-28 sm:w-32">
+            <Member member={m} size="sm" />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
