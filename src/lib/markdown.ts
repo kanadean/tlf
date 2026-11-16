@@ -46,6 +46,8 @@ const speakerSchema = z.object({
   genre: z.string().optional(),
   photo: publicPath.optional(),
   featured: z.boolean().default(false),
+  /** Performs rather than speaks (e.g. a dramatised reading) — listed under "Performers". */
+  performer: z.boolean().default(false),
   /** Position in the lineup by importance (1 = first). Unranked speakers follow. */
   order: z.number().int().positive().optional(),
   /** Most recent first — the first entry is shown as "latest book" on cards. */

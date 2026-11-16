@@ -65,10 +65,10 @@ export function AuthorCard({ speaker }: Props) {
           </p>
         )}
 
-        {speaker.moderatorOnly && (
+        {(speaker.performer || speaker.moderatorOnly) && (
           <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
             <span className="inline-flex h-6 items-center bg-parchment px-2 text-xs tracking-wide text-ink-muted italic">
-              Moderator
+              {speaker.performer ? "Performer" : "Moderator"}
             </span>
           </div>
         )}

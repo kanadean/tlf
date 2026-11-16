@@ -9,6 +9,7 @@ genre: "Journalism & Non-fiction" # optional
 photo: "/images/speakers/<slug>.jpg" # optional — must exist under /public
 order: 5 # optional — position in the lineup by importance (1 = first); unranked follow
 featured: false # featured speakers sort first among the unranked
+performer: false # optional — true lists them under Performers (and All voices) instead of Authors
 books: # optional — most recent first; the first is shown as "latest book"
   - "Title (Year)"
 sources: # URLs the bio was verified against (not displayed)
