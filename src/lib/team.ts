@@ -72,8 +72,8 @@ export const TEAM: TeamGroup[] = [
     members: [
       member("Manjiri Limaye", "manjiri-limaye"),
       member("Nilima Nagavkar", "nilima-nagavkar"),
-      member("Madhavi Naik", "madhavi-naik"),
       member("Shrirang Date", "shrirang-date"),
+      member("Madhavi Naik", "madhavi-naik"),
     ],
   },
   { title: "Logistics In-charge", members: [member("Shrirang Date", "shrirang-date")] },

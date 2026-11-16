@@ -75,7 +75,7 @@ export function Hero() {
                 width={240}
                 height={240}
                 preload
-                className="row-start-1 aspect-square size-28 shrink-0 self-center object-contain sm:size-36 lg:col-start-3 lg:size-32 xl:size-52"
+                className="row-start-1 aspect-square size-28 shrink-0 self-center object-contain sm:size-36 lg:col-start-3 lg:size-32 xl:size-[16.25rem]"
               />
             </span>
           </h1>
