@@ -29,13 +29,14 @@ export function TeamSection() {
 
         {/* The largest group gets a full row; the rest sit side by side from md up */}
         {groups.length > 0 && (
-          <div className="mt-16 grid gap-14 border-t border-rule pt-12 md:grid-cols-2">
-            {groups.map((group, i) => (
-              <div key={group.title} className={i === 0 ? "md:col-span-2" : ""}>
+          // Each team takes only the width it needs, so smaller teams share a row on desktop
+          <div className="mt-16 flex flex-wrap justify-center gap-x-12 gap-y-14 border-t border-rule pt-12">
+            {groups.map((group) => (
+              <div key={group.title}>
                 <h3 className="text-center text-xs tracking-[0.3em] text-gold-deep uppercase">
                   {group.title}
                 </h3>
-                <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-8">
+                <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-8">
                   {group.members.map((m) => (
                     <li key={m.name} className="w-28 sm:w-32">
                       <Member member={m} size="sm" />
@@ -59,9 +60,9 @@ function Member({ member, size }: { member: TeamMember; size: "lg" | "sm" }) {
       <SpeakerPortrait
         tone="natural"
         speaker={member}
-        sizes={large ? "160px" : "80px"}
+        sizes={large ? "160px" : "112px"}
         className={`rounded-full ring-1 ring-rule ring-offset-4 ring-offset-haldi ${
-          large ? "size-28 sm:size-36" : "size-20"
+          large ? "size-28 sm:size-36" : "size-20 sm:size-24"
         }`}
       />
       <figcaption className={large ? "mt-5" : "mt-3"}>

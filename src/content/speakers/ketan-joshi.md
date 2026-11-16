@@ -1,7 +1,7 @@
 ---
 name: "Ketan Joshi"
 order: 30
-designation: "Travelled 50+ countries, all 7 continents and both polar regions; published 20 books"
+designation: "Travelogue author – 20 books, 50 countries, 7 continents"
 language: ["english"]
 photo: "/images/speakers/ketan-joshi.jpg"
 books: [] # TBD

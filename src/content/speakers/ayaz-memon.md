@@ -1,7 +1,7 @@
 ---
 name: "Ayaz Memon"
 order: 10
-designation: "Indian sports writer and senior sports journalist"
+designation: "Renowned sports author and senior sports journalist"
 language: ["english"]
 photo: "/images/speakers/ayaz-memon.jpg"
 books: [] # TBD

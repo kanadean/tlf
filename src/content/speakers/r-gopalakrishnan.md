@@ -1,7 +1,7 @@
 ---
 name: "R. Gopalakrishnan"
 order: 7
-designation: "Former executive director of Tata Sons Ltd and author"
+designation: "Former Executive Director of Tata Sons, former Vice Chairman of Hindustan Unilever, and author"
 language: ["english"]
 photo: "/images/speakers/r-gopalakrishnan.jpg"
 books: [] # TBD

@@ -47,8 +47,43 @@ export const TEAM: TeamGroup[] = [
       member("Vasant Bhat", "vasant-bhat", "Secretary, Rotary Club of Thane Hills"),
     ],
   },
+  // Shown below the organising team (16 Nov 2026), in this order
   {
-    title: "Moderators",
+    title: "TLF-2026 Pillars of Support",
+    members: [
+      member("Samir Limaye", "samir-limaye"),
+      member("Vijay Shetty", "vijay-shetty"),
+      member("Yashodhara Bhide", "yashodhara-bhide"),
+    ],
+  },
+  {
+    title: "Team TLF-2026 Competitions",
+    members: [
+      member("Sucheta Rege", "sucheta-rege"),
+      member("Kalita Subramanian", "kalita-subramanian"),
+      member("Nandita Ganguly", "nandita-ganguly"),
+      member("Aneetha Shetty", "aneetha-shetty"),
+      member("Gautam Banik", "gautam-banik"),
+      member("Shrirang Date", "shrirang-date"),
+    ],
+  },
+  {
+    title: "Team TLF-2026 Galleries",
+    members: [
+      member("Manjiri Limaye", "manjiri-limaye"),
+      member("Nilima Nagavkar", "nilima-nagavkar"),
+      member("Madhavi Naik", "madhavi-naik"),
+      member("Shrirang Date", "shrirang-date"),
+    ],
+  },
+  { title: "Logistics In-charge", members: [member("Shrirang Date", "shrirang-date")] },
+  {
+    title: "Tech Team",
+    members: [member("Aniket Kanade", "aniket-kanade"), member("Gautam Banik", "gautam-banik")],
+  },
+  // 2025 groups, kept for reference but not shown
+  {
+    title: "Moderators (2025)",
     hidden: true,
     members: [
       member("Sarita Bahl", "sarita-bahl"),
@@ -60,20 +95,11 @@ export const TEAM: TeamGroup[] = [
     ],
   },
   {
-    title: "Event Management",
+    title: "Event Management (2025)",
     hidden: true,
     members: [
       member("Shrirang Date", "shrirang-date", "VIP Logistics In-charge"),
       member("Anuja Kulkarni", "anuja-kulkarni", "VIP Management In-charge"),
-    ],
-  },
-  {
-    title: "Tech Team",
-    hidden: true,
-    members: [
-      member("Gautam Banik", "gautam-banik"),
-      member("Aniket Kanade", "aniket-kanade"),
-      member("Akanksha Ghotkar", "akanksha-ghotkar"),
     ],
   },
 ];

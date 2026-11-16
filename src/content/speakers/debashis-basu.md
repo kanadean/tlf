@@ -1,7 +1,7 @@
 ---
 name: "Debashis Basu"
 order: 24
-designation: "CA; award-winning journalist, author"
+designation: "Award-winning journalist, author and columnist"
 language: ["english"]
 photo: "/images/speakers/debashis-basu.jpg"
 books: [] # TBD

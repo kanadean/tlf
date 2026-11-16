@@ -1,7 +1,7 @@
 ---
 name: "Ashwin Sanghi"
 order: 13
-designation: "Writer | New York Times Bestseller | Speaker | Columnist"
+designation: "Renowned Author | Speaker | Columnist"
 language: ["english"]
 photo: "/images/speakers/ashwin-sanghi.jpg"
 books: [] # TBD
