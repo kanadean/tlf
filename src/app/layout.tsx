@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Lora, Noto_Serif_Devanagari, Playfair_Display, Rozha_One } from "next/font/google";
 import { ColourOnFocus } from "@/components/ColourOnFocus";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -56,6 +57,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <SiteFooter />
         <ColourOnFocus />
+        {/* Vercel Web Analytics: cookie-free page views (project tlf) */}
+        <Analytics />
       </body>
     </html>
   );

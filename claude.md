@@ -75,6 +75,7 @@ Non-talk items need only `kind`, `title`, `day` and times; their body is shown i
 - Icons: Lucide React (UI only — v1.x has no brand icons, so social links are small-caps text) + custom SVG (`Ornament.tsx` fleuron).
 - No i18n library: the site is English-only. Marathi/Hindi text is marked up with `lang="mr"` / `lang="hi"` so the Devanagari fonts and line-height apply.
 - SEO & Performance: every route is statically prerendered; strict image optimisation via `next/image`; per-page `metadata`.
+- Analytics: Vercel Web Analytics (`@vercel/analytics`, `<Analytics />` in `layout.tsx`; enabled on project `tlf` from 17 Nov 2026). Cookie-free, so no consent banner. Read stats with `vercel metrics vercel.analytics.page_view.count -p tlf --since 7d --group-by country` (also deviceType, osName, referrerHostname, requestPath).
 - Accessibility: Semantic HTML (`<main>`, `<article>`, `<section>`), skip link, `aria-current` on the active nav link, `aria-pressed` filter buttons, WAI-ARIA tabs (arrow/Home/End keys) for the schedule, session details in a native `<dialog>` (focus trap, Escape, focus return).
 
 ## Design Identity & Aesthetic Guardrails
