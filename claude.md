@@ -62,6 +62,7 @@ speakers: ["girish-kuber"]       # guests; slugs of speaker files — a talk nee
 panelists: []                    # optional — co-panelists
 moderators: ["arun-shevate"]     # optional
 moderatorTBA: false              # optional — true shows "moderator to be announced" (sheet says YTD)
+award: "…"                       # optional — award presented in the session, shown highlighted on the card and in the dialog (AwardLine.tsx)
 ---
 Session summary in markdown.
 ```

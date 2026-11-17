@@ -6,6 +6,7 @@ import { nativeNameLang, speakerTextLang, textLang } from "@/lib/languages";
 import type { Speaker, Talk } from "@/lib/markdown";
 import { formatTimeRange } from "@/lib/programme";
 import { SITE } from "@/lib/site";
+import { AwardLine } from "./AwardLine";
 import { LanguageTag } from "./LanguageTag";
 import { SpeakerPortrait } from "./SpeakerPortrait";
 
@@ -60,6 +61,7 @@ export function SessionModal({ session, onClose }: Props) {
           >
             {session.title}
           </h2>
+          {session.award && <AwardLine award={session.award} className="mt-3" />}
 
           <p className="mt-3 text-sm tracking-wide text-ink-muted">{when.join("  ·  ")}</p>
 

@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { textLang } from "@/lib/languages";
 import type { Talk } from "@/lib/markdown";
+import { AwardLine } from "./AwardLine";
 import { LanguageTag } from "./LanguageTag";
 import { SpeakerPortrait } from "./SpeakerPortrait";
 import { TimeRange } from "./TimeRange";
@@ -54,6 +55,7 @@ export function SessionCard({ session, onOpen }: Props) {
               {session.title}
             </button>
           </h3>
+          {session.award && <AwardLine award={session.award} className="mt-2" />}
 
           <p className="mt-1 text-base text-ink-muted">
             <span className="text-ink">{joinNames(session.speakers)}</span>

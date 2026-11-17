@@ -74,6 +74,8 @@ const sessionSchema = z
     moderators: slugList.default([]),
     /** The programme says a moderator is still to be decided ("YTD"). */
     moderatorTBA: z.boolean().default(false),
+    /** An award presented during this session, shown on the card and in the dialog. */
+    award: z.string().optional(),
   })
   .refine((s) => !s.timeEnd || s.timeStart, {
     message: "timeEnd is set but timeStart is missing",

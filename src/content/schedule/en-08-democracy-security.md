@@ -1,5 +1,5 @@
 ---
-title: "Beyond the Headlines and the Fences"
+title: "Beyond the headlines: Understanding National Security"
 day: 2
 timeStart: "5:00 PM"
 timeEnd: "5:45 PM"

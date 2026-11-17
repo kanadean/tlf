@@ -1,5 +1,5 @@
 ---
-name: "Chandresh Narayan"
+name: "Chandresh Narayanan"
 order: 23
 designation: "Award-winning cricket author | Commentator | Broadcaster"
 language: ["english"]

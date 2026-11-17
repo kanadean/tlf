@@ -12,6 +12,7 @@ speakers: # guests — slugs of files in src/content/speakers/ (a talk needs at 
   - "speaker-slug"
 panelists: [] # optional — co-panelists
 moderators: [] # optional
+award: "TLF-2026 Lifetime Achievement Award – Name" # optional — shown highlighted
 moderatorTBA: false # optional — true shows "moderator to be announced"
 ---
 
