@@ -63,7 +63,14 @@ export function SessionCard({ session, onOpen }: Props) {
             {session.moderators.length > 0 ? (
               <>
                 {" · "}
-                <span className="italic">in conversation with</span> {joinNames(session.moderators)}
+                {session.moderatorLabel ? (
+                  <span lang="hi" className="text-ink-muted">
+                    {session.moderatorLabel}:
+                  </span>
+                ) : (
+                  <span className="italic">in conversation with</span>
+                )}{" "}
+                {joinNames(session.moderators)}
               </>
             ) : (
               session.moderatorTBA && <span className="italic"> · moderator to be announced</span>

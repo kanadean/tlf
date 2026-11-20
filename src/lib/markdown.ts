@@ -74,6 +74,8 @@ const sessionSchema = z
     moderators: slugList.default([]),
     /** The programme says a moderator is still to be decided ("YTD"). */
     moderatorTBA: z.boolean().default(false),
+    /** Label for the moderator in place of "Moderator" / "in conversation with", e.g. "संवादक". */
+    moderatorLabel: z.string().optional(),
     /** An award presented during this session, shown on the card and in the dialog. */
     award: z.string().optional(),
   })
