@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import { nativeNameLang, speakerTextLang, textLang } from "@/lib/languages";
 import type { Speaker, Talk } from "@/lib/markdown";
 import { formatTimeRange } from "@/lib/programme";
@@ -79,6 +79,21 @@ export function SessionModal({ session, onClose }: Props) {
             people={session.moderators}
             placeholder={session.moderatorTBA ? "To be announced." : undefined}
           />
+
+          {SITE.registrationUrl && (
+            <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-rule pt-6">
+              <a
+                href={SITE.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-sindoor px-6 py-3 text-paper shadow-[4px_4px_0_var(--color-gold)] transition hover:translate-x-px hover:translate-y-px hover:shadow-[2px_2px_0_var(--color-gold)]"
+              >
+                Register for Free <ArrowRight className="size-4" aria-hidden="true" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              <span className="text-sm text-ink-muted">Entry on first come first basis.</span>
+            </div>
+          )}
         </div>
       )}
     </dialog>

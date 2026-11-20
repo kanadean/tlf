@@ -32,7 +32,10 @@ export default function Home() {
             </p>
           </SectionHeading>
           {/* Speakers without a photo are left out of the grid until one arrives */}
-          <LineupGrid speakers={speakers.filter((s) => s.photo)} />
+          <LineupGrid
+            speakers={speakers.filter((s) => s.photo)}
+            sessions={sessions.filter(isTalk)}
+          />
         </div>
       </section>
 

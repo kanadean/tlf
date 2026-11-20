@@ -3,7 +3,13 @@ import { nativeNameLang, speakerTextLang } from "@/lib/languages";
 import type { LineupSpeaker } from "@/lib/markdown";
 import { SpeakerPortrait } from "./SpeakerPortrait";
 
-type Props = { speaker: LineupSpeaker };
+type Props = {
+  speaker: LineupSpeaker;
+  /** Opens the speaker's session details; the whole card becomes clickable. */
+  onOpen?: () => void;
+  /** Title of that session, for the accessible label. */
+  sessionTitle?: string;
+};
 
 // Look 3: each card's top edge carries the colour of the speaker's first language
 const LANGUAGE_EDGE = {
@@ -12,14 +18,14 @@ const LANGUAGE_EDGE = {
   english: "border-t-gold",
 };
 
-export function AuthorCard({ speaker }: Props) {
+export function AuthorCard({ speaker, onOpen, sessionTitle }: Props) {
   const latestBook = speaker.books[0];
   const subtitle = speaker.designation ?? speaker.genre;
 
   return (
     <article
       data-colour-on-focus
-      className={`group flex h-full flex-col border border-t-4 border-rule bg-paper p-3 transition-colors hover:border-sindoor/40 sm:p-4 ${LANGUAGE_EDGE[speaker.language[0]]}`}
+      className={`group relative flex h-full flex-col border border-t-4 border-rule bg-paper p-3 transition-colors hover:border-sindoor/40 sm:p-4 ${LANGUAGE_EDGE[speaker.language[0]]}`}
     >
       <SpeakerPortrait
         speaker={speaker}
@@ -29,7 +35,22 @@ export function AuthorCard({ speaker }: Props) {
 
       <div className="flex flex-1 flex-col pt-4">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="text-lg leading-snug sm:text-xl">{speaker.name}</h3>
+          <h3 className="text-lg leading-snug sm:text-xl">
+            {onOpen ? (
+              // Stretched over the whole card: one tab stop, and any click opens the session
+              <button
+                type="button"
+                onClick={onOpen}
+                aria-haspopup="dialog"
+                className="cursor-pointer text-left group-hover:text-sindoor after:absolute after:inset-0"
+              >
+                {speaker.name}
+                {sessionTitle && <span className="sr-only">, view session: {sessionTitle}</span>}
+              </button>
+            ) : (
+              speaker.name
+            )}
+          </h3>
           {/* Festival mark, small, in line with the name */}
           <Image
             src="/images/logos/tlf-logo.png"

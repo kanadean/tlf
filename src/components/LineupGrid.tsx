@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { LANGUAGE_META, SPEAKER_LANGUAGES, type SpeakerLanguage } from "@/lib/languages";
-import type { LineupSpeaker } from "@/lib/markdown";
+import type { LineupSpeaker, Talk } from "@/lib/markdown";
 import { AuthorCard } from "./AuthorCard";
+import { SessionModal } from "./SessionModal";
 
 /**
  * "authors" (default) and the language filters show guests and panelists only;
@@ -11,10 +12,19 @@ import { AuthorCard } from "./AuthorCard";
  */
 type Filter = "authors" | SpeakerLanguage | "moderators" | "performers" | "all";
 
-type Props = { speakers: LineupSpeaker[] };
+type Props = {
+  speakers: LineupSpeaker[];
+  /** Talks, in schedule order — each card opens its speaker's (first) session. */
+  sessions: Talk[];
+};
 
-export function LineupGrid({ speakers }: Props) {
+export function LineupGrid({ speakers, sessions }: Props) {
   const [filter, setFilter] = useState<Filter>("authors");
+  const [openSession, setOpenSession] = useState<Talk | null>(null);
+  const sessionOf = (slug: string) =>
+    sessions.find((t) =>
+      [...t.speakers, ...t.panelists, ...t.moderators].some((p) => p.slug === slug),
+    );
 
   // Performers and moderator-only speakers have their own tabs (and appear in All voices)
   const authors = speakers.filter((s) => !s.moderatorOnly && !s.performer);
@@ -87,10 +97,20 @@ export function LineupGrid({ speakers }: Props) {
       <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
         {visible.map((speaker) => (
           <li key={speaker.slug}>
-            <AuthorCard speaker={speaker} />
+            {(() => {
+              const session = sessionOf(speaker.slug);
+              return (
+                <AuthorCard
+                  speaker={speaker}
+                  sessionTitle={session?.title}
+                  onOpen={session ? () => setOpenSession(session) : undefined}
+                />
+              );
+            })()}
           </li>
         ))}
       </ul>
+      <SessionModal session={openSession} onClose={() => setOpenSession(null)} />
     </div>
   );
 }
