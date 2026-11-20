@@ -13,6 +13,7 @@ speakers: # guests — slugs of files in src/content/speakers/ (a talk needs at 
 panelists: [] # optional — co-panelists
 moderators: [] # optional
 award: "TLF-2026 Lifetime Achievement Award – Name" # optional — shown highlighted
+highlight: "Book launch - 'Title' by Author" # optional — shown highlighted with a book icon
 moderatorLabel: "संवादक" # optional — replaces "Moderator" / "in conversation with" for this session
 moderatorTBA: false # optional — true shows "moderator to be announced"
 ---

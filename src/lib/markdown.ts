@@ -78,6 +78,8 @@ const sessionSchema = z
     moderatorLabel: z.string().optional(),
     /** An award presented during this session, shown on the card and in the dialog. */
     award: z.string().optional(),
+    /** Another highlight, e.g. a book launch — shown like the award, with a book icon. */
+    highlight: z.string().optional(),
   })
   .refine((s) => !s.timeEnd || s.timeStart, {
     message: "timeEnd is set but timeStart is missing",

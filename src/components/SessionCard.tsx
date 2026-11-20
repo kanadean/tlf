@@ -56,6 +56,9 @@ export function SessionCard({ session, onOpen }: Props) {
             </button>
           </h3>
           {session.award && <AwardLine award={session.award} className="mt-2" />}
+          {session.highlight && (
+            <AwardLine award={session.highlight} icon="book" className="mt-2" />
+          )}
 
           <p className="mt-1 text-base text-ink-muted">
             <span className="text-ink">{joinNames(session.speakers)}</span>

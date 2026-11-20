@@ -62,6 +62,9 @@ export function SessionModal({ session, onClose }: Props) {
             {session.title}
           </h2>
           {session.award && <AwardLine award={session.award} className="mt-3" />}
+          {session.highlight && (
+            <AwardLine award={session.highlight} icon="book" className="mt-3" />
+          )}
 
           <p className="mt-3 text-sm tracking-wide text-ink-muted">{when.join("  ·  ")}</p>
 

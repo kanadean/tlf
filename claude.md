@@ -64,6 +64,7 @@ moderators: ["arun-shevate"]     # optional
 moderatorTBA: false              # optional — true shows "moderator to be announced" (sheet says YTD)
 moderatorLabel: "संवादक"           # optional — replaces "Moderator" / "in conversation with" (used for Swanand Kirkire's Hindi session)
 award: "…"                       # optional — award presented in the session, shown highlighted on the card and in the dialog (AwardLine.tsx)
+highlight: "…"                   # optional — another highlight (e.g. book launch), same style with a book icon
 ---
 Session summary in markdown.
 ```
