@@ -44,7 +44,7 @@ export const TEAM: TeamGroup[] = [
       member(
         "Dr. Sujata Jadhav",
         "sujata-jadhav",
-        "Head, Library and Documentation Center, National Center for the Performing Arts (NCPA)",
+        "Curator – Page to Stage & Likhayee Forum, National Centre for the Performing Arts (NCPA)",
       ),
       member("Vasant Bhat", "vasant-bhat", "Secretary, Rotary Club of Thane Hills"),
     ],
