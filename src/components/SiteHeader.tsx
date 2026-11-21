@@ -36,7 +36,11 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 bg-paper/95 backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-8">
-        <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link
+          href="/"
+          className="flex shrink-0 items-center gap-3 xl:whitespace-nowrap"
+          onClick={() => setOpen(false)}
+        >
           <Image
             src="/images/logos/tlf-logo.png"
             alt=""
@@ -51,7 +55,7 @@ export function SiteHeader() {
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-3.5 text-sm tracking-[0.05em] uppercase xl:gap-7 xl:tracking-[0.15em]">
+          <ul className="flex items-center gap-3 text-sm tracking-[0.04em] whitespace-nowrap uppercase xl:gap-5 xl:tracking-[0.12em]">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <NavItem

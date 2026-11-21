@@ -98,6 +98,7 @@ export const NAV_LINKS: readonly NavLink[] = [
   { href: "/#lineup", label: "Lineup" },
   { href: "/#schedule", label: "Schedule" },
   { href: "/competitions", label: "Competitions" },
+  { href: "/galleries", label: "Galleries" },
   { href: "/#venues", label: "Venues" },
   { href: "/#registration", label: "Registration" },
   { href: "/about", label: "About" },
