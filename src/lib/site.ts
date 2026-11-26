@@ -99,6 +99,15 @@ export const SITE = {
       height: 268,
       href: null,
     },
+    {
+      name: "Kuvega",
+      role: "AV Support",
+      logo: "/images/logos/kuvega.png",
+      width: 612,
+      height: 444,
+      href: null,
+      scale: 1.5, // compact emblem: larger so the wordmark reads
+    },
   ],
 } as const;
 
