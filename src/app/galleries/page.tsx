@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, MapPin, Sparkles } from "lucide-react";
 import { GalleryFlyer } from "@/components/GalleryFlyer";
@@ -70,8 +71,29 @@ export default function GalleriesPage() {
             aria-labelledby={`${g.slug}-title`}
             className="flex scroll-mt-24 flex-col"
           >
-            <GalleryFlyer gallery={g} titleId={`${g.slug}-title`} />
-            <ul className="mt-6 space-y-2">
+            {g.poster ? (
+              <>
+                <div className="border border-ink/70 bg-parchment p-1.5">
+                  <Image
+                    src={g.poster.src}
+                    alt={g.poster.alt}
+                    width={g.poster.width}
+                    height={g.poster.height}
+                    sizes="(min-width: 1152px) 524px, (min-width: 768px) 45vw, 100vw"
+                    className="h-auto w-full"
+                  />
+                </div>
+                <p className="mt-6 text-xs tracking-[0.25em] text-gold-deep uppercase">
+                  {g.kicker}
+                </p>
+                <h2 id={`${g.slug}-title`} className="mt-1 text-2xl sm:text-3xl">
+                  {g.title}
+                </h2>
+              </>
+            ) : (
+              <GalleryFlyer gallery={g} titleId={`${g.slug}-title`} />
+            )}
+            <ul className={`${g.poster ? "mt-3" : "mt-6"} space-y-2`}>
               {g.highlights.map((h) => (
                 <li key={h} className="relative pl-5 text-ink-muted">
                   <span

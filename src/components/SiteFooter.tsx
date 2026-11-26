@@ -65,6 +65,7 @@ export function SiteFooter() {
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 md:gap-20">
             <LogoRow title="Presented by" logos={SITE.organisers} />
+            <LogoRow title="In association with" logos={SITE.associates} />
             <LogoRow
               title="Sponsored by"
               logos={SITE.sponsors}

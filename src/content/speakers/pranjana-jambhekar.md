@@ -1,7 +1,7 @@
 ---
-name: "Pranjana Jambhekar"
+name: "Pradnya Jambhekar"
 order: 51
-nameNative: "प्रांजना जांभेकर"
+nameNative: "प्रज्ञा जांभेकर"
 designation: "लेखिका आणि संपादक"
 language: ["marathi"]
 photo: "/images/speakers/pranjana-jambhekar.jpg"

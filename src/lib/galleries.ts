@@ -18,6 +18,8 @@ export type Gallery = {
   tone: Tone;
   /** Optional link, e.g. to the related competition. */
   link?: { href: string; label: string };
+  /** A supplied image shown in place of the designed flyer. */
+  poster?: { src: string; width: number; height: number; alt: string };
 };
 
 export const GALLERIES: Gallery[] = [
@@ -61,6 +63,13 @@ export const GALLERIES: Gallery[] = [
     highlights: ["Rare manuscripts and books from the Institute for Oriental Study"],
     motif: "manuscripts",
     tone: "gold",
+    // Supplied by the institute (25 Nov) — replaces the designed flyer
+    poster: {
+      src: "/images/galleries/oriental-study.jpg",
+      width: 1122,
+      height: 1402,
+      alt: "Institute for Oriental Study, Thane — प्राच्यविद्या अभ्यास संस्था, ठाणे — 1983",
+    },
   },
 ];
 

@@ -45,6 +45,9 @@ export const SITE = {
       href: "https://rcthanehills.rotaryindia.org/",
       scale: 1.375, // two-line wordmark reads small beside NCPA: 125% plus another 10%
     },
+  ],
+  /** "In association with" row. */
+  associates: [
     {
       name: "NCPA Mumbai",
       logo: "/images/logos/ncpa.png",
@@ -69,6 +72,14 @@ export const SITE = {
       height: 190,
       href: null,
     },
+    {
+      name: "Prashant Corner",
+      logo: "/images/logos/prashant-corner.png",
+      width: 457,
+      height: 334,
+      href: null,
+      scale: 1.5, // compact emblem with small lettering: larger so the name reads
+    },
   ],
   /** "Supported by" row, each captioned with its role. */
   partners: [
@@ -82,7 +93,7 @@ export const SITE = {
     },
     {
       name: "WordPinchh",
-      role: "Social Media Partner",
+      role: "Social Media Design Support",
       logo: "/images/logos/wordpinchh.png",
       width: 1200,
       height: 268,
