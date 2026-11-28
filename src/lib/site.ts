@@ -63,10 +63,23 @@ export const SITE = {
       href: null,
     },
   ],
-  /**
-   * "Sponsored by" row. Prashant Corner removed 26 Nov until asked to re-add — restore with:
-   * { name: "Prashant Corner", logo: "/images/logos/prashant-corner.png", width: 457, height: 334, href: null, scale: 1.5 }
-   */
+  /** Shown at the foot of the hero: "With the generous support of" + logo (28 Nov). Set to null to hide. */
+  heroSupporter: {
+    label: "With the generous support of",
+    name: "Prashant Corner",
+    logo: "/images/logos/prashant-corner-hero.png", // transparent version for the paper ground
+    width: 461,
+    height: 338,
+    href: null as string | null,
+  } as {
+    label: string;
+    name: string;
+    logo: string;
+    width: number;
+    height: number;
+    href: string | null;
+  } | null,
+  /** "Sponsored by" row. */
   sponsors: [
     {
       name: "Fortress",

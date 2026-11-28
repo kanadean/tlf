@@ -125,6 +125,26 @@ export function Hero() {
               Browse the programme
             </a>
           </div>
+
+          {/* Supporter, fading in once the title has settled */}
+          {SITE.heroSupporter && (
+            <div
+              className="mt-12 flex flex-col items-center border-t border-rule pt-8 text-center motion-safe:animate-fade-in sm:mt-14"
+              style={{ animationDelay: "1.8s" }}
+            >
+              <p className="font-display text-base tracking-wide text-ink-muted italic sm:text-lg">
+                {SITE.heroSupporter.label}
+              </p>
+              <Image
+                src={SITE.heroSupporter.logo}
+                alt={SITE.heroSupporter.name}
+                width={SITE.heroSupporter.width}
+                height={SITE.heroSupporter.height}
+                sizes="(min-width: 640px) 180px, 150px"
+                className="mt-4 h-auto w-[150px] sm:w-[180px]"
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>
