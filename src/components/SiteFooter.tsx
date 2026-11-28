@@ -64,8 +64,11 @@ export function SiteFooter() {
       <div className="px-4 pt-16 pb-10 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 md:gap-20">
-            <LogoRow title="Presented by" logos={SITE.organisers} />
-            <LogoRow title="In association with" logos={SITE.associates} />
+            {/* Presented by + In association with share a row from md */}
+            <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+              <LogoRow title="Presented by" logos={SITE.organisers} />
+              <LogoRow title="In association with" logos={SITE.associates} />
+            </div>
             {/* Same supporter as the hero's foot: large, between double gold rules, centred from md */}
             {SITE.heroSupporter && (
               <div className="flex flex-col border-y-4 border-double border-gold py-8 md:items-center md:py-10">
