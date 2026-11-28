@@ -89,7 +89,7 @@ export const SITE = {
       href: null,
     },
   ],
-  /** "Supported by" row, each captioned with its role. */
+  /** "Event Partners" row (was "Supported by" until 28 Nov), each captioned with its role. */
   partners: [
     {
       name: "Crossword",
