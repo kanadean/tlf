@@ -66,12 +66,20 @@ export function SiteFooter() {
           <div className="grid gap-12 md:gap-20">
             <LogoRow title="Presented by" logos={SITE.organisers} />
             <LogoRow title="In association with" logos={SITE.associates} />
-            {/* Same supporter as the hero's foot, shown large */}
+            {/* Same supporter as the hero's foot: large, between double gold rules, centred from md */}
             {SITE.heroSupporter && (
-              <LogoRow
-                title={SITE.heroSupporter.label}
-                logos={[{ ...SITE.heroSupporter, scale: 2 }]}
-              />
+              <div className="flex flex-col border-y-4 border-double border-gold py-8 md:items-center md:py-10">
+                <h2 className="text-xs tracking-[0.3em] text-gold-deep uppercase">
+                  {SITE.heroSupporter.label}
+                </h2>
+                <Image
+                  src={SITE.heroSupporter.logo}
+                  alt={SITE.heroSupporter.name}
+                  width={Math.round((SITE.heroSupporter.width / SITE.heroSupporter.height) * 96)}
+                  height={96}
+                  className="mt-5 h-20 w-auto sm:h-24"
+                />
+              </div>
             )}
             <LogoRow
               title="Sponsored by"
