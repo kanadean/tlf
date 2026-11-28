@@ -71,7 +71,7 @@ export function SiteFooter() {
             </div>
             {/* Same supporter as the hero's foot: large, between double gold rules, centred from md */}
             {SITE.heroSupporter && (
-              <div className="flex flex-col border-y-4 border-double border-gold py-8 md:items-center md:py-10">
+              <div className="flex flex-col items-start border-y-4 border-double border-gold py-8 md:items-center md:py-10">
                 <h2 className="text-xs tracking-[0.3em] text-gold-deep uppercase">
                   {SITE.heroSupporter.label}
                 </h2>
