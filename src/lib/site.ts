@@ -65,7 +65,7 @@ export const SITE = {
   ],
   /** Shown at the foot of the hero: "With the generous support of" + logo (28 Nov). Set to null to hide. */
   heroSupporter: {
-    label: "With the generous support of",
+    label: "Generously Supported By",
     name: "Prashant Corner",
     logo: "/images/logos/prashant-corner-hero.png", // transparent version for the paper ground
     width: 461,
