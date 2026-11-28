@@ -1,4 +1,5 @@
 ---
+# Not attending TLF-2026 (28 Nov) — leading _ keeps this out of the site; rename to restore.
 name: "Abdullah Khan"
 order: 19
 language: ["english"]
